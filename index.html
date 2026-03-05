@@ -75,7 +75,12 @@ nav.scrolled{background:rgba(242,236,224,.96);backdrop-filter:blur(20px);border-
 /* Ekran üstü mat cam efekti */
 .phone-screen::after{
   content:"";position:absolute;inset:0;
-  background:linear-gradient(160deg,rgba(255,255,255,.02) 0%,rgba(0,0,0,.08) 100%);
+  background:linear-gradient(
+    170deg,
+    rgba(255,255,255,.03) 0%,
+    rgba(0,0,0,.12) 60%,
+    rgba(0,0,0,.22) 100%
+  );
   z-index:5;pointer-events:none;border-radius:44px;}
 /* Dynamic Island — ince ve küçük */
 .phone-screen::before{
@@ -105,7 +110,7 @@ nav.scrolled{background:rgba(242,236,224,.96);backdrop-filter:blur(20px);border-
   width:100%;height:100%;
   object-fit:cover;object-position:top center;
   display:block;border-radius:44px;
-  filter:brightness(.94) saturate(.95) contrast(.97);}
+  filter:brightness(.88) saturate(.88) contrast(.95);}
 
 /* STORE BUTTONS */
 .store-btns{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
@@ -222,8 +227,8 @@ nav.scrolled{background:rgba(242,236,224,.96);backdrop-filter:blur(20px);border-
 .feat-split.alt{background:var(--wh);}
 .feat-split.flip{direction:rtl;}
 .feat-split.flip>*{direction:ltr;}
-.feat-phones{display:flex;gap:14px;align-items:flex-end;}
-.feat-phones .phone{width:190px;}
+.feat-phones{display:flex;gap:16px;align-items:flex-end;}
+.feat-phones .phone{width:210px;}
 .feat-phones .phone:first-child{margin-bottom:40px;}
 
 /* PROP GRID */
@@ -531,13 +536,13 @@ footer{background:var(--blk);padding:56px 48px 36px;}
   <!-- Keşfet & Ara -->
   <div class="feat-split">
     <div class="feat-phones rv">
-      <div class="phone" style="width:190px;height:390px;">
-        <div class="phone-screen" style="width:190px;height:390px;">
+      <div class="phone" style="width:210px;height:431px;">
+        <div class="phone-screen" style="width:210px;height:431px;">
           <img src="images/feat-search-1.jpg" alt="" class="phone-img">
         </div>
       </div>
-      <div class="phone" style="width:190px;height:390px;">
-        <div class="phone-screen" style="width:190px;height:390px;">
+      <div class="phone" style="width:210px;height:431px;">
+        <div class="phone-screen" style="width:210px;height:431px;">
           <img src="images/feat-search-2.jpg" alt="" class="phone-img">
         </div>
       </div>
@@ -559,13 +564,13 @@ footer{background:var(--blk);padding:56px 48px 36px;}
   <!-- Mekan Detayı -->
   <div class="feat-split alt flip">
     <div class="feat-phones rv">
-      <div class="phone" style="width:190px;height:390px;">
-        <div class="phone-screen" style="width:190px;height:390px;">
+      <div class="phone" style="width:210px;height:431px;">
+        <div class="phone-screen" style="width:210px;height:431px;">
           <img src="images/feat-detail-1.jpg" alt="" class="phone-img">
         </div>
       </div>
-      <div class="phone" style="width:190px;height:390px;">
-        <div class="phone-screen" style="width:190px;height:390px;">
+      <div class="phone" style="width:210px;height:431px;">
+        <div class="phone-screen" style="width:210px;height:431px;">
           <img src="images/feat-detail-2.jpg" alt="" class="phone-img">
         </div>
       </div>
@@ -586,13 +591,13 @@ footer{background:var(--blk);padding:56px 48px 36px;}
   <!-- FAVORİLER -->
   <div class="feat-split">
     <div class="feat-phones rv">
-      <div class="phone" style="width:190px;height:390px;">
-        <div class="phone-screen" style="width:190px;height:390px;">
+      <div class="phone" style="width:210px;height:431px;">
+        <div class="phone-screen" style="width:210px;height:431px;">
           <img src="images/feats-fav-1.jpg" alt="" class="phone-img">
         </div>
       </div>
-      <div class="phone" style="width:190px;height:390px;">
-        <div class="phone-screen" style="width:190px;height:390px;">
+      <div class="phone" style="width:210px;height:431px;">
+        <div class="phone-screen" style="width:210px;height:431px;">
           <img src="images/feats-fav-2.jpg" alt="" class="phone-img">
         </div>
       </div>
@@ -612,13 +617,13 @@ footer{background:var(--blk);padding:56px 48px 36px;}
   <!-- YORUMLAR & PUANLAMA -->
   <div class="feat-split alt flip">
     <div class="feat-phones rv">
-      <div class="phone" style="width:190px;height:390px;">
-        <div class="phone-screen" style="width:190px;height:390px;">
+      <div class="phone" style="width:210px;height:431px;">
+        <div class="phone-screen" style="width:210px;height:431px;">
           <img src="images/feats-review-1.jpg" alt="" class="phone-img">
         </div>
       </div>
-      <div class="phone" style="width:190px;height:390px;">
-        <div class="phone-screen" style="width:190px;height:390px;">
+      <div class="phone" style="width:210px;height:431px;">
+        <div class="phone-screen" style="width:210px;height:431px;">
           <img src="images/feats-review-2.jpg" alt="" class="phone-img">
         </div>
       </div>
