@@ -434,7 +434,7 @@ footer{background:var(--blk);padding:56px 48px 36px;}
         <p class="hero-desc rv d2">
           Aradığın kafe parmaklarının ucunda.<br>
           <em>İster sabah kahvesi</em> için sessiz bir köşe,<br>
-          <em>ister gece yarısı</em> açık bir yer ara —<br>
+          <em>İster gece yarısı</em> açık bir yer ara<br>
           <em class="brand">Cafinder</em> ile gitmeden keşfet, sürpriz yaşama.
         </p>
       </div>
@@ -974,24 +974,22 @@ footer{background:var(--blk);padding:56px 48px 36px;}
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 <script>
-// ══ FİREBASE ══
+// ══ FİREBASE + EMAİLJS ══
+window.addEventListener("load", function() {
+  try {
+    var firebaseConfig = {
+      apiKey: "AIzaSyB88lKl9GyHLkI-rER9Rvyv48lyiIob5b4",
+      authDomain: "cinder-9a8fd.firebaseapp.com",
+      projectId: "cinder-9a8fd",
+      storageBucket: "cinder-9a8fd.firebasestorage.app",
+      messagingSenderId: "258380746486",
+      appId: "1:258380746486:web:24d6666654611ecfc126d7"
+    };
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    emailjs.init("UdGI5oCdfYhPj7whK");
 
-const firebaseConfig = {
-  apiKey: "AIzaSyB88lKl9GyHLkI-rER9Rvyv48lyiIob5b4",
-  authDomain: "cinder-9a8fd.firebaseapp.com",
-  projectId: "cinder-9a8fd",
-  storageBucket: "cinder-9a8fd.firebasestorage.app",
-  messagingSenderId: "258380746486",
-  appId: "1:258380746486:web:24d6666654611ecfc126d7"
-};
-
-const app = firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-
-// ══ EMAİLJS ══
-emailjs.init("UdGI5oCdfYhPj7whK");
-
-document.getElementById("bizForm").addEventListener("submit", async function(e) {
+    document.getElementById("bizForm").addEventListener("submit", async function(e) {
   e.preventDefault();
   var btn    = document.getElementById("fsubBtn");
   var fok    = document.getElementById("fok");
@@ -1041,6 +1039,10 @@ document.getElementById("bizForm").addEventListener("submit", async function(e) 
     btn.disabled = false;
   }
 });
+  } catch(initErr) {
+    console.warn("Firebase/EmailJS önizlemede yüklenemedi:", initErr.message);
+  }
+}); // window.onload sonu
 </script>
 
 <script>
