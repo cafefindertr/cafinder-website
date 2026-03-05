@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="tr">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:auto;}
+:root{
+  --sand:#f2ece0; --sand2:#e8e0d0; --sand3:#d9cfbb;
+  --ink:#1a1208;  --ink2:#3d2e1a;  --fade:#8c7a62;
+  --cof:#7a3d0a;  --cof2:#a05214;
+  --gold:#c8841a; --gold2:#e8a832;
+  --wh:#ffffff;   --blk:#0f0b06;
+}
+html{scroll-behavior:auto !important;height:100%;}
+html{scroll-behavior:auto !important;}
+body{background:var(--sand);color:var(--ink);font-family:"DM Sans",sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.018;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='512' height='512' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+/* PAGE SYSTEM */
+.page{display:none !important;}
+.page.active{display:block !important;}
+.page.active{display:block !important;}
+
+/* REVEAL */
+.rv{opacity:1;transform:none;}
+.rv.in{opacity:1;transform:none;}
+
+.W{max-width:1200px;margin:0 auto;}
+
+/* LOGO ANIMATION */
+.logo-anim{display:flex;align-items:center;cursor:pointer;height:32px;position:relative;overflow:hidden;}
+.logo-part{font-family:"Bebas Neue",sans-serif;font-size:24px;letter-spacing:1px;line-height:1;white-space:nowrap;}
+.logo-cafe{color:var(--ink);animation:lc 2.8s cubic-bezier(.4,0,.2,1) infinite;}
+.logo-finder{color:var(--gold);animation:lf 2.8s cubic-bezier(.4,0,.2,1) infinite;}
+@keyframes lc{0%{transform:translateX(-38px);opacity:0;}18%{transform:translateX(0);opacity:1;}50%{transform:translateX(0);opacity:1;}68%{transform:translateX(-38px);opacity:0;}100%{transform:translateX(-38px);opacity:0;}}
+@keyframes lf{0%{transform:translateX(60px);opacity:0;}18%{transform:translateX(0);opacity:1;}50%{transform:translateX(0);opacity:1;}68%{transform:translateX(60px);opacity:0;}100%{transform:translateX(60px);opacity:0;}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:9999 !important;height:62px;padding:0 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:background .4s,border-color .4s;border-bottom:1px solid transparent;
+  pointer-events:auto;}
+nav.scrolled{background:rgba(242,236,224,.96);backdrop-filter:blur(20px);border-bottom-color:rgba(26,18,8,.08);}
+.nav-links{display:flex;gap:0;}
+.nav-links a{font-size:13px;font-weight:500;color:var(--fade);padding:6px 14px;border-radius:6px;
+  cursor:pointer;transition:color .15s,background .15s;text-decoration:none;user-select:none;}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a.active{color:var(--ink);font-weight:600;}
+.nav-cta{background:var(--ink);color:var(--sand);font-size:13px;font-weight:600;
+  padding:9px 20px;border-radius:8px;border:none;cursor:pointer;
+  transition:background .2s;text-decoration:none;}
+.nav-cta:hover{background:var(--cof);}
+
+/* PHONE — iPhone 15 Pro */
+.phone{
+  border-radius:50px;
+  border:10px solid #2a1f14;
+  outline:1px solid rgba(255,255,255,.12);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,.4),
+    inset 0 0 0 1px rgba(255,255,255,.06),
+    0 48px 96px rgba(26,18,8,.28),
+    0 12px 28px rgba(26,18,8,.18);
+  background:linear-gradient(160deg,#3a2a1a 0%,#2a1f14 40%,#1a1208 100%);
+  position:relative;flex-shrink:0;overflow:visible !important;}
+/* ekran alanı */
+.phone-screen{
+  border-radius:42px;
+  overflow:hidden;
+  position:relative;
+  width:100%;height:100%;}
+/* Dynamic Island */
+.phone-screen::before{
+  content:"";position:absolute;top:10px;left:50%;transform:translateX(-50%);
+  width:30%;height:28px;
+  background:#000;
+  border-radius:20px;
+  z-index:10;
+  box-shadow:0 0 0 1px rgba(255,255,255,.06);}
+/* yan tuş — ses */
+.phone::before{
+  content:"";position:absolute;
+  left:-14px;top:22%;
+  width:4px;height:28px;
+  background:linear-gradient(180deg,#5a5a5c,#3a3a3c);
+  border-radius:2px 0 0 2px;
+  box-shadow:-1px 0 2px rgba(0,0,0,.4);}
+/* yan tuş — güç */
+.phone::after{
+  content:"";position:absolute;
+  right:-14px;top:28%;
+  width:4px;height:48px;
+  background:linear-gradient(180deg,#5a5a5c,#3a3a3c);
+  border-radius:0 2px 2px 0;
+  box-shadow:1px 0 2px rgba(0,0,0,.4);}
+.phone-img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;border-radius:42px;}
+
+/* STORE BUTTONS */
+.store-btns{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+.store-btn{display:inline-flex;align-items:center;gap:10px;padding:11px 20px;border-radius:11px;
+  text-decoration:none;transition:transform .2s,box-shadow .2s;border:1.5px solid rgba(26,18,8,.14);}
+.store-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,18,8,.12);}
+.store-btn.dark{background:var(--ink);border-color:var(--ink);}
+.store-btn.light{background:var(--wh);border-color:rgba(26,18,8,.1);}
+.store-btn svg{width:22px;height:22px;flex-shrink:0;}
+.store-btn-text{display:flex;flex-direction:column;}
+.store-btn-text small{font-size:10px;font-weight:400;line-height:1;margin-bottom:1px;}
+.store-btn-text strong{font-size:14px;font-weight:700;letter-spacing:-.2px;line-height:1.2;}
+.store-btn.dark .store-btn-text{color:#fff;} .store-btn.dark .store-btn-text small{opacity:.55;}
+.store-btn.light .store-btn-text{color:var(--ink);} .store-btn.light .store-btn-text small{opacity:.5;}
+
+/* SHARED */
+.feat-label{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block;}
+.feat-h{font-family:"Bebas Neue",sans-serif;font-size:clamp(44px,5.5vw,72px);letter-spacing:.5px;line-height:.9;color:var(--ink);margin-bottom:20px;}
+.feat-h em{color:var(--gold);font-style:normal;}
+.feat-p{font-size:15.5px;color:var(--fade);line-height:1.75;margin-bottom:26px;max-width:400px;}
+.feat-list{display:flex;flex-direction:column;gap:8px;}
+.feat-li{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--ink2);}
+.feat-li::before{content:"";width:5px;height:5px;background:var(--gold);border-radius:50%;flex-shrink:0;}
+.steps{display:flex;flex-direction:column;}
+.step{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid rgba(26,18,8,.07);}
+.step:last-child{border-bottom:none;}
+.sn{font-family:"Bebas Neue",sans-serif;font-size:18px;color:var(--gold);width:28px;flex-shrink:0;}
+.sb h4{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.sb p{font-size:13.5px;color:var(--fade);line-height:1.6;}
+
+/* ALGO */
+.algo-list{display:flex;flex-direction:column;gap:7px;margin-bottom:18px;}
+.arow{display:flex;align-items:center;gap:12px;padding:13px 16px;border-radius:10px;
+  border:1px solid rgba(26,18,8,.08);background:var(--wh);
+  transition:border-color .2s,transform .2s;cursor:default;}
+.arow:hover{border-color:var(--gold);transform:translateX(5px);}
+.arow-dot{width:6px;height:6px;border-radius:50%;background:var(--sand3);flex-shrink:0;}
+.arow.live .arow-dot{background:var(--gold);animation:blink 2s infinite;}
+.arow-name{font-size:13.5px;font-weight:600;color:var(--ink);}
+.arow-sub{font-size:11px;color:var(--fade);margin-top:1px;}
+.chips{display:flex;flex-wrap:wrap;gap:7px;}
+.chip{padding:6px 14px;border-radius:100px;font-size:12px;font-weight:500;
+  border:1px solid rgba(26,18,8,.1);color:var(--fade);cursor:pointer;background:var(--wh);transition:all .15s;}
+.chip:hover{color:var(--ink);border-color:rgba(26,18,8,.25);}
+.chip.on{background:var(--cof);color:#fff;border-color:var(--cof);}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+/* CLOCK */
+.clock-box{background:var(--wh);border:1px solid rgba(26,18,8,.08);border-radius:16px;padding:28px;margin-bottom:14px;}
+.ck-l{font-size:10.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--fade);margin-bottom:8px;}
+.ck-t{font-family:"Bebas Neue",sans-serif;font-size:68px;letter-spacing:-1px;color:var(--ink);line-height:1;margin-bottom:6px;}
+.ck-s{font-size:12px;color:var(--gold);display:flex;align-items:center;gap:6px;}
+.ck-dot{width:5px;height:5px;background:var(--gold);border-radius:50%;animation:blink 2s infinite;}
+
+/* QR */
+.qr-row{padding:80px 48px;background:var(--wh);}
+.qr-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(26,18,8,.07);
+  border:1px solid rgba(26,18,8,.07);border-radius:16px;overflow:hidden;}
+.qrc{background:var(--wh);padding:30px 26px;transition:background .2s;}
+.qrc:hover{background:var(--sand);}
+.qrc.hi{background:var(--ink);}
+.qrc.hi:hover{background:var(--cof);}
+.qrc-n{font-family:"Bebas Neue",sans-serif;font-size:14px;letter-spacing:1px;color:var(--gold);margin-bottom:10px;}
+.qrc.hi .qrc-n{color:var(--gold2);}
+.qrc h4{font-size:15.5px;font-weight:600;color:var(--ink);margin-bottom:7px;}
+.qrc.hi h4{color:#fff;}
+.qrc p{font-size:13.5px;color:var(--fade);line-height:1.55;}
+.qrc.hi p{color:rgba(255,255,255,.38);}
+
+/* WHEEL */
+.wheel-wrap{background:var(--wh);border:1px solid rgba(26,18,8,.08);border-radius:20px;padding:32px;text-align:center;margin-bottom:12px;box-shadow:0 4px 24px rgba(26,18,8,.06);}
+.wptr{font-size:16px;color:var(--gold);margin-bottom:8px;}
+.w-outer{width:180px;height:180px;margin:0 auto 20px;cursor:pointer;}
+.wi{width:100%;height:100%;border-radius:50%;background:conic-gradient(#c8841a 0 60deg,#7a3d0a 60deg 120deg,#3a1e08 120deg 180deg,#e8a832 180deg 240deg,#562c0a 240deg 300deg,#261408 300deg 360deg);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(26,18,8,.15);transition:transform 3s cubic-bezier(.17,.67,.12,.99);}
+.wc{width:44px;height:44px;background:var(--wh);border-radius:50%;border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 0 0 3px var(--wh);}
+.spin-btn{background:var(--cof);color:#fff;border:none;padding:11px 28px;border-radius:8px;font-family:"DM Sans",sans-serif;font-size:13.5px;font-weight:600;cursor:pointer;transition:background .15s;}
+.spin-btn:hover{background:var(--gold);}
+.spin-res{margin-top:10px;font-size:13px;color:var(--cof);font-weight:600;min-height:18px;font-style:italic;}
+.shake-card{background:var(--wh);border:1px solid rgba(26,18,8,.08);border-radius:14px;padding:20px 22px;display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+.shk{font-size:24px;animation:sk 3.5s ease-in-out infinite;}
+@keyframes sk{0%,88%,100%{transform:rotate(0)}90%{transform:rotate(-11deg)}92%{transform:rotate(11deg)}94%{transform:rotate(-7deg)}96%{transform:rotate(7deg)}}
+.shk-t h4{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:2px;}
+.shk-t p{font-size:13px;color:var(--fade);}
+
+/* FORM */
+.cform{display:flex;flex-direction:column;gap:12px;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.fg{display:flex;flex-direction:column;gap:5px;}
+.fg label{font-size:11px;font-weight:600;letter-spacing:.3px;color:var(--fade);}
+.fg input,.fg select,.fg textarea{background:var(--wh);border:1.5px solid rgba(26,18,8,.1);border-radius:10px;padding:12px 14px;color:var(--ink);font-family:"DM Sans",sans-serif;font-size:14px;outline:none;transition:border-color .2s;-webkit-appearance:none;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--cof);}
+.fg select option{background:#fff;}
+.fg textarea{resize:none;height:96px;}
+::placeholder{color:var(--fade);opacity:.4;}
+.fsub{background:var(--cof);color:#fff;border:none;padding:14px;border-radius:10px;font-family:"DM Sans",sans-serif;font-size:14.5px;font-weight:600;cursor:pointer;transition:background .15s;}
+.fsub:hover{background:var(--gold);}
+.fok{display:none;padding:14px;background:rgba(58,140,92,.07);border:1px solid rgba(58,140,92,.2);border-radius:10px;color:#3a8c5c;font-size:14px;font-weight:600;text-align:center;}
+
+/* CTA BAND */
+.cta-band{background:var(--cof);padding:80px 48px;display:flex;align-items:center;justify-content:space-between;gap:40px;}
+.cta-band h2{font-family:"Bebas Neue",sans-serif;font-size:clamp(40px,5vw,72px);color:#fff;letter-spacing:1px;line-height:.9;}
+.cta-band h2 span{color:var(--gold2);}
+.cta-band p{font-size:16px;color:rgba(255,255,255,.5);margin-top:10px;}
+.cta-btns{display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0;}
+.btn-wh{background:#fff;color:var(--cof);font-size:14px;font-weight:700;padding:13px 24px;border-radius:9px;border:none;cursor:pointer;transition:background .15s;text-decoration:none;display:inline-block;}
+.btn-wh:hover{background:var(--sand);}
+.btn-cream{background:var(--sand);color:var(--ink);font-family:"DM Sans",sans-serif;font-size:13px;font-weight:700;padding:11px 20px;border-radius:8px;border:none;cursor:pointer;transition:background .15s;text-decoration:none;display:inline-block;}
+.btn-cream:hover{background:#fff;}
+.btn-owh{background:transparent;color:rgba(255,255,255,.7);font-size:14px;font-weight:600;padding:13px 24px;border-radius:9px;border:1.5px solid rgba(255,255,255,.25);cursor:pointer;transition:border-color .15s;text-decoration:none;display:inline-block;}
+.btn-owh:hover{border-color:rgba(255,255,255,.6);color:#fff;}
+
+/* FEAT SPLIT */
+.feat-split{padding:96px 48px;display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center;}
+.feat-split.alt{background:var(--wh);}
+.feat-split.flip{direction:rtl;}
+.feat-split.flip>*{direction:ltr;}
+.feat-phones{display:flex;gap:14px;align-items:flex-end;}
+.feat-phones .phone{width:190px;}
+.feat-phones .phone:first-child{margin-bottom:40px;}
+
+/* PROP GRID */
+.prop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(26,18,8,.07);border:1px solid rgba(26,18,8,.07);border-radius:16px;overflow:hidden;}
+.prop{background:var(--wh);padding:24px 20px;transition:background .2s;}
+.prop:hover{background:var(--sand);}
+.prop-t{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:5px;}
+.prop p{font-size:13px;color:var(--fade);line-height:1.55;}
+
+/* ICON STRIP */
+.icon-strip{background:var(--blk);padding:64px 48px;}
+.icon-strip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.05);border-radius:16px;overflow:hidden;}
+.is-item{padding:32px 28px;background:var(--blk);transition:background .2s;display:flex;flex-direction:column;gap:14px;}
+.is-item:hover{background:#1e1408;}
+.is-icon{width:48px;height:48px;border-radius:13px;background:rgba(200,132,26,.12);border:1px solid rgba(200,132,26,.2);display:flex;align-items:center;justify-content:center;}
+.is-icon svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.is-title{font-size:15px;font-weight:600;color:rgba(255,255,255,.85);}
+.is-body{font-size:13px;color:rgba(255,255,255,.3);line-height:1.6;}
+
+/* FOOTER */
+footer{background:var(--blk);padding:56px 48px 36px;}
+.ft{max-width:1200px;margin:0 auto;}
+.ft-top{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:48px;margin-bottom:44px;}
+.ft-logo{font-family:"Bebas Neue",sans-serif;font-size:22px;letter-spacing:1px;color:rgba(255,255,255,.55);margin-bottom:10px;}
+.ft-logo span{color:var(--gold);}
+.ft-tagline{font-size:13px;color:rgba(255,255,255,.2);line-height:1.6;max-width:200px;}
+.ft-col h5{font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:14px;}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.ft-col a{font-size:13px;color:rgba(255,255,255,.22);text-decoration:none;cursor:pointer;transition:color .15s;}
+.ft-col a:hover{color:rgba(255,255,255,.6);}
+.ft-bot{border-top:1px solid rgba(255,255,255,.06);padding-top:22px;display:flex;justify-content:space-between;}
+.ft-bot p{font-size:12px;color:rgba(255,255,255,.15);}
+
+/* HERO */
+.hero{min-height:100vh;padding:0;display:flex;flex-direction:column;background:var(--sand);position:relative;overflow:hidden;z-index:1;}
+.hero::after{content:"";position:absolute;right:-200px;top:40%;transform:translateY(-50%);width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(200,132,26,.06) 0%,transparent 68%);pointer-events:none;z-index:0;}
+.hero-body{flex:1;display:grid;grid-template-columns:1fr 500px;align-items:start;gap:0;padding:100px 48px 0;position:relative;z-index:1;}
+.hero-pretitle{font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+.hero-pretitle::before{content:"";width:24px;height:1.5px;background:var(--gold);}
+.hero-h1{font-family:"Bebas Neue",sans-serif;font-size:clamp(64px,9.5vw,130px);line-height:.9;letter-spacing:1px;color:var(--ink);margin-bottom:28px;}
+.hero-h1 .outline{-webkit-text-stroke:2px var(--ink);color:transparent;display:block;line-height:.88;}
+.hero-h1 .gold{color:var(--gold);}
+.hero-desc{font-size:17px;color:var(--fade);line-height:1.78;max-width:440px;font-weight:400;margin-bottom:38px;}
+.hero-desc em{color:var(--ink);font-style:normal;font-weight:500;}
+.hero-desc .brand{color:var(--gold);font-weight:600;font-style:normal;}
+.hero-right{display:flex;align-items:flex-start;justify-content:center;padding-top:80px;perspective:1200px;position:relative;z-index:1;}
+.phone-cluster{display:flex;align-items:flex-start;position:relative;z-index:1;}
+.ph-card{cursor:grab;user-select:none;transition:transform .5s cubic-bezier(.22,1,.36,1);}
+.ph-card:active{cursor:grabbing;}
+.ph-left{transform:rotateY(22deg) rotateX(4deg) translateX(20px);z-index:1;opacity:.7;align-self:center;}
+.ph-center{transform:rotateY(0deg) rotateX(2deg);z-index:3;}
+.ph-right{transform:rotateY(-22deg) rotateX(4deg) translateX(-20px);z-index:1;opacity:.7;align-self:center;}
+@keyframes fl{0%,100%{margin-top:0;}50%{margin-top:0;}}
+.hero-bottom{padding:20px 48px;border-top:1px solid rgba(26,18,8,.07);display:flex;gap:56px;position:relative;z-index:1;}
+.hb-l{font-size:10.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--fade);margin-bottom:2px;}
+.hb-v{font-family:"Bebas Neue",sans-serif;font-size:18px;letter-spacing:.5px;color:var(--ink);}
+
+/* PAGE-SPECIFIC */
+.page-hero{padding:130px 48px 72px;}
+.page-hero-2col{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;}
+.page-hero-2col-center{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.page-hero-2col-start{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.dark-bg{background:var(--blk);}
+.sand2-bg{background:var(--sand2);}
+.ink-bg{background:var(--ink);}
+.display-xl{font-family:"Bebas Neue",sans-serif;font-size:clamp(56px,8vw,104px);line-height:.88;letter-spacing:1px;margin-bottom:20px;}
+
+.astep{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.astep:last-child{border-bottom:none;}
+.astep-n{font-family:"Bebas Neue",sans-serif;font-size:18px;color:var(--gold);width:28px;flex-shrink:0;}
+.astep-b h4{font-size:15px;font-weight:600;color:rgba(255,255,255,.8);margin-bottom:4px;}
+.astep-b p{font-size:13.5px;color:rgba(255,255,255,.3);line-height:1.6;}
+
+.cf{padding:20px 0;border-bottom:1px solid rgba(26,18,8,.08);}
+.cf:last-child{border-bottom:none;}
+.cf h4{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:5px;}
+.cf p{font-size:14px;color:var(--fade);line-height:1.65;}
+
+.biz-aside{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:36px;}
+.biz-aside-tag{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:14px;}
+.biz-aside h3{font-family:"Bebas Neue",sans-serif;font-size:30px;letter-spacing:.5px;color:#fff;margin-bottom:12px;line-height:.95;}
+.biz-aside p{font-size:14.5px;color:rgba(255,255,255,.36);line-height:1.7;margin-bottom:24px;}
+.bf-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.bf-aside h3{font-family:"Bebas Neue",sans-serif;font-size:28px;letter-spacing:.5px;color:var(--ink);margin-bottom:12px;line-height:.95;}
+.bf-aside p{font-size:14.5px;color:var(--fade);line-height:1.7;margin-bottom:22px;}
+.bf-list{display:flex;flex-direction:column;gap:9px;}
+.bfl{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--ink2);}
+.bfl::before{content:"";width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0;}
+
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;z-index:500;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* MOBILE DRAWER */
+.mobile-menu{display:none;position:fixed;top:62px;left:0;right:0;bottom:0;background:rgba(242,236,224,.99);backdrop-filter:blur(20px);z-index:9998;flex-direction:column;padding:32px 24px;gap:4px;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:"Bebas Neue",sans-serif;font-size:32px;letter-spacing:1px;color:var(--ink);text-decoration:none;padding:10px 0;border-bottom:1px solid rgba(26,18,8,.07);cursor:pointer;transition:color .15s;}
+.mobile-menu a:hover{color:var(--gold);}
+.mobile-menu a.active{color:var(--gold);}
+.mobile-menu .m-cta{margin-top:20px;background:var(--ink);color:var(--sand);padding:14px 24px;border-radius:10px;text-align:center;font-family:"Bebas Neue",sans-serif;font-size:20px;letter-spacing:1px;border:none;cursor:pointer;}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .rv{opacity:1 !important;transform:none !important;transition:none !important;}
+  nav{padding:0 20px;}
+  .nav-links{display:none!important;}
+  .nav-cta{display:none;}
+  .hamburger{display:flex;}
+  .hero-body{grid-template-columns:1fr;padding:90px 20px 20px;gap:32px;}
+  .hero-h1{font-size:clamp(52px,14vw,80px);}
+  .hero-right{padding-top:0;justify-content:center;}
+  .ph-left,.ph-right{display:none;}
+  .hero-bottom{padding:16px 20px;gap:20px;flex-wrap:wrap;}
+  .store-btns{flex-direction:column;align-items:stretch;}
+  .store-btn{justify-content:center;}
+  .icon-strip{padding:48px 20px;}
+  .icon-strip-grid{grid-template-columns:1fr 1fr;}
+  .feat-split{padding:56px 20px;grid-template-columns:1fr;gap:32px;}
+  .feat-split.flip{direction:ltr;}
+  .feat-split.alt{padding:56px 20px;}
+  .feat-phones{justify-content:center;}
+  .feat-phones .phone:first-child{display:none;}
+  .feat-h{font-size:clamp(40px,10vw,60px);}
+  .prop-grid{grid-template-columns:1fr 1fr;}
+  .cta-band{padding:56px 20px;flex-direction:column;gap:24px;text-align:center;}
+  .cta-btns{justify-content:center;}
+  .page-hero{padding:90px 20px 48px;}
+  .page-hero-2col,.page-hero-2col-center,.page-hero-2col-start{grid-template-columns:1fr;gap:32px;}
+  .display-xl{font-size:clamp(48px,13vw,72px);}
+  .algo-list{gap:6px;}
+  .qr-row{padding:48px 20px;}
+  .qr-inner{grid-template-columns:1fr;}
+  .bf-grid{grid-template-columns:1fr;gap:40px;}
+  .frow{grid-template-columns:1fr;}
+  .biz-aside{padding:24px;}
+  footer{padding:48px 20px 28px;}
+  .ft-top{grid-template-columns:1fr 1fr;gap:24px;}
+  .ft-bot{flex-direction:column;gap:6px;}
+  .wheel-wrap{padding:24px 16px;}
+}
+@media(max-width:480px){
+  .icon-strip-grid{grid-template-columns:1fr;}
+  .prop-grid{grid-template-columns:1fr;}
+  .ft-top{grid-template-columns:1fr;}
+  .hero-h1{font-size:clamp(44px,13vw,64px);}
+  .feat-h{font-size:clamp(36px,11vw,52px);}
+  .display-xl{font-size:clamp(40px,12vw,60px);}
+  .store-btns{gap:8px;}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="logo-anim" data-nav="home">
+    <span class="logo-part logo-cafe">CAFE</span>
+    <span class="logo-part logo-finder">FINDER</span>
+  </div>
+  <div class="nav-links">
+    <a data-nav="home">Ana Sayfa</a>
+    <a data-nav="feats">Özellikler</a>
+    <a data-nav="algo">Algoritma</a>
+    <a data-nav="muda">Mudavim</a>
+    <a data-nav="club">Kararsızlar Kulübü</a>
+    <a data-nav="biz">İşletmeler</a>
+  </div>
+  <a class="nav-cta" data-nav="biz">İşletme Başvurusu</a>
+  <button class="hamburger" id="hamburger" aria-label="Menü">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a data-nav="home">Ana Sayfa</a>
+  <a data-nav="feats">Özellikler</a>
+  <a data-nav="algo">Algoritma</a>
+  <a data-nav="muda">Mudavim</a>
+  <a data-nav="club">Kararsızlar Kulübü</a>
+  <a data-nav="biz">İşletmeler</a>
+  <a class="m-cta" data-nav="biz">İşletme Başvurusu →</a>
+</div>
+
+
+<!-- ══════════ HOME ══════════ -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-body W">
+      <div>
+        <div class="hero-pretitle rv">Kafe Keşif Uygulaması</div>
+        <h1 class="hero-h1 rv d1">ŞEHRİNİN<br><span class="outline" style="margin-top:.18em;display:block;">TÜM</span><span style="display:block;line-height:.88;">KAFELERİ</span><span class="gold" style="display:block;line-height:.88;">TEK UYGULAMADA.</span></h1>
+        <p class="hero-desc rv d2">
+          Aradığın kafe parmaklarının ucunda.<br>
+          <em>İster sabah kahvesi</em> için sessiz bir köşe,<br>
+          <em>ister gece yarısı</em> açık bir yer ara —<br>
+          <em class="brand">Cafinder</em> ile gitmeden keşfet, sürpriz yaşama.
+        </p>
+      </div>
+      <div class="hero-right rv d2">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:24px;">
+          <div class="phone-cluster" id="phoneCluster">
+            <!-- Sol telefon -->
+            <div class="ph-card ph-left" id="ph-left">
+              <div class="phone">
+                <div class="phone-screen" style="width:172px;height:354px;">
+                  <img src="images/hero-left.jpg" alt="" class="phone-img">
+                </div>
+              </div>
+            </div>
+            <!-- Orta telefon (ana) -->
+            <div class="ph-card ph-center" id="ph-center">
+              <div class="phone">
+                <div class="phone-screen" style="width:216px;height:444px;">
+                  <img src="images/hero-center.jpg" alt="" class="phone-img" style="filter:brightness(1.15) saturate(1.25) contrast(1.05);">
+                </div>
+              </div>
+            </div>
+            <!-- Sağ telefon -->
+            <div class="ph-card ph-right" id="ph-right">
+              <div class="phone">
+                <div class="phone-screen" style="width:172px;height:354px;">
+                  <img src="images/hero-right.jpg" alt="" class="phone-img">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="store-btns rv d3" style="justify-content:center;">
+            <a href="#" class="store-btn dark">
+              <svg viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.79 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <div class="store-btn-text"><small>App Store'dan İndir</small><strong>iOS</strong></div>
+            </a>
+            <a href="#" class="store-btn light">
+              <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><linearGradient id="gp1" x1="91.3" y1="25.6" x2="225.7" y2="160" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#00A0FF"/><stop offset=".007" stop-color="#00A1FF"/><stop offset=".26" stop-color="#00BEFF"/><stop offset=".512" stop-color="#00D2FF"/><stop offset=".76" stop-color="#00DFFF"/><stop offset="1" stop-color="#00E3FF"/></linearGradient><linearGradient id="gp2" x1="273.8" y1="143.6" x2="95.2" y2="143.6" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFE000"/><stop offset=".409" stop-color="#FFBD00"/><stop offset=".775" stop-color="#FFA500"/><stop offset="1" stop-color="#FF9C00"/></linearGradient><linearGradient id="gp3" x1="114.9" y1="168.4" x2="31.1" y2="251.8" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FF3A44"/><stop offset="1" stop-color="#C31162"/></linearGradient><linearGradient id="gp4" x1="85.4" y1="118.9" x2="151.8" y2="185.3" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#32A071"/><stop offset=".069" stop-color="#2DA771"/><stop offset=".476" stop-color="#15CF74"/><stop offset=".801" stop-color="#06E775"/><stop offset="1" stop-color="#00F076"/></linearGradient><path d="M30.8 10.2C19.8 21.9 14 40.3 14 64v384c0 23.7 5.8 42.1 16.8 53.8L33 504l215.2-215.2v-5.1L33 68.5l-2.2-58.3z" fill="url(#gp1)"/><path d="M320.5 291.5l-71.7-71.7v-5.1l71.8-71.8 1.6.9 85 48.3c24.3 13.8 24.3 36.3 0 50.1l-85 48.3-1.7 1z" fill="url(#gp2)"/><path d="M322.2 290.5L248.8 217 30.8 435c8 8.5 21.3 9.5 36.2 1.1l255.2-145.6" fill="url(#gp3)"/><path d="M322.2 143.5L67 -1.1C52.1-9.5 38.8-8.5 30.8 0L248.8 218l73.4-74.5z" fill="url(#gp4)"/></svg>
+              <div class="store-btn-text"><small>Google Play'den İndir</small><strong>Android</strong></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bottom W">
+      <div><div class="hb-l">Platform</div><div class="hb-v">iOS & Android</div></div>
+      <div><div class="hb-l">Erişim</div><div class="hb-v">Ücretsiz</div></div>
+      <div><div class="hb-l">Kapsam</div><div class="hb-v">Türkiye Geneli</div></div>
+    </div>
+  </div>
+
+  <div class="icon-strip">
+    <div class="W">
+      <div class="icon-strip-grid rv">
+        <div class="is-item">
+          <div class="is-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+          <div class="is-title">Keşfet & Ara</div>
+          <div class="is-body">Dilediğin özelliklere göre filtrele ve aradığını bul. WiFi, otopark, daha fazlası — tek bakışta.</div>
+        </div>
+        <div class="is-item">
+          <div class="is-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/><path d="M9 12h6M9 16h4"/></svg></div>
+          <div class="is-title">Dijital Menü</div>
+          <div class="is-body">Kafeye varmadan fiyatları ve menüyü gör. Sürpriz yok, sadece keyif.</div>
+        </div>
+        <div class="is-item">
+          <div class="is-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h.01M18 14h.01M14 18h.01M18 18h.01M21 14h.01M21 18h.01"/></svg></div>
+          <div class="is-title">Mudavim</div>
+          <div class="is-body">Sadakatini puana dönüştür. QR ile biriktir, favori kafende bedava ürün kazan.</div>
+        </div>
+        <div class="is-item">
+          <div class="is-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6v6l4 2"/></svg></div>
+          <div class="is-title">Kararsızlar Kulübü</div>
+          <div class="is-body">Çarkıfelek veya salla-bul. Nereye gideceğini şansın belirlesin.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer><div class="ft">
+    <div class="ft-top">
+      <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Şehrindeki tüm kafeleri keşfet. Gitmeden önce her şeyi bil.</p></div>
+      <div class="ft-col"><h5>Uygulama</h5><ul><li><a>App Store</a></li><li><a>Google Play</a></li></ul></div>
+      <div class="ft-col"><h5>Sayfalar</h5><ul>
+        <li><a data-nav="feats">Özellikler</a></li>
+        <li><a data-nav="algo">Algoritma</a></li>
+        <li><a data-nav="muda">Mudavim</a></li>
+        <li><a data-nav="club">Kararsızlar Kulübü</a></li>
+      </ul></div>
+      <div class="ft-col"><h5>Şirket</h5><ul><li><a>Hakkımızda</a></li><li><a>Gizlilik</a></li><li><a>Kullanım Koşulları</a></li><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+    </div>
+    <div class="ft-bot"><p>© 2025 Cafinder. Tüm hakları saklıdır.</p><p><span>iletisim&#64;cafinder.com.tr</span></p></div>
+  </div></footer>
+</div>
+
+
+<!-- ══════════ FEATURES ══════════ -->
+<div class="page" id="page-feats">
+  <div class="page-hero" style="background:var(--sand);">
+    <div class="W" style="border-bottom:1px solid rgba(26,18,8,.08);padding-bottom:72px;">
+      <div class="rv" style="max-width:600px;">
+        <span class="feat-label">Özellikler</span>
+        <div class="display-xl" style="color:var(--ink);">HER DETAY<br><span style="color:var(--gold);">DÜŞÜNÜLDÜ.</span></div>
+        <p style="font-size:17px;color:var(--fade);line-height:1.75;max-width:480px;">Kafe aramaktan mekanı tanımaya, favorilemeden sadakat kazanmaya kadar tüm adımlarda yanında.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Keşfet & Ara -->
+  <div class="feat-split">
+    <div class="feat-phones rv">
+      <div class="phone" style="width:190px;">
+        <div class="phone-screen" style="width:190px;height:390px;">
+          <img src="images/feats-search-1.jpg" alt="" class="phone-img">
+        </div>
+      </div>
+      <div class="phone" style="width:190px;">
+        <div class="phone-screen" style="width:190px;height:390px;">
+          <img src="images/feats-search-2.jpg" alt="" class="phone-img">
+        </div>
+      </div>
+    </div>
+    <div class="rv d1">
+      <span class="feat-label" style="color:#5bb3d0;">Keşfet & Ara</span>
+      <h2 class="feat-h" style="margin-bottom:16px;">ARADIĞIN MEKANI BULMAK<br>HİÇ BU KADAR<br><em>KOLAY OLMAMIŞTI.</em></h2>
+      <p class="feat-p">Bir kafeden beklediğin her şeyi kutucuklara sığdırdık. Karmaşık listeler arasında kaybolma; sadece istediğin özellikleri seç ve şehrin geri kalanını <span style="color:var(--gold);font-weight:600;">Cafinder</span>'a bırak.</p>
+      <div class="feat-list" style="gap:10px;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:14.5px;color:var(--fade);">• Şehrine ve ilçene göre <strong style="color:var(--fade);">akıllı radar</strong></div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:14.5px;color:var(--fade);">• İhtiyacın olan özelliklere göre <strong style="color:var(--fade);">süzgeç</strong></div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:14.5px;color:var(--fade);">• Yaşam tarzına uygun <strong style="color:var(--fade);">özellik filtresi</strong></div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:14.5px;color:var(--fade);">• Akıllı <strong style="color:var(--fade);">Keşif Motoru</strong></div>
+        <div style="font-size:14px;color:var(--fade);margin-top:6px;">Ona istediğin lakabı takabilirsin, biz onun için kısaca <strong style="color:#2196a8;font-size:15px;">Arama, Bul.</strong> diyoruz.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mekan Detayı -->
+  <div class="feat-split alt flip">
+    <div class="feat-phones rv">
+      <div class="phone" style="width:190px;">
+        <div class="phone-screen" style="width:190px;height:390px;">
+          <img src="images/feats-detail-1.jpg" alt="" class="phone-img">
+        </div>
+      </div>
+      <div class="phone" style="width:190px;">
+        <div class="phone-screen" style="width:190px;height:390px;">
+          <img src="images/feats-detail-2.jpg" alt="" class="phone-img">
+        </div>
+      </div>
+    </div>
+    <div class="rv d1">
+      <span class="feat-label">Mekan Detayı</span>
+      <h2 class="feat-h">VARMADAN<br><em>HER ŞEYİ</em><br>GÖR.</h2>
+      <p class="feat-p">Sürprizlere yer yok. <span style="color:var(--gold);font-weight:600;">Cafinder</span> ile mekanın enerjisini, müziğini ve insanlarını gitmeden hisset. Aradığın o "tam doğru" köşe, şimdi parmaklarının ucunda. Kısacası <strong>KAPIYI ÇALMADAN İÇERİYE GÖZ AT.</strong></p>
+      <div class="feat-list" style="gap:14px;">
+        <div class="feat-li" style="color:var(--ink);align-items:flex-start;line-height:1.6;"><strong>Donanım ve Konfor:</strong>&nbsp;Wi-Fi, priz, otopark veya şarj; ihtiyacın olan tüm teknik detaylar ve çalışma alanı şartları bir arada.</div>
+        <div class="feat-li" style="color:var(--ink);align-items:flex-start;line-height:1.6;"><strong>Atmosfer ve Sosyal:</strong>&nbsp;Maç yayını, masa oyunları veya hayvan dostu alanlar... Moduna en uygun eğlenceyi ve ortamı anında bul.</div>
+        <div class="feat-li" style="color:var(--ink);align-items:flex-start;line-height:1.6;"><strong>Ödeme ve Servis:</strong>&nbsp;Yemek kartı geçerli mi? Masaya servis mi yoksa self mi? Ödeme ve hizmet detaylarını bilerek yola çık.</div>
+        <div class="feat-li" style="color:var(--ink);align-items:flex-start;line-height:1.6;"><strong>Navigasyon ve Rehber:</strong>&nbsp;Çalışma saatlerini kontrol et, gerçek kullanıcı yorumlarını oku ve tek tıkla rotanı oluşturup arkadaşınla paylaş.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAVORİLER -->
+  <div class="feat-split">
+    <div class="feat-phones rv">
+      <div class="phone" style="width:190px;">
+        <div class="phone-screen" style="width:190px;height:390px;">
+          <img src="images/feats-fav-1.jpg" alt="" class="phone-img">
+        </div>
+      </div>
+      <div class="phone" style="width:190px;">
+        <div class="phone-screen" style="width:190px;height:390px;">
+          <img src="images/feats-fav-2.jpg" alt="" class="phone-img">
+        </div>
+      </div>
+    </div>
+    <div class="rv d1">
+      <span class="feat-label" style="color:#e07b54;">Favoriler & Listeler</span>
+      <h2 class="feat-h">SAĞA KAYDIR,<br>ŞEHRİ<br><em>CEBİNE AT.</em></h2>
+      <p class="feat-p">Kafeler arasında kaybolma. Sevdiğin mekanları sağa kaydırarak favorile, onları farklı başlıklar altında listele. Gitmek istediğin yerleri kategorize et, şehrin tadı en güzel mekanlarla çıkar.</p>
+      <div class="feat-list" style="gap:12px;">
+        <div class="feat-li" style="color:var(--ink);align-items:flex-start;line-height:1.6;"><strong>Sağa kaydır:</strong>&nbsp;Listeni gezerken tek hareketle favorile. Kart görünümünde hızlı aksiyon, hiç vakit kaybetme.</div>
+        <div class="feat-li" style="color:var(--ink);align-items:flex-start;line-height:1.6;"><strong>Kişisel koleksiyonlar:</strong>&nbsp;Favorilerini listelere ayır, "Date mekanları", "Haftasonu İstanbul", "Gitmek İstediklerim" gibi listelerle kaybolma. Kendi odanı kendin düzenle.</div>
+        <div class="feat-li" style="color:var(--ink);align-items:flex-start;line-height:1.6;"><strong>Plan yap, hazır ol:</strong>&nbsp;Gitmek istediğin mekanları önceden listele. Ne zaman vakit bulursan hazır planın seni bekliyor.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- YORUMLAR & PUANLAMA -->
+  <div class="feat-split alt flip">
+    <div class="feat-phones rv">
+      <div class="phone" style="width:190px;">
+        <div class="phone-screen" style="width:190px;height:390px;">
+          <img src="images/feats-review-1.jpg" alt="" class="phone-img">
+        </div>
+      </div>
+      <div class="phone" style="width:190px;">
+        <div class="phone-screen" style="width:190px;height:390px;">
+          <img src="images/feats-review-2.jpg" alt="" class="phone-img">
+        </div>
+      </div>
+    </div>
+    <div class="rv d1">
+      <span class="feat-label">Yorumlar & Puanlama</span>
+      <h2 class="feat-h" style="margin-bottom:24px;">GERÇEK SESLER,<br><em>DÜRÜST</em><br>YILDIZLAR.</h2>
+      <p class="feat-p">Reklamlara değil, müdavimlere güven. Şehrin kahve tutkunlarından gelen yorumları oku, kendi deneyimini puanla. Senin yıldızların mekanları geliştirirken, işletmelerden gelen yanıtlarla interaktif bir keşif dünyasına adım at.</p>
+      <div class="feat-list" style="gap:14px;">
+        <div class="feat-li" style="color:var(--ink);align-items:flex-start;line-height:1.6;"><strong>Dürüst Puanlama:</strong>&nbsp;Mekanın kahvesini, ortamını ve servisini saniyeler içinde yıldızlarla taçlandır.</div>
+        <div class="feat-li" style="color:var(--ink);align-items:flex-start;line-height:1.6;"><strong>Müdavim Yorumları:</strong>&nbsp;Gitmeden önce gerçek kullanıcıların tecrübelerine göz at, sürprizlere yer bırakma. Atmosfer, servis, fiyat-performans — aklındaki her şeyi yaz.</div>
+        <div class="feat-li" style="color:var(--ink);align-items:flex-start;line-height:1.6;"><strong>İşletme Yanıtları:</strong>&nbsp;Yazdığın geri bildirimlere işletme sahiplerinden gelen doğrudan yanıtları takip et.</div>
+        <div class="feat-li" style="color:var(--ink);align-items:flex-start;line-height:1.6;"><strong>Topluluktan karar al:</strong>&nbsp;Gitmeden önce son yorumları oku. Gerçek ziyaretçi deneyimleri, tanıtım metinlerinden çok daha değerlidir.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FİLTRELER — en altta -->
+  <div style="padding:80px 48px;background:var(--sand);">
+    <div class="W rv">
+      <span class="feat-label">Mekan Özellikleri</span>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,64px);letter-spacing:.5px;color:var(--ink);margin-bottom:36px;line-height:.9;">FİLTREYİ SEN BELİRLE.</div>
+      <div class="prop-grid">
+        <div class="prop"><div class="prop-t">WiFi</div><p>Bağlantı hızı bilgisiyle en iyi WiFi'ye sahip kafeleri bul.</p></div>
+        <div class="prop"><div class="prop-t">Priz</div><p>Bilgisayarla çalışacaksan priz olan mekanları filtrele.</p></div>
+        <div class="prop"><div class="prop-t">Hayvan Dostu</div><p>Evcil hayvanınla girebileceğin kafeleri keşfet.</p></div>
+        <div class="prop"><div class="prop-t">Açık Alan</div><p>Bahçesi veya terası olan mekanları gör.</p></div>
+        <div class="prop"><div class="prop-t">Oyunlar</div><p>Okey, tavla, masa oyunları olan yerleri filtrele.</p></div>
+        <div class="prop"><div class="prop-t">Dijital Menü</div><p>Fiyatları ve menüyü gitmeden önce incele.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <footer><div class="ft">
+    <div class="ft-top">
+      <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden önce her şeyi bil.</p></div>
+      <div class="ft-col"><h5>Sayfalar</h5><ul><li><a data-nav="home">Ana Sayfa</a></li><li><a data-nav="algo">Algoritma</a></li><li><a data-nav="muda">Mudavim</a></li><li><a data-nav="club">Kararsızlar Kulübü</a></li></ul></div>
+      <div class="ft-col"><h5>İşletmeler</h5><ul><li><a data-nav="biz">Başvuru Yap</a></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+    </div>
+    <div class="ft-bot"><p>© 2025 Cafinder.</p></div>
+  </div></footer>
+</div>
+
+
+<!-- ══════════ KEŞFET ══════════ -->
+<div class="page" id="page-algo">
+  <div class="page-hero dark-bg">
+    <div class="W page-hero-2col">
+      <div class="rv">
+        <span class="feat-label" style="color:var(--gold2);">Algoritma</span>
+        <div class="display-xl" style="color:#fff;">"İYİ OLAN"<br><span style="color:var(--gold);">ÖNE ÇIKAR.</span></div>
+        <p style="font-size:16px;color:rgba(255,255,255,.36);line-height:1.75;max-width:400px;">Reklam bütçesiyle değil, gerçek kalite ve saate göre çalışır.</p>
+      </div>
+      <div class="rv d1">
+        <div class="astep"><div class="astep-n">01</div><div class="astep-b"><h4>Saate duyarlı kategoriler</h4><p>Sabah, öğle, gece — her zaman doğru kategori aktif.</p></div></div>
+        <div class="astep"><div class="astep-n">02</div><div class="astep-b"><h4>Eşit fırsat</h4><p>Kaliteli olan öne gelir. Reklam değil, gerçek müşteri puanı belirler.</p></div></div>
+        <div class="astep"><div class="astep-n">03</div><div class="astep-b"><h4>Etkinlik bazlı</h4><p>Her zaman canlı keşfet ile özel gününe güzellik kat.</p></div></div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:80px 48px;">
+    <div class="W page-hero-2col" style="align-items:start;">
+      <div class="rv">
+        <div class="clock-box">
+          <div class="ck-l">Şu an</div>
+          <div class="ck-t" id="clk">--:--</div>
+          <div class="ck-s"><div class="ck-dot"></div><span id="clkS">Canlı güncelleniyor</span></div>
+        </div>
+        <div class="algo-list">
+          <div class="arow live"><div class="arow-dot"></div><div><div class="arow-name">Sabah Açık Kafeler</div><div class="arow-sub">Aktif kategori</div></div></div>
+          <div class="arow"><div class="arow-dot"></div><div><div class="arow-name">Maç Yayını Olan Kafeler</div><div class="arow-sub">Canlı maç günlerinde</div></div></div>
+          <div class="arow"><div class="arow-dot"></div><div><div class="arow-name">Final Haftası — Ders Çalış</div><div class="arow-sub">WiFi + priz + sessiz ortam</div></div></div>
+          <div class="arow"><div class="arow-dot"></div><div><div class="arow-name">Gece Yarısı Açık</div><div class="arow-sub">00:00 sonrası</div></div></div>
+          <div class="arow"><div class="arow-dot"></div><div><div class="arow-name">Türk Bayraklarıyla Donatılmış</div><div class="arow-sub">Cumhuriyet Bayramı Haftasında</div></div></div>
+          <div class="arow"><div class="arow-dot"></div><div><div class="arow-name">Uzaktan Çalışmaya Uygun</div><div class="arow-sub">WiFi + priz zorunlu</div></div></div>
+        </div>
+        <div class="chips" style="margin-top:16px;">
+          <div class="chip on">Sabahçılar</div>
+          <div class="chip">Gece Baykuşları</div>
+          <div class="chip">Derbi Haftası</div>
+          <div class="chip">Final Haftası</div>
+          <div class="chip">Sahura Kadar</div>
+          <div class="chip">Yağmurlu Gün</div>
+          <div class="chip">Uzaktan Çalış</div>
+        </div>
+      </div>
+      <div class="rv d1" style="display:flex;flex-direction:column;gap:14px;">
+        <span class="feat-label">Canlı Kategoriler</span>
+        <h2 class="feat-h">NOKTA<br><em>ATIŞI.</em></h2>
+        <p class="feat-p">Her kategori gerçek zamanlı çalışır. Derbi günü maç yayını olanlar veya Ramazanda sahura kadar açık kafeler öne çıkar. Her zaman canlı algoritma.</p>
+        <div class="phone" style="align-self:center;margin-top:12px;">
+          <div class="phone-screen" style="width:200px;height:410px;">
+            <img src="images/algo-phone.jpg" alt="" class="phone-img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:64px 48px;background:var(--sand2);border-top:1px solid rgba(26,18,8,.07);">
+    <div class="W rv" style="max-width:760px;">
+      <span class="feat-label">Şeffaflık</span>
+      <p style="font-size:15.5px;color:var(--fade);line-height:1.85;">Cafinder'da kişisel verilerin arkasına saklanan gizli algoritmalar yok. Biz senin kullanım alışkanlıklarını değil, mekanların sunduğu gerçek kriterleri analiz ederiz. Her kullanıcıya eşit mesafede, tamamen senin belirlediğin filtrelere ve mekanların şeffaf verilerine dayalı, manipülasyonsuz bir keşif deneyimi sunuyoruz.</p>
+    </div>
+  </div>
+
+  <footer><div class="ft">
+    <div class="ft-top">
+      <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden önce her şeyi bil.</p></div>
+      <div class="ft-col"><h5>Sayfalar</h5><ul><li><a data-nav="home">Ana Sayfa</a></li><li><a data-nav="feats">Özellikler</a></li><li><a data-nav="muda">Mudavim</a></li></ul></div>
+      <div class="ft-col"><h5>İşletmeler</h5><ul><li><a data-nav="biz">Başvuru Yap</a></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+    </div>
+    <div class="ft-bot"><p>© 2025 Cafinder.</p></div>
+  </div></footer>
+</div>
+
+
+<!-- ══════════ MUDAVIM ══════════ -->
+<div class="page" id="page-muda">
+  <div class="page-hero">
+    <div class="W page-hero-2col-center">
+      <div class="rv">
+        <span class="feat-label">Dijital Sadakat Sistemi</span>
+        <div class="display-xl" style="color:var(--ink);">MUDAVIM OL,<br><span style="color:var(--gold);">KAZAN.</span></div>
+        <p style="font-size:16px;color:var(--fade);line-height:1.75;max-width:380px;margin-bottom:0;">Karton kart devri bitti. Dijital, otomatik, zahmetsiz sadakat sistemi.</p>
+        <div class="steps" style="margin-top:28px;">
+          <div class="step"><div class="sn">01</div><div class="sb"><h4>Kafe hedef belirler</h4><p>"5 kahve alana 1 bedava" gibi özelleştirilebilir kampanyalar oluşturur.</p></div></div>
+          <div class="step"><div class="sn">02</div><div class="sb"><h4>QR ile okut, biriktir</h4><p>Kişisel QR kodunu kasiyere göster — puan anında düşer. Kart gerekmez.</p></div></div>
+          <div class="step"><div class="sn">03</div><div class="sb"><h4>Hedefe ulaş, kazan</h4><p>Hedefe ulaşırsın, bedava ürününü teslim alırsın. Tüm kafeler tek ekranda.</p></div></div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center;gap:20px;align-items:flex-start;" class="rv d1">
+        <div class="phone">
+          <div class="phone-screen" style="width:250px;height:512px;">
+            <img src="images/muda-phone.jpg" alt="" class="phone-img">
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;padding-top:40px;">
+          <div class="phone">
+            <div class="phone-screen" style="width:160px;height:328px;">
+              <img src="images/muda-phone-2.jpg" alt="" class="phone-img">
+            </div>
+          </div>
+          <div style="width:160px;height:110px;border-radius:14px;overflow:hidden;border:1.5px solid rgba(26,18,8,.12);box-shadow:0 8px 24px rgba(26,18,8,.1);flex-shrink:0;">
+            <img src="images/muda-card.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:72px 48px;background:var(--sand2);">
+    <div class="W rv" style="max-width:800px;">
+      <span class="feat-label">Müdavim Kartı</span>
+      <p style="font-size:15.5px;color:var(--fade);line-height:1.85;">Cüzdanında yer kaplayan, kaybolan veya evde unutulan kaşe kartlarını geçmişte bırak. Cafinder Müdavim Kartı ile şehrin onlarca farklı noktasında tek bir dijital kartla puan topla. Kahveni yudumla, QR kodunu okut ve ücretsiz ikramlara giden yolu telefonundan canlı izle.</p>
+    </div>
+  </div>
+  <div class="qr-row">
+    <div class="W">
+      <div class="qr-inner rv">
+        <div class="qrc"><div class="qrc-n">ADIM 01</div><h4>QR Kodunu Aç</h4><p>Cafinder'ı aç, kişisel QR koduna tek tıkla ulaş.</p></div>
+        <div class="qrc"><div class="qrc-n">ADIM 02</div><h4>Kasiyere Göster</h4><p>Kasiyer işletme uygulamasından okuttu — puan anında düştü.</p></div>
+        <div class="qrc hi"><div class="qrc-n">ADIM 03</div><h4>Ödülünü Al</h4><p>Hedefe ulaştın. Bildirim geldi, bedava ürünün masana geliyor.</p></div>
+      </div>
+    </div>
+  </div>
+  <footer><div class="ft">
+    <div class="ft-top">
+      <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden önce her şeyi bil.</p></div>
+      <div class="ft-col"><h5>Sayfalar</h5><ul><li><a data-nav="home">Ana Sayfa</a></li><li><a data-nav="feats">Özellikler</a></li><li><a data-nav="algo">Algoritma</a></li></ul></div>
+      <div class="ft-col"><h5>İşletmeler</h5><ul><li><a data-nav="biz">Başvuru Yap</a></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+    </div>
+    <div class="ft-bot"><p>© 2025 Cafinder.</p></div>
+  </div></footer>
+</div>
+
+
+<!-- ══════════ KULÜP ══════════ -->
+<div class="page" id="page-club">
+  <div class="page-hero sand2-bg">
+    <div class="W page-hero-2col-start">
+      <div class="rv">
+        <span class="feat-label">Kararsızlar Kulübü</span>
+        <div class="display-xl" style="color:var(--ink);">"NEREYE<br><span style="color:var(--gold);">GİTSEK?"</span></div>
+        <p style="font-size:16px;color:var(--fade);line-height:1.75;max-width:380px;margin-bottom:28px;">İki özellik, sıfır tartışma. Kafana takma, çarkı çevir.</p>
+        <div style="margin-bottom:28px;">
+          <div class="cf"><h4>Çarkıfelek</h4><p>Şehrini ve kategoriyi seç, çarkı çevir. Çarktaki kafeler gerçek zamanlı güncellenir — hep farklı bir keşif.</p></div>
+          <div class="cf"><h4>Salla ve Bul</h4><p>Telefonu fiziksel olarak salla, şansına en uygun mekan karşına çıksın. Filtre bile seçmek zorunda değilsin.</p></div>
+        </div>
+        <div class="wheel-wrap" style="text-align:center;">
+          <div class="wptr">▼</div>
+          <div class="w-outer" id="wheelOuter">
+            <div class="wi" id="wi"><div class="wc">☕</div></div>
+          </div>
+          <button class="spin-btn" id="spinBtn">Çevir</button>
+          <div class="spin-res" id="sr"></div>
+        </div>
+        <div class="shake-card" style="margin-top:14px;">
+          <div class="shk">📱</div>
+          <div class="shk-t"><h4>Salla ve Bul</h4><p>Telefonu salla — şans karar versin.</p></div>
+        </div>
+      </div>
+      <div class="rv d1" style="display:flex;flex-direction:column;justify-content:flex-start;align-items:center;padding-top:40px;gap:24px;">
+        <div class="phone">
+          <div class="phone-screen" style="width:220px;height:452px;">
+            <img src="images/club-phone.jpg" alt="" class="phone-img">
+          </div>
+        </div>
+        <div style="margin-top:28px;padding:28px 32px;background:var(--wh);border-radius:20px;border:1px solid rgba(26,18,8,.06);box-shadow:0 8px 32px rgba(26,18,8,.08),0 1px 0 rgba(255,255,255,.8) inset;">
+          <div style="width:32px;height:2px;background:var(--gold);border-radius:2px;margin-bottom:18px;"></div>
+          <p style="font-size:15.5px;color:var(--ink2);line-height:1.85;margin-bottom:14px;">Kararsızlığı bir keşfe dönüştür. Planlamadan gittiğin her mekanla kendi keşif haritanı oluştur, şehrin gizli kalmış köşelerinin müdavimi ol.</p>
+          <p style="font-size:15.5px;color:var(--ink2);line-height:1.85;">Algoritmaya değil, kadere bırak. Tek tıkla pusulayı çevir ve senin için seçilen o özel mekanı keşfet.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><div class="ft">
+    <div class="ft-top">
+      <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden önce her şeyi bil.</p></div>
+      <div class="ft-col"><h5>Sayfalar</h5><ul><li><a data-nav="home">Ana Sayfa</a></li><li><a data-nav="muda">Mudavim</a></li></ul></div>
+      <div class="ft-col"><h5>İşletmeler</h5><ul><li><a data-nav="biz">Başvuru Yap</a></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+    </div>
+    <div class="ft-bot"><p>© 2025 Cafinder.</p></div>
+  </div></footer>
+</div>
+
+
+<!-- ══════════ İŞLETMELER ══════════ -->
+<div class="page" id="page-biz">
+  <div class="page-hero ink-bg">
+    <div class="W page-hero-2col">
+      <div class="rv">
+        <span class="feat-label" style="color:var(--gold2);">İşletmeler İçin</span>
+        <div class="display-xl" style="color:#fff;">YENİ<br>MÜŞTERİLERE<br><span style="color:var(--gold2);">ULAŞ.</span></div>
+        <p style="font-size:16px;color:rgba(255,255,255,.36);line-height:1.75;max-width:400px;margin-bottom:28px;">Cafinder'da reklam değil kalite kazanır. Eşit algoritma, mekanınızı hak ettiği görünürlüğe taşır.</p>
+        <div style="display:flex;flex-direction:column;gap:9px;">
+          <div style="display:flex;gap:10px;align-items:center;font-size:14px;color:rgba(255,255,255,.5);"><span style="width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0;display:block;"></span>Ziyaret ve favori istatistikleri</div>
+          <div style="display:flex;gap:10px;align-items:center;font-size:14px;color:rgba(255,255,255,.5);"><span style="width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0;display:block;"></span>Kendi sadakat kampanyanı yönet</div>
+          <div style="display:flex;gap:10px;align-items:center;font-size:14px;color:rgba(255,255,255,.5);"><span style="width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0;display:block;"></span>Dijital menü ve galeri yönetimi</div>
+          <div style="display:flex;gap:10px;align-items:center;font-size:14px;color:rgba(255,255,255,.5);"><span style="width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0;display:block;"></span>QR ile mudavim sistemi entegrasyonu</div>
+          <div style="display:flex;gap:10px;align-items:center;font-size:14px;color:rgba(255,255,255,.5);"><span style="width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0;display:block;"></span>Eşit algoritmada gerçek görünürlük</div>
+        </div>
+      </div>
+      <div class="biz-aside rv d1">
+        <div class="biz-aside-tag">İşletme Avantajı</div>
+        <h3>REKLAM DEĞİL,<br>KALİTE KAZANIR.</h3>
+        <p>Büyük bütçeli reklamlar değil, gerçek müşteri deneyimi öne çıkar.</p>
+        <a class="btn-cream" data-scroll="bform">Başvuru Yap →</a>
+      </div>
+    </div>
+  </div>
+  <div style="padding:88px 48px;background:var(--sand);">
+    <div class="W">
+      <div class="rv" style="margin-bottom:48px;">
+        <span class="feat-label">Başvuru</span>
+        <div id="bform" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5.5vw,72px);letter-spacing:.5px;color:var(--ink);line-height:.9;margin-bottom:12px;">CAFİNDER'A KATIL.</div>
+        <p style="font-size:15.5px;color:var(--fade);">Başvurunu yap, 24 saat içinde seni arayalım.</p>
+      </div>
+      <div class="bf-grid rv d1">
+        <form class="cform" id="bizForm">
+          <div class="frow">
+            <div class="fg"><label>Kafe Adı</label><input id="f-kafe" type="text" placeholder="Kahve Durağı" required></div>
+            <div class="fg"><label>İletişim Kişisi</label><input id="f-kisi" type="text" placeholder="Ad Soyad" required></div>
+          </div>
+          <div class="frow">
+            <div class="fg"><label>Telefon</label><input id="f-tel" type="tel" placeholder="0555 000 00 00" required></div>
+            <div class="fg"><label>E-posta</label><input id="f-mail" type="email" placeholder="kafe@email.com" required></div>
+          </div>
+          <div class="fg">
+            <label>Şehir</label>
+            <select id="f-sehir" required>
+              <option value="" disabled selected>Seçin</option>
+              <option>Adana</option><option>Adıyaman</option><option>Afyonkarahisar</option>
+              <option>Ağrı</option><option>Aksaray</option><option>Amasya</option>
+              <option>Ankara</option><option>Antalya</option><option>Ardahan</option>
+              <option>Artvin</option><option>Aydın</option><option>Balıkesir</option>
+              <option>Bartın</option><option>Batman</option><option>Bayburt</option>
+              <option>Bilecik</option><option>Bingöl</option><option>Bitlis</option>
+              <option>Bolu</option><option>Burdur</option><option>Bursa</option>
+              <option>Çanakkale</option><option>Çankırı</option><option>Çorum</option>
+              <option>Denizli</option><option>Diyarbakır</option><option>Düzce</option>
+              <option>Edirne</option><option>Elazığ</option><option>Erzincan</option>
+              <option>Erzurum</option><option>Eskişehir</option><option>Gaziantep</option>
+              <option>Giresun</option><option>Gümüşhane</option><option>Hakkari</option>
+              <option>Hatay</option><option>Iğdır</option><option>Isparta</option>
+              <option>İstanbul</option><option>İzmir</option><option>Kahramanmaraş</option>
+              <option>Karabük</option><option>Karaman</option><option>Kars</option>
+              <option>Kastamonu</option><option>Kayseri</option><option>Kilis</option>
+              <option>Kırıkkale</option><option>Kırklareli</option><option>Kırşehir</option>
+              <option>Kocaeli</option><option>Konya</option><option>Kütahya</option>
+              <option>Malatya</option><option>Manisa</option><option>Mardin</option>
+              <option>Mersin</option><option>Muğla</option><option>Muş</option>
+              <option>Nevşehir</option><option>Niğde</option><option>Ordu</option>
+              <option>Osmaniye</option><option>Rize</option><option>Sakarya</option>
+              <option>Samsun</option><option>Şanlıurfa</option><option>Siirt</option>
+              <option>Sinop</option><option>Şırnak</option><option>Sivas</option>
+              <option>Tekirdağ</option><option>Tokat</option><option>Trabzon</option>
+              <option>Tunceli</option><option>Uşak</option><option>Van</option>
+              <option>Yalova</option><option>Yozgat</option><option>Zonguldak</option>
+            </select>
+          </div>
+          <div class="fg"><label>Kafe Hakkında</label><textarea id="f-aciklama" placeholder="Kafeninizden kısaca bahsedin..." required></textarea></div>
+          <button type="submit" class="fsub" id="fsubBtn">Başvuruyu Gönder</button>
+          <div class="fok" id="fok">Başvurunuz alındı. 24 saat içinde sizi arayacağız.</div>
+          <div id="ferr" style="display:none;padding:14px;background:rgba(200,50,50,.07);border:1px solid rgba(200,50,50,.2);border-radius:10px;color:#c83232;font-size:14px;font-weight:600;text-align:center;">Bir hata oluştu, lütfen tekrar deneyin.</div>
+        </form>
+        <div class="bf-aside">
+          <h3>NEDEN CAFİNDER?</h3>
+          <p>Mekanınıza özel dijital varlık oluşturun. Müşterilerinizle dijital sadakat programı kurun, anlık kampanyalar yönetin.</p>
+          <div class="bf-list">
+            <div class="bfl">Ücretsiz başlangıç</div>
+            <div class="bfl">Kolay kurulum, teknik bilgi gerekmez</div>
+            <div class="bfl">7/24 destek</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><div class="ft">
+    <div class="ft-top">
+      <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden önce her şeyi bil.</p></div>
+      <div class="ft-col"><h5>Uygulama</h5><ul><li><a>App Store</a></li><li><a>Google Play</a></li></ul></div>
+      <div class="ft-col"><h5>Sayfalar</h5><ul><li><a data-nav="home">Ana Sayfa</a></li><li><a data-nav="feats">Özellikler</a></li><li><a data-nav="muda">Mudavim</a></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+    </div>
+    <div class="ft-bot"><p>© 2025 Cafinder. Tüm hakları saklıdır.</p></div>
+  </div></footer>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script>
+// ══ FİREBASE ══
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB88lKl9GyHLkI-rER9Rvyv48lyiIob5b4",
+  authDomain: "cinder-9a8fd.firebaseapp.com",
+  projectId: "cinder-9a8fd",
+  storageBucket: "cinder-9a8fd.firebasestorage.app",
+  messagingSenderId: "258380746486",
+  appId: "1:258380746486:web:24d6666654611ecfc126d7"
+};
+
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+// ══ EMAİLJS ══
+emailjs.init("UdGI5oCdfYhPj7whK");
+
+document.getElementById("bizForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  var btn    = document.getElementById("fsubBtn");
+  var fok    = document.getElementById("fok");
+  var ferr   = document.getElementById("ferr");
+  var kafe   = document.getElementById("f-kafe").value;
+  var kisi   = document.getElementById("f-kisi").value;
+  var tel    = document.getElementById("f-tel").value;
+  var mail   = document.getElementById("f-mail").value;
+  var sehir  = document.getElementById("f-sehir").value;
+  var acik   = document.getElementById("f-aciklama").value;
+
+  btn.textContent = "Gönderiliyor...";
+  btn.disabled = true;
+  ferr.style.display = "none";
+
+  try {
+    // 1. Firestore'a kaydet
+    await db.collection("basvurular").add({
+      kafeAdi:      kafe,
+      iletisimKisi: kisi,
+      telefon:      tel,
+      eposta:       mail,
+      sehir:        sehir,
+      aciklama:     acik,
+      kaynak:       "web",
+      tarih:        firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    // 2. EmailJS ile mail gönder
+    await emailjs.send("service_zftyk1i", "template_1708e89", {
+      kafe_adi:      kafe,
+      iletisim_kisi: kisi,
+      telefon:       tel,
+      eposta:        mail,
+      sehir:         sehir,
+      aciklama:      acik,
+      to_email:      "cafinderisletme@gmail.com"
+    });
+
+    btn.style.display = "none";
+    fok.style.display = "block";
+
+  } catch(err) {
+    console.error(err);
+    ferr.style.display = "block";
+    btn.textContent = "Başvuruyu Gönder";
+    btn.disabled = false;
+  }
+});
+</script>
+
+<script>
+function go(id) {
+  if (!id) return;
+  var pg = document.getElementById("page-" + id);
+  if (!pg) return;
+  window.scrollTo(0, 0);
+  document.querySelectorAll(".page").forEach(function(p){ p.classList.remove("active"); });
+  pg.classList.add("active");
+  document.querySelectorAll(".nav-links a[data-nav]").forEach(function(a){
+    a.classList.toggle("active", a.getAttribute("data-nav") === id);
+  });
+  document.querySelectorAll(".mobile-menu a[data-nav]").forEach(function(a){
+    a.classList.toggle("active", a.getAttribute("data-nav") === id);
+  });
+  var nav = document.getElementById("nav");
+  if (nav) nav.classList.remove("scrolled");
+  closeMobile();
+}
+
+function closeMobile() {
+  var hbtn = document.getElementById("hamburger");
+  var mmenu = document.getElementById("mobileMenu");
+  if (hbtn) hbtn.classList.remove("open");
+  if (mmenu) mmenu.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+window.addEventListener("DOMContentLoaded", function() {
+  // data-nav
+  document.querySelectorAll("[data-nav]").forEach(function(el) {
+    el.addEventListener("click", function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      go(el.getAttribute("data-nav"));
+    });
+  });
+
+  // hamburger
+  var hbtn = document.getElementById("hamburger");
+  if (hbtn) {
+    hbtn.addEventListener("click", function(e) {
+      e.preventDefault();
+      var mmenu = document.getElementById("mobileMenu");
+      hbtn.classList.toggle("open");
+      mmenu.classList.toggle("open");
+      document.body.style.overflow = mmenu.classList.contains("open") ? "hidden" : "";
+    });
+  }
+
+  // data-scroll
+  document.querySelectorAll("[data-scroll]").forEach(function(el) {
+    el.addEventListener("click", function(e) {
+      e.preventDefault();
+      var target = document.getElementById(el.getAttribute("data-scroll"));
+      if (target) target.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  // nav active başlangıç
+  document.querySelectorAll(".nav-links a[data-nav='home']").forEach(function(a){
+    a.classList.add("active");
+  });
+
+  tick();
+  rev();
+});
+
+window.addEventListener("scroll", function() {
+  var nav = document.getElementById("nav");
+  if (nav) nav.classList.toggle("scrolled", window.scrollY > 50);
+  rev();
+}, { passive: true });
+
+function rev() {
+  document.querySelectorAll(".page.active .rv:not(.in)").forEach(function(el) {
+    if (el.getBoundingClientRect().top < window.innerHeight - 30) el.classList.add("in");
+  });
+}
+
+function tick() {
+  var n = new Date();
+  var h = String(n.getHours()).padStart(2,"0");
+  var m = String(n.getMinutes()).padStart(2,"0");
+  var c = document.getElementById("clk");
+  var s = document.getElementById("clkS");
+  if (c) c.textContent = h + ":" + m;
+  if (s) {
+    var hr = n.getHours();
+    s.textContent = hr>=6&&hr<11 ? "Sabah kategorileri aktif"
+                  : hr>=11&&hr<17 ? "Öğle kategorileri aktif"
+                  : hr>=17&&hr<22 ? "Akşam kategorileri aktif"
+                  : "Gece kategorileri aktif";
+  }
+}
+setInterval(tick, 1000);
+
+document.addEventListener("click", function(e) {
+  if (e.target.classList.contains("chip")) {
+    document.querySelectorAll(".chip").forEach(function(c){ c.classList.remove("on"); });
+    e.target.classList.add("on");
+  }
+});
+
+var spinning = false, deg = 0;
+var opts = ["En yakın açık kafe","Manzaralı mekan","WiFi'li çalışma yeri","Bahçeli kafe","Gece geç kapanan","Hayvan dostu mekan"];
+document.addEventListener("click", function(e) {
+  var wo = document.getElementById("wheelOuter");
+  var sb = document.getElementById("spinBtn");
+  if ((wo && wo.contains(e.target)) || e.target === sb) {
+    if (spinning) return;
+    spinning = true;
+    var sr = document.getElementById("sr");
+    if (sr) sr.textContent = "";
+    deg += Math.floor(Math.random() * 360) + 1080;
+    var wi = document.getElementById("wi");
+    if (wi) wi.style.transform = "rotate(" + deg + "deg)";
+    setTimeout(function() {
+      spinning = false;
+      if (sr) sr.textContent = opts[Math.floor(Math.random() * opts.length)];
+    }, 3100);
+  }
+});
+
+document.addEventListener("submit", function(e) {
+  if (e.target.id === "bizForm") {
+    e.preventDefault();
+    var fok = document.getElementById("fok");
+    var fsub = e.target.querySelector(".fsub");
+    if (fok) fok.style.display = "block";
+    if (fsub) fsub.style.display = "none";
+  }
+});
+
+(function() {
+  var cluster = document.getElementById("phoneCluster");
+  if (!cluster) return;
+  var phL = document.getElementById("ph-left");
+  var phC = document.getElementById("ph-center");
+  var phR = document.getElementById("ph-right");
+  var dragging = false, ox = 0, oy = 0;
+  function tilt(dx, dy) {
+    var rx = Math.max(-20, Math.min(20, -dy * 0.035));
+    var ry = Math.max(-20, Math.min(20,  dx * 0.035));
+    if (phL) phL.style.transform = "rotateY("+(22+ry)+"deg) rotateX("+(4+rx)+"deg) translateX(20px)";
+    if (phC) phC.style.transform = "rotateY("+ry+"deg) rotateX("+(2+rx)+"deg)";
+    if (phR) phR.style.transform = "rotateY("+(-22+ry)+"deg) rotateX("+(4+rx)+"deg) translateX(-20px)";
+  }
+  function reset() {
+    if (phL) phL.style.transform = "";
+    if (phC) phC.style.transform = "";
+    if (phR) phR.style.transform = "";
+  }
+  cluster.addEventListener("mousedown", function(e){ dragging=true; ox=e.clientX; oy=e.clientY; cluster.style.cursor="grabbing"; });
+  window.addEventListener("mousemove", function(e){ if(dragging) tilt(e.clientX-ox, e.clientY-oy); });
+  window.addEventListener("mouseup", function(){ if(dragging){ dragging=false; cluster.style.cursor=""; reset(); } });
+  cluster.addEventListener("mousemove", function(e){
+    if(dragging) return;
+    var r = cluster.getBoundingClientRect();
+    tilt(e.clientX-(r.left+r.width/2), e.clientY-(r.top+r.height/2));
+  });
+  cluster.addEventListener("mouseleave", function(){ if(!dragging) reset(); });
+  cluster.addEventListener("touchstart", function(e){ ox=e.touches[0].clientX; oy=e.touches[0].clientY; }, {passive:true});
+  cluster.addEventListener("touchmove", function(e){ tilt(e.touches[0].clientX-ox, e.touches[0].clientY-oy); }, {passive:true});
+  cluster.addEventListener("touchend", reset);
+})();
+</script>
+</body>
+</html>
