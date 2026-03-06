@@ -1654,4 +1654,23 @@ document.addEventListener("submit", function(e) {
   function reset() {
     if (phL) phL.style.transform = "";
     if (phC) phC.style.transform = "";
-    if (phR) phR.style.transf
+    if (phR) phR.style.transf    if (phR) phR.style.transform = "";
+  }
+  document.addEventListener("mousemove", function(e) {
+    if (!cluster) return;
+    var r = cluster.getBoundingClientRect();
+    var cx = r.left + r.width/2, cy = r.top + r.height/2;
+    tilt(e.clientX - cx, e.clientY - cy);
+  });
+  document.addEventListener("mouseleave", reset);
+  cluster.addEventListener("touchmove", function(e) {
+    if (e.touches.length < 1) return;
+    var r = cluster.getBoundingClientRect();
+    var cx = r.left + r.width/2, cy = r.top + r.height/2;
+    tilt(e.touches[0].clientX - cx, e.touches[0].clientY - cy);
+  }, {passive:true});
+  cluster.addEventListener("touchend", reset);
+})();
+</script>
+</body>
+</html>
