@@ -452,6 +452,26 @@ footer{background:var(--blk);padding:56px 48px 36px;}
   .display-xl{font-size:clamp(40px,12vw,60px);}
   .store-btns{gap:8px;}
 }
+
+/* NAV DROPDOWN */
+.nav-dropdown{position:relative;display:flex;align-items:center;}
+.nav-dropdown-btn{font-size:13px;font-weight:500;color:var(--fade);padding:6px 14px;border-radius:6px;cursor:pointer;transition:color .15s;user-select:none;white-space:nowrap;}
+.nav-dropdown-btn:hover{color:var(--ink);}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 8px);right:0;background:var(--wh);border:1px solid rgba(26,18,8,.08);border-radius:14px;box-shadow:0 16px 48px rgba(26,18,8,.12);padding:8px;min-width:200px;z-index:10000;}
+.nav-dropdown:hover .nav-dropdown-menu{display:flex;flex-direction:column;}
+.nav-dropdown-menu a{font-size:13px;color:var(--ink2);padding:9px 14px;border-radius:8px;cursor:pointer;transition:background .15s;text-decoration:none;white-space:nowrap;}
+.nav-dropdown-menu a:hover{background:var(--sand);color:var(--ink);}
+nav.dark-nav .nav-dropdown-btn{color:rgba(255,255,255,.5);}
+nav.dark-nav .nav-dropdown-btn:hover{color:#fff;}
+nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
+
+/* LEGAL SAYFALAR */
+.legal-page{padding:120px 48px 80px;max-width:800px;margin:0 auto;}
+.legal-page h2{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--ink);margin:32px 0 10px;letter-spacing:.5px;}
+.legal-page p,.legal-page li{font-size:15px;color:var(--ink2);line-height:1.85;}
+.legal-page ul{padding-left:20px;margin-top:8px;display:flex;flex-direction:column;gap:6px;}
+.legal-page .legal-info{padding:24px 28px;background:var(--sand2);border-radius:14px;border:1px solid rgba(26,18,8,.06);margin-top:40px;}
+@media(max-width:960px){.legal-page{padding:90px 20px 60px;}}
 </style>
 </head>
 <body>
@@ -468,6 +488,17 @@ footer{background:var(--blk);padding:56px 48px 36px;}
     <a data-nav="muda">Müdavim</a>
     <a data-nav="club">Kararsızlar Kulübü</a>
     <a data-nav="biz">İşletmeler</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-btn">Kurumsal ▾</span>
+      <div class="nav-dropdown-menu">
+        <a data-nav="about">Hakkımızda</a>
+        <a data-nav="user-agreement">Kullanıcı Sözleşmesi</a>
+        <a data-nav="user-kvkk">KVKK (Kullanıcı)</a>
+        <a data-nav="biz-agreement">İşletme Sözleşmesi</a>
+        <a data-nav="biz-kvkk">KVKK (İşletme)</a>
+        <a data-nav="privacy">Gizlilik Politikası</a>
+      </div>
+    </div>
   </div>
   <a class="nav-cta" data-nav="biz">İşletme Başvurusu</a>
   <button class="hamburger" id="hamburger" aria-label="Menü">
@@ -482,6 +513,12 @@ footer{background:var(--blk);padding:56px 48px 36px;}
   <a data-nav="muda">Müdavim</a>
   <a data-nav="club">Kararsızlar Kulübü</a>
   <a data-nav="biz">İşletmeler</a>
+  <a data-nav="about">Hakkımızda</a>
+  <a data-nav="user-agreement">Kullanıcı Sözleşmesi</a>
+  <a data-nav="user-kvkk">KVKK (Kullanıcı)</a>
+  <a data-nav="biz-agreement">İşletme Sözleşmesi</a>
+  <a data-nav="biz-kvkk">KVKK (İşletme)</a>
+  <a data-nav="privacy">Gizlilik Politikası</a>
   <a class="m-cta" data-nav="biz">İşletme Başvurusu →</a>
 </div>
 
@@ -1027,12 +1064,369 @@ footer{background:var(--blk);padding:56px 48px 36px;}
       <div class="ft-col"><h5>Sayfalar</h5><ul><li><a data-nav="home">Ana Sayfa</a></li><li><a data-nav="feats">Özellikler</a></li><li><a data-nav="muda">Müdavim</a></li></ul></div>
       <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
     </div>
+    <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır. — <a data-nav="privacy" style="color:rgba(255,255,255,.25);text-decoration:none;cursor:pointer;">Gizlilik Politikası</a></p></div>
+  </div></footer>
+</div>
+
+
+<!-- ══════════ HAKKIMIZDA ══════════ -->
+<div class="page" id="page-about">
+  <div class="legal-page">
+    <span class="feat-label">Kurumsal</span>
+    <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,64px);color:var(--ink);line-height:.95;margin-bottom:24px;">HAKKIMIZDA</h1>
+    <p style="font-size:16px;color:var(--ink2);line-height:1.9;margin-bottom:32px;">Cafinder, yeme-içme ve sosyalleşme kültürünü teknolojiyle yeniden şekillendiren, kullanıcılar ile nitelikli işletmeleri tek bir dijital ekosistemde buluşturan kapsamlı bir keşif, etkileşim ve sadakat platformudur. Vizyonumuz, klasik mekan arayışını şeffaf, veri odaklı ve keyifli bir deneyime dönüştürmektir.</p>
+
+    <h2>KULLANICILARIMIZ İÇİN UÇTAN UCA KEŞİF DENEYİMİ</h2>
+    <p>Cafinder, kullanıcılarına bir mekana adım atmadan önce o mekanı tüm boyutlarıyla yaşama imkanı sunar. Sosyal hayatınızın dijital pusulası olarak tasarlanan platformumuz şu ayrıcalıkları barındırır:</p>
+    <ul style="margin-top:16px;gap:12px;">
+      <li><strong>Zengin Mekan Profilleri:</strong> Fotoğraf ve video destekli detaylı profiller sayesinde; gitmek istediğiniz mekanın atmosferini, menüsünü ve sunduğu olanakları önceden şeffaf bir şekilde inceleyebilirsiniz.</li>
+      <li><strong>Gelişmiş Filtreleme:</strong> O anki ihtiyacınıza, bütçenize veya çalışma ortamı arayışınıza en uygun mekanı saniyeler içinde bulmanızı sağlayan akıllı arama altyapısına sahibiz.</li>
+      <li><strong>İnteraktif Keşif Araçları (Kararsızlar Kulübü):</strong> Nereye gideceğinize karar veremediğiniz anlarda devreye giren "Çarkıfelek" ve "Salla Bul" özelliklerimizle mekan keşfetmeyi eğlenceli bir rutine dönüştürüyoruz.</li>
+      <li><strong>Şeffaf Değerlendirme ve Topluluk:</strong> Gittiğiniz mekanları favorilerinize ekleyebilir, kendi listelerinizi oluşturabilir, mekanları puanlayarak değerlendirebilirsiniz.</li>
+      <li><strong>Dijital Sadakat (Müdavimlik):</strong> QR tabanlı altyapımız ile klasik kart dönemini bitiriyor, her ziyaretinizi anında ödüle çeviriyoruz.</li>
+    </ul>
+
+    <h2>İŞLETMELER İÇİN VERİ ODAKLI YÖNETİM GÜCÜ</h2>
+    <p>İşletme ortaklarımız için Cafinder, standart bir listeleme vitrininden çok daha fazlasıdır. B2B çözümlerimizle mekan sahiplerine dijitalleşme imkanı sunuyoruz:</p>
+    <ul style="margin-top:16px;gap:12px;">
+      <li><strong>Kişiselleştirilmiş İstatistik Paneli:</strong> Mekanın görüntülenme oranlarını, kullanıcı demografisini ve müşteri tutundurma verilerini anlık olarak takip edebilirsiniz.</li>
+      <li><strong>Ölçülebilir Pazarlama:</strong> Doğrudan hedef kitleye ulaşan, performansın tamamen ölçülebildiği bir etkileşim ve sadakat ağı kuruyoruz.</li>
+    </ul>
+
+    <h2>VİZYONUMUZ</h2>
+    <p>Sürekli gelişen teknolojimiz ve kullanıcı deneyimini merkeze alan yapımızla; sosyal hayata yön veren, işletmelerin büyüme hedeflerine veri odaklı katkı sağlayan ve yeme-içme sektöründe "dijitalleşme" denildiğinde akla gelen ilk teknoloji markası olmak için çalışıyoruz.</p>
+
+    <div class="legal-info">
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--ink);margin-bottom:12px;letter-spacing:.5px;">BİZE ULAŞIN</h3>
+      <p>📧 İş Birlikleri ve Kurumsal: <strong>cafinderisletme@gmail.com</strong><br>
+      🎧 Kullanıcı Destek: <strong>cafefindertr@gmail.com</strong><br>
+      📍 Web Sitesi: <strong>www.cafinder.com.tr</strong><br>
+      📱 Bizi Takip Edin: <strong>@cafindertr</strong> (Instagram / X)</p>
+    </div>
+  </div>
+  <footer><div class="ft">
+    <div class="ft-top">
+      <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden önce her şeyi bil.</p></div>
+      <div class="ft-col"><h5>Sayfalar</h5><ul><li><a data-nav="home">Ana Sayfa</a></li><li><a data-nav="feats">Özellikler</a></li><li><a data-nav="biz">İşletmeler</a></li></ul></div>
+      <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="user-agreement">Kullanıcı Sözleşmesi</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+    </div>
+    <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır.</p></div>
+  </div></footer>
+</div>
+
+<!-- ══════════ KULLANICI SÖZLEŞMESİ ══════════ -->
+<div class="page" id="page-user-agreement">
+  <div class="legal-page">
+    <span class="feat-label">Kullanıcı</span>
+    <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,56px);color:var(--ink);line-height:.95;margin-bottom:8px;">KULLANICI SÖZLEŞMESİ</h1>
+    <p style="font-size:14px;color:var(--fade);margin-bottom:40px;">Sürüm: 1.4 — Son Güncelleme: 05.01.2026</p>
+    <h2>1. TARAFLAR</h2>
+    <p>Hizmet Sağlayıcı: Cafinder ("Şirket"). Kullanıcı: Cafinder mobil uygulamasını indiren, kayıt olan ve hizmetlerden yararlanan gerçek kişi.</p>
+    <h2>2. KULLANIM EHLİYETİ VE YAŞ SINIRI</h2>
+    <p>Kullanıcı, işbu sözleşmeyi onaylayarak 18 yaşından büyük olduğunu veya yasal velisinden gerekli izni aldığını kabul, beyan ve taahhüt eder. Cafinder, yaş beyanının doğruluğunu araştırmakla yükümlü değildir; yanlış beyandan doğacak tüm hukuki sorumluluk Kullanıcı'ya aittir.</p>
+    <h2>3. HİZMETİN KAPSAMI, LOKASYON VE GİZLİLİK</h2>
+    <ul>
+      <li><strong>Konum Gizliliği:</strong> Uygulama, en yakın mekanları listelemek için anlık konum verisini işler. Bu veri sunucularda saklanmaz, diğer kullanıcılara ifşa edilmez.</li>
+      <li><strong>Kararsızlar Kulübü:</strong> "Salla Bul" özellikleri bir karar destek aracıdır; şans oyunu veya çekiliş değildir, maddi ödül vaat etmez.</li>
+      <li><strong>Cihaz Güvenliği:</strong> Root/Jailbreak yapılmış cihazlarda oluşabilecek güvenlik açıklarından Cafinder sorumlu değildir.</li>
+    </ul>
+    <h2>4. MÜDAVİM (SADAKAT) SİSTEMİ</h2>
+    <ul>
+      <li>Puan kazanımı, kişisel QR kodunun işletme yetkilisine okutulmasıyla gerçekleşir.</li>
+      <li>Ödüllerin temini tamamen ilgili işletmenin sorumluluğundadır.</li>
+      <li>İşletmenin ödülü vermemesi veya sistemden ayrılması durumunda Cafinder sorumlu tutulamaz.</li>
+      <li>Puanlar nakde çevrilemez, devredilemez.</li>
+    </ul>
+    <h2>5. KULLANICI İÇERİKLERİ VE "SIFIR TOLERANS" POLİTİKASI</h2>
+    <ul>
+      <li>Kullanıcı; nefret söylemi, pornografik veya yasa dışı içerik paylaşamaz.</li>
+      <li>Uygunsuz içerik paylaşan kullanıcının hesabı kalıcı olarak kapatılır.</li>
+      <li>Uygunsuz içerikler "Şikayet Et" butonu ile bildirilebilir; en geç 24 saat içinde değerlendirilir.</li>
+    </ul>
+    <h2>6. KULLANICININ DİĞER YÜKÜMLÜLÜKLERİ</h2>
+    <ul>
+      <li>QR kodunun ekran görüntüsü alınarak paylaşılması yasaktır.</li>
+      <li>Fake GPS veya birden fazla hesap açarak haksız puan kazanmaya çalışanların hesapları kapatılır.</li>
+    </ul>
+    <h2>7. FİKRİ MÜLKİYET</h2>
+    <p>Uygulamanın yazılımı, tasarımı ve kaynak kodları Cafinder'a aittir. Tersine mühendislik yapılamaz, kopyalanamaz.</p>
+    <h2>8. HESAP SİLME VE FESİH</h2>
+    <p>Kullanıcı, "Ayarlar > Hesabımı Sil" seçeneğiyle üyeliğini sonlandırabilir. Hesap silindiğinde puanlar ve profil bilgileri kalıcı olarak silinir. 5651 sayılı Kanun gereği trafik logları yasal süre boyunca saklanmaya devam eder.</p>
+    <h2>9. SÖZLEŞME DEĞİŞİKLİKLERİ</h2>
+    <p>Cafinder sözleşme koşullarını dilediği zaman güncelleme hakkını saklı tutar. Kullanıcının hizmeti kullanmaya devam etmesi yeni koşulları kabul ettiği anlamına gelir.</p>
+    <h2>10. SORUMLULUK SINIRLARI</h2>
+    <p>Cafinder; siber saldırı, Firebase/Google Cloud kesintileri veya kullanıcı cihazından kaynaklı hatalar nedeniyle hizmetin aksamasından sorumlu değildir.</p>
+    <h2>11. YETKİLİ MAHKEME</h2>
+    <p>İşbu sözleşmeden doğacak uyuşmazlıklarda Sakarya Mahkemeleri ve İcra Daireleri yetkilidir.</p>
+  </div>
+  <footer><div class="ft">
+    <div class="ft-top">
+      <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden önce her şeyi bil.</p></div>
+      <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="about">Hakkımızda</a></li><li><a data-nav="user-kvkk">KVKK (Kullanıcı)</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+    </div>
+    <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır.</p></div>
+  </div></footer>
+</div>
+
+<!-- ══════════ KVKK KULLANICI ══════════ -->
+<div class="page" id="page-user-kvkk">
+  <div class="legal-page">
+    <span class="feat-label">Kullanıcı</span>
+    <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,56px);color:var(--ink);line-height:.95;margin-bottom:8px;">KİŞİSEL VERİLERİN KORUNMASI</h1>
+    <p style="font-size:13px;color:var(--fade);margin-bottom:8px;">Kullanıcı KVKK Aydınlatma ve Açık Rıza Metni</p>
+    <p style="font-size:14px;color:var(--fade);margin-bottom:40px;">Sürüm: 1.7 — Tarih: 05.01.2026</p>
+    <h2>1. VERİ SORUMLUSU</h2>
+    <p>6698 sayılı KVKK uyarınca kişisel verileriniz, veri sorumlusu sıfatıyla Cafinder tarafından aşağıda açıklanan kapsamda işlenecektir.</p>
+    <h2>2. İŞLENEN KİŞİSEL VERİ KATEGORİLERİ</h2>
+    <ul>
+      <li><strong>Kimlik ve İletişim:</strong> Ad, Soyad, E-posta (üyelik ve doğrulama için)</li>
+      <li><strong>Lokasyon:</strong> Anlık konum verisi (yakın mekanları sıralamak için; sunucularda tarihçeli saklanmaz)</li>
+      <li><strong>İşlem Güvenliği:</strong> IP adresi, Cihaz ID, log kayıtları (yasal zorunluluk)</li>
+      <li><strong>Teknik Bilgiler:</strong> Cihaz modeli, işletim sistemi, uygulama içi gezinti (hata giderme)</li>
+      <li><strong>Müşteri İşlem:</strong> Yorumlar, puanlar, favoriler, müdavim geçmişi</li>
+      <li><strong>Görsel Kayıtlar:</strong> Profil fotoğrafı (rızanızla yüklemeniz halinde)</li>
+    </ul>
+    <h2>3. İŞLENME AMAÇLARI</h2>
+    <ul>
+      <li>Üyelik işlemleri ve hesap güvenliğinin sağlanması</li>
+      <li>Konum tabanlı listeleme hizmetlerinin sunulması</li>
+      <li>Müdavim programının yürütülmesi</li>
+      <li>Anlık bildirimlerin gönderilmesi</li>
+      <li>Hileli işlemlerin tespiti ve yasal yükümlülüklerin karşılanması</li>
+    </ul>
+    <h2>4. TOPLAMA YÖNTEMİ VE HUKUKİ SEBEPLER</h2>
+    <p>Verileriniz mobil uygulama, kamera/galeri/konum izinleri ve sosyal giriş (Google/Apple) aracılığıyla toplanır. Hukuki sebepler: Sözleşmenin İfası (m.5/2-c), Kanunlarda Öngörülmesi (m.5/2-a), Meşru Menfaat (m.5/2-f).</p>
+    <p style="margin-top:10px;"><strong>Yurt Dışı Aktarımı:</strong> Altyapımız Google Cloud ve Firebase (ABD/Google LLC) sunucularında barındırıldığından verileriniz teknik zorunluluk gereği yurt dışına aktarılmaktadır. İşbu metni onaylayarak buna açık rıza göstermiş sayılırsınız.</p>
+    <h2>5. VERİLERİN AKTARILMASI</h2>
+    <ul>
+      <li><strong>Anlaşmalı İşletmeler:</strong> Sadece adınız, soyadınız ve puan durumunuz (telefon/e-posta paylaşılmaz)</li>
+      <li><strong>Tedarikçiler:</strong> Google (Firebase/Analytics) altyapı sağlayıcısı olarak</li>
+      <li><strong>Resmi Makamlar:</strong> Savcılık/Mahkeme talebi halinde</li>
+    </ul>
+    <h2>6. SAKLAMA VE İMHA POLİTİKASI</h2>
+    <ul>
+      <li>"Hesabımı Sil" seçeneğinde kimlik ve iletişim verileri derhal silinir</li>
+      <li>Yorumlar ve puanlar "Anonim Kullanıcı" adıyla sistemde kalabilir veya silinebilir</li>
+      <li>IP logları 5651 sayılı Kanun gereği asgari 2 yıl saklanır</li>
+    </ul>
+    <h2>7. İLGİLİ KİŞİNİN HAKLARI VE BAŞVURU</h2>
+    <p>KVKK Madde 11 kapsamındaki taleplerinizi <strong>cafinderisletme@gmail.com</strong> adresine iletebilirsiniz. Uygulama içinden hesabınızı ve verilerinizi anında silebilirsiniz.</p>
+  </div>
+  <footer><div class="ft">
+    <div class="ft-top">
+      <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden önce her şeyi bil.</p></div>
+      <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="about">Hakkımızda</a></li><li><a data-nav="user-agreement">Kullanıcı Sözleşmesi</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+    </div>
+    <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır.</p></div>
+  </div></footer>
+</div>
+
+<!-- ══════════ İŞLETME SÖZLEŞMESİ ══════════ -->
+<div class="page" id="page-biz-agreement">
+  <div class="legal-page">
+    <span class="feat-label">İşletme</span>
+    <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,56px);color:var(--ink);line-height:.95;margin-bottom:8px;">İŞ ORTAKLIĞI VE HİZMET SÖZLEŞMESİ</h1>
+    <p style="font-size:14px;color:var(--fade);margin-bottom:40px;">Sürüm: 1.6 — Tarih: 05.01.2026</p>
+    <h2>1. TARAFLAR</h2>
+    <p>Hizmet Sağlayıcı: Cafinder. İş Ortağı: Uygulama veya web paneli üzerinden sisteme kaydolan ve onaylanan ticari işletme.</p>
+    <h2>2. YETKİ VE İRADE BEYANI</h2>
+    <p>İşbu sözleşmeyi onaylayan kişi; işletme adına hareket etmeye ve sözleşme yapmaya yasal olarak yetkili olduğunu (şirket sahibi, müdürü veya imza yetkilisi) kabul, beyan ve taahhüt eder.</p>
+    <h2>3. VERİ KULLANIMI VE İÇERİK LİSANSI</h2>
+    <ul>
+      <li>İş ortağı; işletme adı, adresi, menüsü, fiyatları ve mekan fotoğraflarının Cafinder tarafından halka açık yayınlanmasını kabul eder.</li>
+      <li>Sisteme yüklenen görsellerin telif hakkı işletmeye aittir; Cafinder'a süresiz, ücretsiz kullanım lisansı verilir.</li>
+    </ul>
+    <h2>4. İŞ ORTAĞI'NIN YÜKÜMLÜLÜKLERİ</h2>
+    <ul>
+      <li><strong>Ödül Verme Zorunluluğu:</strong> Müdavim sistemiyle ödüle hak kazanan müşteriye vaat edilen ürün/hizmet koşulsuz verilmelidir. "Stok yok" veya "Kampanya bitti" gibi gerekçeler kabul edilmez.</li>
+      <li>Hizmet kusuru veya ödülü vermeme nedeniyle Cafinder'a yöneltilecek tazminat talepleri işletmeye rücu edilir.</li>
+      <li>Uygulamadaki fiyat, adres ve çalışma saati bilgilerinin güncelliğinden bizzat işletme sorumludur.</li>
+    </ul>
+    <h2>5. HİZMET BEDELİ VE ÖDEME KOŞULLARI</h2>
+    <ul>
+      <li>Temel listeleme hizmeti şu an ücretsizdir.</li>
+      <li>Premium abonelik ve reklam paketleri App Store / Google Play üzerinden satın alınır.</li>
+      <li>İade süreçleri ilgili mağazanın (Apple/Google) koşullarına tabidir; Cafinder'ın doğrudan iade yetkisi yoktur.</li>
+      <li>Cafinder, ücretli reklam hizmetlerinde belirli sayıda müşteri veya ciro artışı garantisi vermez.</li>
+    </ul>
+    <h2>6. SORUMLULUK SINIRLARI</h2>
+    <p>Cafinder; siber saldırı, Google Cloud kesintileri veya anlık veri kayıpları durumunda kendi ağır kusuru dışında doğacak zararlardan sorumlu tutulamaz.</p>
+    <h2>7. SÖZLEŞMENİN FESHİ VE YAPTIRIMLAR</h2>
+    <ul>
+      <li>Cafinder; hileli işlem, ödül vermeme veya marka itibarını zedeleme durumlarında sözleşmeyi anında, tazminatsız feshedebilir.</li>
+      <li>Kural ihlali nedeniyle kapatılan hesabın kalan abonelik bakiyesi iade edilmez.</li>
+    </ul>
+    <h2>8. DELİL SÖZLEŞMESİ</h2>
+    <p>Uyuşmazlıklarda Cafinder'ın veritabanı kayıtları, sunucu logları ve Store işlem makbuzları HMK Madde 193 uyarınca kesin delil kabul edilir.</p>
+    <h2>9. YETKİLİ MAHKEME</h2>
+    <p>Sakarya Mahkemeleri ve İcra Daireleri yetkilidir.</p>
+  </div>
+  <footer><div class="ft">
+    <div class="ft-top">
+      <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden önce her şeyi bil.</p></div>
+      <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="about">Hakkımızda</a></li><li><a data-nav="biz-kvkk">KVKK (İşletme)</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+    </div>
+    <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır.</p></div>
+  </div></footer>
+</div>
+
+<!-- ══════════ KVKK İŞLETME ══════════ -->
+<div class="page" id="page-biz-kvkk">
+  <div class="legal-page">
+    <span class="feat-label">İşletme</span>
+    <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,56px);color:var(--ink);line-height:.95;margin-bottom:8px;">İŞ ORTAĞI KVKK</h1>
+    <p style="font-size:13px;color:var(--fade);margin-bottom:8px;">İşletme Kişisel Verilerinin İşlenmesine İlişkin Aydınlatma ve Açık Rıza Metni</p>
+    <p style="font-size:14px;color:var(--fade);margin-bottom:40px;">Sürüm: 1.5 — Tarih: 05.01.2026</p>
+    <h2>1. VERİ SORUMLUSU</h2>
+    <p>6698 sayılı KVKK uyarınca iş ortağı işletme yetkililerinin kişisel verileri, veri sorumlusu sıfatıyla Cafinder tarafından işlenmektedir.</p>
+    <h2>2. İŞLENEN VERİ KATEGORİLERİ</h2>
+    <ul>
+      <li><strong>Kimlik Bilgileri:</strong> İşletme yetkilisi adı-soyadı (şahıs işletmeleri için TCKN faturalandırma gereği)</li>
+      <li><strong>İletişim Bilgileri:</strong> Cep telefonu, işletme e-postası</li>
+      <li><strong>Alenileştirilen İşletme Verileri:</strong> Ticari unvan, adres, konum, fotoğraflar, menü (platformda halka açık yayınlanır)</li>
+      <li><strong>Finansal Bilgiler:</strong> Abonelik paketi, ödeme tarihi, Store işlem numarası (kredi kartı bilgileri Cafinder sistemlerinde ASLA saklanmaz)</li>
+      <li><strong>Hukuki Bilgiler:</strong> Vergi numarası, vergi dairesi (işletme doğrulama için)</li>
+      <li><strong>İşlem Güvenliği:</strong> IP adresi, giriş-çıkış logları (5651 sayılı Kanun gereği)</li>
+    </ul>
+    <h2>3. İŞLENME AMAÇLARI</h2>
+    <ul>
+      <li>İşletmenin Cafinder'da listelenmesi ve müşterilere tanıtılması</li>
+      <li>Premium hizmetlerin aktif edilmesi ve abonelik yönetimi</li>
+      <li>Sahte işletme hesaplarının önlenmesi</li>
+      <li>Vergi Usul Kanunu ve TTK gereği ticari kayıtların tutulması</li>
+    </ul>
+    <h2>4. VERİLERİN AKTARIMI</h2>
+    <ul>
+      <li><strong>Son Kullanıcılar:</strong> Sadece işletme adı, adresi, menüsü ve fotoğrafları (yetkili şahsi telefonu paylaşılmaz)</li>
+      <li><strong>Ödeme Platformları:</strong> Apple Inc. ve Google LLC (abonelik durumu sorgulaması için)</li>
+      <li><strong>Resmi Makamlar:</strong> Maliye Bakanlığı, savcılık ve mahkemeler</li>
+    </ul>
+    <h2>5. SAKLAMA SÜRELERİ</h2>
+    <ul>
+      <li>Üyelik devam ettiği sürece veriler işlenir</li>
+      <li>Finansal veriler (fatura/işlem kayıtları) Vergi Usul Kanunu gereği 10 yıl saklanır</li>
+      <li>Diğer kişisel veriler üyelik silinmesinin ardından yasal süre bitiminde imha edilir</li>
+    </ul>
+    <h2>6. AÇIK RIZA</h2>
+    <p>Verileriniz teknik zorunluluk gereği Google Cloud ve Firebase (ABD/AB) sunucularında, ödemeleriniz Apple ve Google küresel ödeme sistemleri aracılığıyla işlenir. İşbu metni onaylayarak bu aktarımlara açık rıza göstermiş sayılırsınız.</p>
+    <h2>7. HAKLARINIZ VE BAŞVURU</h2>
+    <p>KVKK Madde 11 kapsamındaki taleplerinizi <strong>cafinderisletme@gmail.com</strong> adresine iletebilirsiniz.</p>
+  </div>
+  <footer><div class="ft">
+    <div class="ft-top">
+      <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden önce her şeyi bil.</p></div>
+      <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="about">Hakkımızda</a></li><li><a data-nav="biz-agreement">İşletme Sözleşmesi</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+    </div>
+    <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır.</p></div>
+  </div></footer>
+</div>
+
+<!-- ══════════ GİZLİLİK POLİTİKASI ══════════ -->
+<div class="page" id="page-privacy">
+  <div style="padding:120px 48px 80px;max-width:800px;margin:0 auto;">
+    <span class="feat-label">Yasal</span>
+    <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,64px);color:var(--ink);line-height:.95;margin-bottom:24px;">GİZLİLİK<br>POLİTİKASI</h1>
+    <p style="font-size:14px;color:var(--fade);margin-bottom:48px;">Son güncelleme: Mart 2026</p>
+
+    <div style="display:flex;flex-direction:column;gap:40px;">
+
+      <div>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--ink);margin-bottom:12px;letter-spacing:.5px;">1. GENEL BİLGİ</h2>
+        <p style="font-size:15px;color:var(--ink2);line-height:1.8;">Cafinder ("uygulama", "biz") olarak kullanıcılarımızın gizliliğine önem veriyoruz. Bu politika, uygulamamızı ve web sitemizi (cafinder.com.tr) kullanırken hangi verileri topladığımızı, nasıl kullandığımızı ve koruduğumuzu açıklar.</p>
+      </div>
+
+      <div>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--ink);margin-bottom:12px;letter-spacing:.5px;">2. TOPLANAN VERİLER</h2>
+        <p style="font-size:15px;color:var(--ink2);line-height:1.8;margin-bottom:12px;">Cafinder aşağıdaki verileri toplayabilir:</p>
+        <ul style="font-size:15px;color:var(--ink2);line-height:2;padding-left:20px;">
+          <li><strong>Konum verisi</strong> — yakınındaki kafeleri göstermek için (yalnızca uygulama açıkken, izin verirsen)</li>
+          <li><strong>Hesap bilgileri</strong> — ad, e-posta (kayıt olursan)</li>
+          <li><strong>Uygulama kullanım verisi</strong> — favori mekanlar, arama geçmişi, müdavim puanları</li>
+          <li><strong>İşletme başvuru formu</strong> — kafe adı, iletişim bilgileri, şehir (yalnızca işletme başvurusunda)</li>
+          <li><strong>Cihaz bilgisi</strong> — işletim sistemi, uygulama sürümü (hata takibi için)</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--ink);margin-bottom:12px;letter-spacing:.5px;">3. VERİLERİN KULLANIMI</h2>
+        <p style="font-size:15px;color:var(--ink2);line-height:1.8;margin-bottom:12px;">Topladığımız verileri şu amaçlarla kullanırız:</p>
+        <ul style="font-size:15px;color:var(--ink2);line-height:2;padding-left:20px;">
+          <li>Kişiselleştirilmiş kafe önerileri sunmak</li>
+          <li>Müdavim sadakat sistemini yönetmek</li>
+          <li>Uygulama performansını iyileştirmek</li>
+          <li>İşletme başvurularını değerlendirmek</li>
+          <li>Güvenlik ve dolandırıcılık önleme</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--ink);margin-bottom:12px;letter-spacing:.5px;">4. VERİ PAYLAŞIMI</h2>
+        <p style="font-size:15px;color:var(--ink2);line-height:1.8;">Kişisel verilerinizi <strong>üçüncü taraflarla satmıyoruz.</strong> Yalnızca aşağıdaki durumlarda paylaşım yapılabilir:</p>
+        <ul style="font-size:15px;color:var(--ink2);line-height:2;padding-left:20px;margin-top:12px;">
+          <li><strong>Firebase (Google)</strong> — veri tabanı ve kimlik doğrulama altyapısı</li>
+          <li><strong>Yasal zorunluluk</strong> — mahkeme kararı veya yasal düzenleme gerektirirse</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--ink);margin-bottom:12px;letter-spacing:.5px;">5. KONUM VERİSİ</h2>
+        <p style="font-size:15px;color:var(--ink2);line-height:1.8;">Konum verinizi yalnızca yakınındaki kafeleri göstermek için kullanırız. Konum erişimini istediğin zaman cihaz ayarlarından kapatabilirsin. Konum verinizi üçüncü taraflarla paylaşmıyoruz.</p>
+      </div>
+
+      <div>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--ink);margin-bottom:12px;letter-spacing:.5px;">6. VERİ GÜVENLİĞİ</h2>
+        <p style="font-size:15px;color:var(--ink2);line-height:1.8;">Verileriniz Firebase altyapısında şifreli olarak saklanır. Firebase, Google'ın güvenlik standartlarına tabidir ve endüstri standardı şifreleme yöntemleri kullanır.</p>
+      </div>
+
+      <div>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--ink);margin-bottom:12px;letter-spacing:.5px;">7. KULLANICI HAKLARI</h2>
+        <p style="font-size:15px;color:var(--ink2);line-height:1.8;margin-bottom:12px;">KVKK kapsamında aşağıdaki haklara sahipsiniz:</p>
+        <ul style="font-size:15px;color:var(--ink2);line-height:2;padding-left:20px;">
+          <li>Verilerinize erişim talep etme</li>
+          <li>Verilerinizin düzeltilmesini isteme</li>
+          <li>Verilerinizin silinmesini talep etme</li>
+          <li>Veri işlemeye itiraz etme</li>
+        </ul>
+        <p style="font-size:15px;color:var(--ink2);line-height:1.8;margin-top:12px;">Talepleriniz için: <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9ef7f2fbeaf7edf7f3defdfff8f7f0fafbecb0fdf1f3b0eaec">[email&#160;protected]</a></strong></p>
+      </div>
+
+      <div>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--ink);margin-bottom:12px;letter-spacing:.5px;">8. ÇEREZLER</h2>
+        <p style="font-size:15px;color:var(--ink2);line-height:1.8;">Web sitemiz (cafinder.com.tr) herhangi bir izleme çerezi kullanmamaktadır.</p>
+      </div>
+
+      <div>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--ink);margin-bottom:12px;letter-spacing:.5px;">9. DEĞİŞİKLİKLER</h2>
+        <p style="font-size:15px;color:var(--ink2);line-height:1.8;">Bu politikayı zaman zaman güncelleyebiliriz. Önemli değişikliklerde uygulama içi bildirim göndeririz. Güncel politikaya her zaman cafinder.com.tr/gizlilik adresinden ulaşabilirsin.</p>
+      </div>
+
+      <div style="padding:28px 32px;background:var(--sand2);border-radius:16px;border:1px solid rgba(26,18,8,.06);">
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--ink);margin-bottom:8px;letter-spacing:.5px;">İLETİŞİM</h3>
+        <p style="font-size:15px;color:var(--ink2);line-height:1.8;">Gizlilik politikamız hakkında sorularınız için:<br>
+        <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2940454c5d405a4044694a484f40474d4c5b074a4644075d5b">[email&#160;protected]</a></strong><br>
+        <strong>cafinder.com.tr</strong></p>
+      </div>
+
+    </div>
+  </div>
+  <footer><div class="ft">
+    <div class="ft-top">
+      <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden önce her şeyi bil.</p></div>
+      <div class="ft-col"><h5>Sayfalar</h5><ul><li><a data-nav="home">Ana Sayfa</a></li><li><a data-nav="feats">Özellikler</a></li><li><a data-nav="algo">Algoritma</a></li></ul></div>
+      <div class="ft-col"><h5>İşletmeler</h5><ul><li><a data-nav="biz">Başvuru Yap</a></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+    </div>
     <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır.</p></div>
   </div></footer>
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 <script>
@@ -1276,11 +1670,4 @@ document.addEventListener("submit", function(e) {
     var r = cluster.getBoundingClientRect();
     tilt(e.clientX-(r.left+r.width/2), e.clientY-(r.top+r.height/2));
   });
-  cluster.addEventListener("mouseleave", function(){ if(!dragging) reset(); });
-  cluster.addEventListener("touchstart", function(e){ ox=e.touches[0].clientX; oy=e.touches[0].clientY; }, {passive:true});
-  cluster.addEventListener("touchmove", function(e){ tilt(e.touches[0].clientX-ox, e.touches[0].clientY-oy); }, {passive:true});
-  cluster.addEventListener("touchend", reset);
-})();
-</script>
-</body>
-</html>
+  cluster.addEventListener("mouseleave", function
