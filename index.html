@@ -453,6 +453,15 @@ footer{background:var(--blk);padding:56px 48px 36px;}
   .store-btns{gap:8px;}
 }
 
+/* FOOTER KURUMSAL KUTU */
+.ft-kurumsal{border-top:1px solid rgba(255,255,255,.06);padding-top:20px;margin-bottom:16px;}
+.ft-kurumsal-btn{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.25);cursor:pointer;user-select:none;transition:color .2s;}
+.ft-kurumsal-btn:hover{color:rgba(255,255,255,.5);}
+.ft-kurumsal-menu{display:none;flex-wrap:wrap;gap:6px 16px;margin-top:14px;}
+.ft-kurumsal.open .ft-kurumsal-menu{display:flex;}
+.ft-kurumsal-menu a{font-size:12.5px;color:rgba(255,255,255,.28);cursor:pointer;text-decoration:none;transition:color .15s;white-space:nowrap;}
+.ft-kurumsal-menu a:hover{color:rgba(255,255,255,.6);}
+
 /* NAV DROPDOWN */
 .nav-dropdown{position:relative;display:flex;align-items:center;}
 .nav-dropdown-btn{font-size:13px;font-weight:500;color:var(--fade);padding:6px 14px;border-radius:6px;cursor:pointer;transition:color .15s;user-select:none;white-space:nowrap;}
@@ -488,17 +497,6 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
     <a data-nav="muda">Müdavim</a>
     <a data-nav="club">Kararsızlar Kulübü</a>
     <a data-nav="biz">İşletmeler</a>
-    <div class="nav-dropdown">
-      <span class="nav-dropdown-btn">Kurumsal ▾</span>
-      <div class="nav-dropdown-menu">
-        <a data-nav="about">Hakkımızda</a>
-        <a data-nav="user-agreement">Kullanıcı Sözleşmesi</a>
-        <a data-nav="user-kvkk">KVKK (Kullanıcı)</a>
-        <a data-nav="biz-agreement">İşletme Sözleşmesi</a>
-        <a data-nav="biz-kvkk">KVKK (İşletme)</a>
-        <a data-nav="privacy">Gizlilik Politikası</a>
-      </div>
-    </div>
   </div>
   <a class="nav-cta" data-nav="biz">İşletme Başvurusu</a>
   <button class="hamburger" id="hamburger" aria-label="Menü">
@@ -513,12 +511,6 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
   <a data-nav="muda">Müdavim</a>
   <a data-nav="club">Kararsızlar Kulübü</a>
   <a data-nav="biz">İşletmeler</a>
-  <a data-nav="about">Hakkımızda</a>
-  <a data-nav="user-agreement">Kullanıcı Sözleşmesi</a>
-  <a data-nav="user-kvkk">KVKK (Kullanıcı)</a>
-  <a data-nav="biz-agreement">İşletme Sözleşmesi</a>
-  <a data-nav="biz-kvkk">KVKK (İşletme)</a>
-  <a data-nav="privacy">Gizlilik Politikası</a>
   <a class="m-cta" data-nav="biz">İşletme Başvurusu →</a>
 </div>
 
@@ -622,7 +614,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
         <li><a data-nav="muda">Müdavim</a></li>
         <li><a data-nav="club">Kararsızlar Kulübü</a></li>
       </ul></div>
-      <div class="ft-col"><h5>Şirket</h5><ul><li><a>Hakkımızda</a></li><li><a>Gizlilik</a></li><li><a>Kullanım Koşulları</a></li><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+      <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="about">Hakkımızda</a></li><li><a data-nav="user-agreement">Kullanıcı Sözleşmesi</a></li><li><a data-nav="user-kvkk">KVKK (Kullanıcı)</a></li><li><a data-nav="biz-agreement">İşletme Sözleşmesi</a></li><li><a data-nav="biz-kvkk">KVKK (İşletme)</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
     </div>
     <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır.</p><p>cafinderisletme&#64;gmail.com</p></div>
   </div></footer>
@@ -1098,8 +1090,8 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
 
     <div class="legal-info">
       <h3 style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--ink);margin-bottom:12px;letter-spacing:.5px;">BİZE ULAŞIN</h3>
-      <p>📧 İş Birlikleri ve Kurumsal: <strong>cafinderisletme@gmail.com</strong><br>
-      🎧 Kullanıcı Destek: <strong>cafefindertr@gmail.com</strong><br>
+      <p>📧 İş Birlikleri ve Kurumsal: <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7a191b1c13141e1f081309161f0e171f3a1d171b131654191517">[email&#160;protected]</a></strong><br>
+      🎧 Kullanıcı Destek: <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b0d3d1d6d5d6d9ded4d5c2c4c2f0d7ddd1d9dc9ed3dfdd">[email&#160;protected]</a></strong><br>
       📍 Web Sitesi: <strong>www.cafinder.com.tr</strong><br>
       📱 Bizi Takip Edin: <strong>@cafindertr</strong> (Instagram / X)</p>
     </div>
@@ -1108,7 +1100,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
     <div class="ft-top">
       <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden önce her şeyi bil.</p></div>
       <div class="ft-col"><h5>Sayfalar</h5><ul><li><a data-nav="home">Ana Sayfa</a></li><li><a data-nav="feats">Özellikler</a></li><li><a data-nav="biz">İşletmeler</a></li></ul></div>
-      <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="user-agreement">Kullanıcı Sözleşmesi</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
+      <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="about">Hakkımızda</a></li><li><a data-nav="user-agreement">Kullanıcı Sözleşmesi</a></li><li><a data-nav="user-kvkk">KVKK (Kullanıcı)</a></li><li><a data-nav="biz-agreement">İşletme Sözleşmesi</a></li><li><a data-nav="biz-kvkk">KVKK (İşletme)</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
       <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
     </div>
     <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır.</p></div>
@@ -1163,7 +1155,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
   <footer><div class="ft">
     <div class="ft-top">
       <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden önce her şeyi bil.</p></div>
-      <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="about">Hakkımızda</a></li><li><a data-nav="user-kvkk">KVKK (Kullanıcı)</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
+      <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="about">Hakkımızda</a></li><li><a data-nav="user-agreement">Kullanıcı Sözleşmesi</a></li><li><a data-nav="user-kvkk">KVKK (Kullanıcı)</a></li><li><a data-nav="biz-agreement">İşletme Sözleşmesi</a></li><li><a data-nav="biz-kvkk">KVKK (İşletme)</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
       <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
     </div>
     <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır.</p></div>
@@ -1212,12 +1204,12 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
       <li>IP logları 5651 sayılı Kanun gereği asgari 2 yıl saklanır</li>
     </ul>
     <h2>7. İLGİLİ KİŞİNİN HAKLARI VE BAŞVURU</h2>
-    <p>KVKK Madde 11 kapsamındaki taleplerinizi <strong>cafinderisletme@gmail.com</strong> adresine iletebilirsiniz. Uygulama içinden hesabınızı ve verilerinizi anında silebilirsiniz.</p>
+    <p>KVKK Madde 11 kapsamındaki taleplerinizi <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f79496919e999392859e849b92839a92b7909a969e9bd994989a">[email&#160;protected]</a></strong> adresine iletebilirsiniz. Uygulama içinden hesabınızı ve verilerinizi anında silebilirsiniz.</p>
   </div>
   <footer><div class="ft">
     <div class="ft-top">
       <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden önce her şeyi bil.</p></div>
-      <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="about">Hakkımızda</a></li><li><a data-nav="user-agreement">Kullanıcı Sözleşmesi</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
+      <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="about">Hakkımızda</a></li><li><a data-nav="user-agreement">Kullanıcı Sözleşmesi</a></li><li><a data-nav="user-kvkk">KVKK (Kullanıcı)</a></li><li><a data-nav="biz-agreement">İşletme Sözleşmesi</a></li><li><a data-nav="biz-kvkk">KVKK (İşletme)</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
       <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
     </div>
     <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır.</p></div>
@@ -1267,7 +1259,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
   <footer><div class="ft">
     <div class="ft-top">
       <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden önce her şeyi bil.</p></div>
-      <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="about">Hakkımızda</a></li><li><a data-nav="biz-kvkk">KVKK (İşletme)</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
+      <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="about">Hakkımızda</a></li><li><a data-nav="user-agreement">Kullanıcı Sözleşmesi</a></li><li><a data-nav="user-kvkk">KVKK (Kullanıcı)</a></li><li><a data-nav="biz-agreement">İşletme Sözleşmesi</a></li><li><a data-nav="biz-kvkk">KVKK (İşletme)</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
       <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
     </div>
     <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır.</p></div>
@@ -1314,12 +1306,12 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
     <h2>6. AÇIK RIZA</h2>
     <p>Verileriniz teknik zorunluluk gereği Google Cloud ve Firebase (ABD/AB) sunucularında, ödemeleriniz Apple ve Google küresel ödeme sistemleri aracılığıyla işlenir. İşbu metni onaylayarak bu aktarımlara açık rıza göstermiş sayılırsınız.</p>
     <h2>7. HAKLARINIZ VE BAŞVURU</h2>
-    <p>KVKK Madde 11 kapsamındaki taleplerinizi <strong>cafinderisletme@gmail.com</strong> adresine iletebilirsiniz.</p>
+    <p>KVKK Madde 11 kapsamındaki taleplerinizi <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="553634333c3b3130273c263930213830153238343c397b363a38">[email&#160;protected]</a></strong> adresine iletebilirsiniz.</p>
   </div>
   <footer><div class="ft">
     <div class="ft-top">
       <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden önce her şeyi bil.</p></div>
-      <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="about">Hakkımızda</a></li><li><a data-nav="biz-agreement">İşletme Sözleşmesi</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
+      <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="about">Hakkımızda</a></li><li><a data-nav="user-agreement">Kullanıcı Sözleşmesi</a></li><li><a data-nav="user-kvkk">KVKK (Kullanıcı)</a></li><li><a data-nav="biz-agreement">İşletme Sözleşmesi</a></li><li><a data-nav="biz-kvkk">KVKK (İşletme)</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
       <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
     </div>
     <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır.</p></div>
@@ -1426,7 +1418,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
 </div>
 
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 <script>
@@ -1538,13 +1530,24 @@ function closeMobile() {
 }
 
 window.addEventListener("DOMContentLoaded", function() {
-  // data-nav
-  document.querySelectorAll("[data-nav]").forEach(function(el) {
-    el.addEventListener("click", function(e) {
+  // data-nav — event delegation ile tüm sayfayı dinle
+  document.body.addEventListener("click", function(e) {
+    var el = e.target.closest("[data-nav]");
+    if (el) {
       e.preventDefault();
       e.stopPropagation();
       go(el.getAttribute("data-nav"));
-    });
+    }
+  });
+
+  // data-scroll — event delegation
+  document.body.addEventListener("click", function(e) {
+    var el = e.target.closest("[data-scroll]");
+    if (el) {
+      e.preventDefault();
+      var target = document.getElementById(el.getAttribute("data-scroll"));
+      if (target) target.scrollIntoView({behavior:"smooth"});
+    }
   });
 
   // hamburger
@@ -1558,15 +1561,6 @@ window.addEventListener("DOMContentLoaded", function() {
       document.body.style.overflow = mmenu.classList.contains("open") ? "hidden" : "";
     });
   }
-
-  // data-scroll
-  document.querySelectorAll("[data-scroll]").forEach(function(el) {
-    el.addEventListener("click", function(e) {
-      e.preventDefault();
-      var target = document.getElementById(el.getAttribute("data-scroll"));
-      if (target) target.scrollIntoView({ behavior: "smooth" });
-    });
-  });
 
   // nav active başlangıç
   document.querySelectorAll(".nav-links a[data-nav='home']").forEach(function(a){
@@ -1660,14 +1654,4 @@ document.addEventListener("submit", function(e) {
   function reset() {
     if (phL) phL.style.transform = "";
     if (phC) phC.style.transform = "";
-    if (phR) phR.style.transform = "";
-  }
-  cluster.addEventListener("mousedown", function(e){ dragging=true; ox=e.clientX; oy=e.clientY; cluster.style.cursor="grabbing"; });
-  window.addEventListener("mousemove", function(e){ if(dragging) tilt(e.clientX-ox, e.clientY-oy); });
-  window.addEventListener("mouseup", function(){ if(dragging){ dragging=false; cluster.style.cursor=""; reset(); } });
-  cluster.addEventListener("mousemove", function(e){
-    if(dragging) return;
-    var r = cluster.getBoundingClientRect();
-    tilt(e.clientX-(r.left+r.width/2), e.clientY-(r.top+r.height/2));
-  });
-  cluster.addEventListener("mouseleave", function
+    if (phR) phR.style.transf
