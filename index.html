@@ -45,9 +45,19 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opa
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:9999 !important;height:62px;padding:0 48px;
   display:flex;align-items:center;justify-content:space-between;
-  transition:background .4s,border-color .4s;border-bottom:1px solid transparent;
+  transition:background .4s,border-color .4s,color .4s;border-bottom:1px solid transparent;
   pointer-events:auto;}
 nav.scrolled{background:rgba(242,236,224,.96);backdrop-filter:blur(20px);border-bottom-color:rgba(26,18,8,.08);}
+nav.dark-nav{background:rgba(10,8,5,.6);backdrop-filter:blur(20px);border-bottom-color:rgba(255,255,255,.06);}
+nav.dark-nav .nav-links a{color:rgba(255,255,255,.5);}
+nav.dark-nav .nav-links a:hover{color:#fff;}
+nav.dark-nav .nav-links a.active{color:#fff;}
+nav.dark-nav .ft-logo{color:#fff;}
+nav.dark-nav .hamburger span{background:#fff;}
+nav.dark-nav.scrolled{background:rgba(242,236,224,.96);}
+nav.dark-nav.scrolled .nav-links a{color:var(--fade);}
+nav.dark-nav.scrolled .nav-links a.active{color:var(--ink);}
+nav.dark-nav.scrolled .hamburger span{background:var(--ink);}
 .nav-links{display:flex;gap:0;}
 .nav-links a{font-size:13px;font-weight:500;color:var(--fade);padding:6px 14px;border-radius:6px;
   cursor:pointer;transition:color .15s,background .15s;text-decoration:none;user-select:none;}
@@ -1060,7 +1070,16 @@ function go(id) {
     a.classList.toggle("active", a.getAttribute("data-nav") === id);
   });
   var nav = document.getElementById("nav");
-  if (nav) nav.classList.remove("scrolled");
+  if (nav) {
+    nav.classList.remove("scrolled");
+    // Koyu hero'lu sayfalar
+    var darkPages = ["algo", "biz"];
+    if (darkPages.indexOf(id) !== -1) {
+      nav.classList.add("dark-nav");
+    } else {
+      nav.classList.remove("dark-nav");
+    }
+  }
   closeMobile();
 }
 
