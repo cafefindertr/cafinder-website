@@ -37,23 +37,67 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Cafinder",
-    "description": "Şehrin tüm kafelerini keşfet. En iyi kafeler, yorumlar, dijital sadakat sistemi tek uygulamada.",
-    "url": "https://cafinder.com.tr",
-    "applicationCategory": "LifestyleApplication",
-    "operatingSystem": "iOS, Android",
-    "inLanguage": "tr",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "TRY"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Cafinder",
-      "url": "https://cafinder.com.tr"
-    }
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://cafinder.com.tr/#app",
+        "name": "Cafinder",
+        "alternateName": "Cafinder Türkiye",
+        "description": "Türkiye'nin en dürüst kafe keşif ve dijital müdavim kartı uygulaması. İstanbul ve Türkiye genelinde kafeleri keşfet, puanla, favorile ve müdavim kartınla ödül kazan.",
+        "url": "https://cafinder.com.tr",
+        "applicationCategory": "LifestyleApplication",
+        "applicationSubCategory": "Cafe Discovery, Food & Drink, Loyalty Program",
+        "operatingSystem": "iOS, Android",
+        "inLanguage": "tr-TR",
+        "countryOfOrigin": "TR",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "TRY"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Türkiye",
+          "@id": "https://www.wikidata.org/wiki/Q43"
+        },
+        "author": {
+          "@id": "https://cafinder.com.tr/#organization"
+        },
+        "publisher": {
+          "@id": "https://cafinder.com.tr/#organization"
+        },
+        "sameAs": [
+          "https://cafinder.com.tr"
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://cafinder.com.tr/#organization",
+        "name": "Cafinder",
+        "alternateName": "Cafinder Türkiye",
+        "description": "Türkiye merkezli bağımsız bir teknoloji girişimi. Kafe keşif ve dijital sadakat platformu.",
+        "url": "https://cafinder.com.tr",
+        "foundingLocation": {
+          "@type": "Place",
+          "name": "Türkiye",
+          "addressCountry": "TR"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Türkiye",
+          "@id": "https://www.wikidata.org/wiki/Q43"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "iletisim@cafinder.com.tr",
+          "contactType": "customer support",
+          "availableLanguage": "Turkish"
+        },
+        "sameAs": [
+          "https://cafinder.com.tr"
+        ]
+      }
+    ]
   }
   </script>
 
