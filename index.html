@@ -628,31 +628,86 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
 
   <div class="icon-strip">
     <div class="W">
-      <div class="icon-strip-grid rv">
-        <div class="is-item">
-          <div class="is-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
-          <div class="is-title">Keşfet & Ara</div>
-          <div class="is-body">Dilediğin özelliklere göre filtrele ve aradığını bul. WiFi, otopark, daha fazlası — tek bakışta.</div>
-        </div>
-        <div class="is-item">
-          <div class="is-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/><path d="M9 12h6M9 16h4"/></svg></div>
-          <div class="is-title">Dijital Menü</div>
-          <div class="is-body">Kafeye varmadan fiyatları ve menüyü gör. Sürpriz yok, sadece keyif.</div>
-        </div>
-        <div class="is-item">
-          <div class="is-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h.01M18 14h.01M14 18h.01M18 18h.01M21 14h.01M21 18h.01"/></svg></div>
-          <div class="is-title">Müdavim</div>
-          <div class="is-body">Sadakatini puana dönüştür. QR ile biriktir, favori kafende bedava ürün kazan.</div>
-        </div>
-        <div class="is-item">
-          <div class="is-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6v6l4 2"/></svg></div>
-          <div class="is-title">Kararsızlar Kulübü</div>
-          <div class="is-body">Çarkıfelek veya salla-bul. Nereye gideceğini şansın belirlesin.</div>
+      <div style="text-align:center;margin-bottom:56px;" class="rv">
+        <span class="feat-label" style="color:rgba(255,255,255,.35);">Uygulama</span>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,5vw,52px);color:#fff;letter-spacing:1px;line-height:1;">Her şey tek dokunuşta.</div>
+      </div>
+      <div class="rv" style="display:flex;justify-content:center;padding-top:36px;position:relative;">
+        <div style="position:relative;width:360px;">
+
+          <!-- POPUP: Arama -->
+          <div id="popup-search" style="display:none;position:absolute;bottom:90px;left:50%;transform:translateX(-50%);background:#fff;border-radius:20px;padding:20px 24px;width:280px;box-shadow:0 20px 60px rgba(0,0,0,.3);z-index:10;text-align:center;">
+            <div style="font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#5bb3d0;margin-bottom:6px;">Keşfet & Ara</div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--ink);line-height:1;margin-bottom:10px;">ARADIĞIN KAFE<br>PARMAKLARINDA.</div>
+            <p style="font-size:12px;color:var(--fade);margin-bottom:16px;">Filtrele, keşfet, anında bul.</p>
+            <button onclick="go('feats');setTimeout(function(){scrollToSection('sect-search');},300);closeTabPopups();" style="background:#2196f3;color:#fff;border:none;border-radius:10px;padding:10px 24px;font-size:13px;font-weight:600;cursor:pointer;width:100%;">Keşfet →</button>
+          </div>
+
+          <!-- POPUP: Kalp - Favoriler -->
+          <div id="popup-fav" style="display:none;position:absolute;bottom:90px;left:50%;transform:translateX(-50%);background:#fff;border-radius:20px;padding:20px 24px;width:280px;box-shadow:0 20px 60px rgba(0,0,0,.3);z-index:10;text-align:center;">
+            <div style="font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#e07b54;margin-bottom:6px;">Favoriler & Listeler</div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--ink);line-height:1;margin-bottom:10px;">SAĞA KAYDIR,<br>ŞEHRİ CEBİNE AT.</div>
+            <p style="font-size:12px;color:var(--fade);margin-bottom:16px;">Favori mekanlarını listele, koleksiyonlar oluştur.</p>
+            <button onclick="go('feats');setTimeout(function(){scrollToSection('sect-fav');},300);closeTabPopups();" style="background:var(--ink);color:#fff;border:none;border-radius:10px;padding:10px 24px;font-size:13px;font-weight:600;cursor:pointer;width:100%;">Keşfet →</button>
+          </div>
+
+          <!-- POPUP: Bookmark - Yorumlar -->
+          <div id="popup-reviews" style="display:none;position:absolute;bottom:90px;left:50%;transform:translateX(-50%);background:#fff;border-radius:20px;padding:20px 24px;width:280px;box-shadow:0 20px 60px rgba(0,0,0,.3);z-index:10;text-align:center;">
+            <div style="font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Yorumlar & Puanlama</div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--ink);line-height:1;margin-bottom:10px;">GİTTİN,<br>ANLAT.</div>
+            <p style="font-size:12px;color:var(--fade);margin-bottom:16px;">Mekanları puanla, deneyimini paylaş.</p>
+            <button onclick="go('feats');setTimeout(function(){scrollToSection('sect-reviews');},300);closeTabPopups();" style="background:var(--ink);color:#fff;border:none;border-radius:10px;padding:10px 24px;font-size:13px;font-weight:600;cursor:pointer;width:100%;">Keşfet →</button>
+          </div>
+
+          <!-- POPUP: Profil -->
+          <div id="popup-profile" style="display:none;position:absolute;bottom:90px;left:50%;transform:translateX(-50%);background:#fff;border-radius:20px;padding:20px 24px;width:280px;box-shadow:0 20px 60px rgba(0,0,0,.3);z-index:10;text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--ink);letter-spacing:1px;margin-bottom:6px;">CAFİNDER'LI OL</div>
+            <p style="font-size:12px;color:var(--fade);margin-bottom:16px;">Hemen indir, şehri keşfetmeye başla.</p>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <a href="#" class="store-btn dark" style="justify-content:center;">
+                <svg viewBox="0 0 24 24" fill="white" style="width:18px;height:18px;flex-shrink:0;"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.79 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <div class="store-btn-text"><small>App Store'dan İndir</small><strong>iOS</strong></div>
+              </a>
+              <a href="#" class="store-btn light" style="justify-content:center;border:1px solid rgba(26,18,8,.12);">
+                <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px;flex-shrink:0;"><linearGradient id="gp1b" x1="91.3" y1="25.6" x2="225.7" y2="160" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#00A0FF"/><stop offset="1" stop-color="#00E3FF"/></linearGradient><linearGradient id="gp2b" x1="273.8" y1="143.6" x2="95.2" y2="143.6" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFE000"/><stop offset="1" stop-color="#FF9C00"/></linearGradient><linearGradient id="gp3b" x1="114.9" y1="168.4" x2="31.1" y2="251.8" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FF3A44"/><stop offset="1" stop-color="#C31162"/></linearGradient><linearGradient id="gp4b" x1="85.4" y1="118.9" x2="151.8" y2="185.3" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#32A071"/><stop offset="1" stop-color="#00F076"/></linearGradient><path d="M30.8 10.2C19.8 21.9 14 40.3 14 64v384c0 23.7 5.8 42.1 16.8 53.8L33 504l215.2-215.2v-5.1L33 68.5l-2.2-58.3z" fill="url(#gp1b)"/><path d="M320.5 291.5l-71.7-71.7v-5.1l71.8-71.8 1.6.9 85 48.3c24.3 13.8 24.3 36.3 0 50.1l-85 48.3-1.7 1z" fill="url(#gp2b)"/><path d="M322.2 290.5L248.8 217 30.8 435c8 8.5 21.3 9.5 36.2 1.1l255.2-145.6" fill="url(#gp3b)"/><path d="M322.2 143.5L67 -1.1C52.1-9.5 38.8-8.5 30.8 0L248.8 218l73.4-74.5z" fill="url(#gp4b)"/></svg>
+                <div class="store-btn-text"><small>Google Play'den İndir</small><strong>Android</strong></div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Arama butonu -->
+          <div style="position:absolute;top:-36px;left:50%;transform:translateX(-50%);z-index:2;">
+            <div id="tab-search" style="width:68px;height:68px;background:#2196f3;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(33,150,243,.55);border:5px solid #1a1208;transition:transform .2s;cursor:pointer;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </div>
+          </div>
+
+          <!-- Tab bar -->
+          <div style="background:#fff;border-radius:28px;padding:18px 32px 20px;box-shadow:0 -4px 40px rgba(0,0,0,.18),0 20px 60px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:space-between;">
+            <!-- Ev → Algoritma -->
+            <div data-nav="algo" style="display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;transition:transform .15s;" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="#5c3d1e"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22" fill="none" stroke="#5c3d1e" stroke-width="2"/></svg>
+            </div>
+            <!-- Kalp → popup-fav -->
+            <div id="tab-fav" style="display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;transition:transform .15s;" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="#e53935"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <!-- Boşluk -->
+            <div style="width:68px;"></div>
+            <!-- Bookmark → popup-reviews -->
+            <div id="tab-reviews" style="display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;transition:transform .15s;" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">
+              <svg width="22" height="26" viewBox="0 0 24 24" fill="#e6a817"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <!-- Profil → popup-profile -->
+            <div id="tab-profile" style="display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;transition:transform .15s;" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="#4a4a4a"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
-
   <footer><div class="ft">
     <div class="ft-top">
       <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden keşfet, sürpriz yaşama.</p></div>
@@ -683,7 +738,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
   </div>
 
   <!-- Keşfet & Ara -->
-  <div class="feat-split">
+  <div class="feat-split" id="sect-search">
     <div class="feat-phones rv">
       <div class="phone" style="width:210px;height:431px;">
         <div class="phone-screen" style="width:210px;height:431px;">
@@ -697,7 +752,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
       </div>
     </div>
     <div class="rv d1">
-      <span class="feat-label" style="color:#5bb3d0;">Keşfet & Ara</span>
+      <span class="feat-label" id="sect-search" style="color:#5bb3d0;">Keşfet & Ara</span>
       <h2 class="feat-h" style="margin-bottom:16px;">ARADIĞIN MEKANI BULMAK<br>HİÇ BU KADAR<br><em>KOLAY OLMAMIŞTI.</em></h2>
       <p class="feat-p">Bir kafeden beklediğin her şeyi kutucuklara sığdırdık. Karmaşık listeler arasında kaybolma; sadece istediğin özellikleri seç ve şehrin geri kalanını <span style="color:var(--gold);font-weight:600;">Cafinder</span>'a bırak.</p>
       <div class="feat-list" style="gap:10px;">
@@ -752,7 +807,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
       </div>
     </div>
     <div class="rv d1">
-      <span class="feat-label" style="color:#e07b54;">Favoriler & Listeler</span>
+      <span class="feat-label" id="sect-fav" style="color:#e07b54;">Favoriler & Listeler</span>
       <h2 class="feat-h">SAĞA KAYDIR,<br>ŞEHRİ<br><em>CEBİNE AT.</em></h2>
       <p class="feat-p">Kafeler arasında kaybolma. Sevdiğin mekanları sağa kaydırarak favorile, onları farklı başlıklar altında listele. Gitmek istediğin yerleri kategorize et, şehrin tadı en güzel mekanlarla çıkar.</p>
       <div class="feat-list" style="gap:12px;">
@@ -778,7 +833,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
       </div>
     </div>
     <div class="rv d1">
-      <span class="feat-label">Yorumlar & Puanlama</span>
+      <span class="feat-label" id="sect-reviews">Yorumlar & Puanlama</span>
       <h2 class="feat-h" style="margin-bottom:24px;">GERÇEK SESLER,<br><em>DÜRÜST</em><br>YILDIZLAR.</h2>
       <p class="feat-p">Reklamlara değil, müdavimlere güven. Şehrin kahve tutkunlarından gelen yorumları oku, kendi deneyimini puanla. Senin yıldızların mekanları geliştirirken, işletmelerden gelen yanıtlarla interaktif bir keşif dünyasına adım at.</p>
       <div class="feat-list" style="gap:14px;">
@@ -1543,6 +1598,36 @@ window.addEventListener("load", function() {
 </script>
 
 <script>
+function goSection(pageId, sectionId) {
+  go(pageId);
+  setTimeout(function() {
+    var el = document.getElementById(sectionId);
+    if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 100);
+}
+
+function scrollToSection(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var top = el.getBoundingClientRect().top + window.scrollY - 120;
+  window.scrollTo({ top: top, behavior: 'smooth' });
+}
+
+function closeTabPopups() {
+  ['popup-search','popup-fav','popup-reviews','popup-profile'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  });
+}
+
+function togglePopup(id) {
+  var pop = document.getElementById(id);
+  if (!pop) return;
+  var isOpen = pop.style.display !== 'none';
+  closeTabPopups();
+  if (!isOpen) pop.style.display = 'block';
+}
+
 function go(id) {
   if (!id) return;
   var pg = document.getElementById("page-" + id);
@@ -1610,6 +1695,17 @@ window.addEventListener("DOMContentLoaded", function() {
       document.body.style.overflow = mmenu.classList.contains("open") ? "hidden" : "";
     });
   }
+
+  // Tab popup sistemi
+  var tabSearch = document.getElementById('tab-search');
+  var tabFav = document.getElementById('tab-fav');
+  var tabReviews = document.getElementById('tab-reviews');
+  var tabProfile = document.getElementById('tab-profile');
+  if (tabSearch) tabSearch.addEventListener('click', function(e){ e.stopPropagation(); togglePopup('popup-search'); });
+  if (tabFav) tabFav.addEventListener('click', function(e){ e.stopPropagation(); togglePopup('popup-fav'); });
+  if (tabReviews) tabReviews.addEventListener('click', function(e){ e.stopPropagation(); togglePopup('popup-reviews'); });
+  if (tabProfile) tabProfile.addEventListener('click', function(e){ e.stopPropagation(); togglePopup('popup-profile'); });
+  document.addEventListener('click', closeTabPopups);
 
   // nav active başlangıç
   document.querySelectorAll(".nav-links a[data-nav='home']").forEach(function(a){
