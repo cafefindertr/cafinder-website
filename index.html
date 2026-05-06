@@ -372,15 +372,16 @@ nav.dark-nav.scrolled .hamburger span{background:var(--ink);}
 footer{background:var(--blk);padding:56px 48px 36px;}
 .ft{max-width:1200px;margin:0 auto;}
 .ft-top{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:48px;margin-bottom:44px;}
-.ft-logo{font-family:"Bebas Neue",sans-serif;font-size:22px;letter-spacing:1px;color:rgba(255,255,255,.55);margin-bottom:10px;}
+.ft-logo{font-family:"Bebas Neue",sans-serif;font-size:22px;letter-spacing:1px;color:rgba(255,255,255,.75);margin-bottom:10px;}
 .ft-logo span{color:var(--gold);}
-.ft-tagline{font-size:13px;color:rgba(255,255,255,.2);line-height:1.6;max-width:200px;}
-.ft-col h5{font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:14px;}
+.ft-tagline{font-size:13px;color:rgba(255,255,255,.65);line-height:1.6;max-width:200px;}
+.ft-col h5{font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#fff;margin-bottom:14px;}
 .ft-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
-.ft-col a{font-size:13px;color:rgba(255,255,255,.22);text-decoration:none;cursor:pointer;transition:color .15s;}
-.ft-col a:hover{color:rgba(255,255,255,.6);}
-.ft-bot{border-top:1px solid rgba(255,255,255,.06);padding-top:22px;display:flex;justify-content:space-between;}
-.ft-bot p{font-size:12px;color:rgba(255,255,255,.15);}
+.ft-col a,.ft-col span{font-size:13px;color:rgba(255,255,255,.75);text-decoration:none;cursor:pointer;transition:color .15s;}
+.ft-col a:hover{color:#fff;}
+.ft-bot{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;}
+.ft-bot p{font-size:12px;color:#fff;}
+.ft-bot a{color:rgba(255,255,255,.75) !important;}
 
 /* HERO */
 .hero{min-height:100vh;padding:0;display:flex;flex-direction:column;background:var(--sand);position:relative;overflow:hidden;z-index:1;}
@@ -523,6 +524,99 @@ nav.dark-nav .nav-dropdown-btn{color:rgba(255,255,255,.5);}
 nav.dark-nav .nav-dropdown-btn:hover{color:#fff;}
 nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
 
+/* FEATURES STAR BUTTON */
+.feat-star-btn{
+  display:none;
+  cursor:pointer;
+  width:38px;height:38px;
+  align-items:center;justify-content:center;
+  flex-shrink:0;
+  position:fixed;
+  top:150px;
+  right:48px;
+  transition:opacity .2s, transform .2s;
+  z-index:10000;
+}
+.feat-star-btn:hover{opacity:.9; transform:scale(1.05);}
+.feat-star-btn .star-ring{
+  position:absolute;inset:0;border-radius:50%;
+  border:2.5px solid #8b5cf6;
+  box-shadow:0 0 0 3px rgba(139,92,246,.18), 0 4px 16px rgba(139,92,246,.28);
+  background:#6d28d9;
+  animation:ring-pulse 2.8s ease-in-out infinite;
+}
+@keyframes ring-pulse{
+  0%,100%{box-shadow:0 0 0 3px rgba(139,92,246,.18),0 4px 16px rgba(139,92,246,.28);}
+  50%{box-shadow:0 0 0 7px rgba(139,92,246,.10),0 4px 24px rgba(139,92,246,.45);}
+}
+.feat-star-btn svg{position:relative;z-index:1;}
+body.page-feats-active .feat-star-btn{display:flex;}
+
+/* Mobilde hamburger yanına, nav-cta gizlenince */
+@media(max-width:960px){
+  .feat-star-btn{top:100px;right:20px;width:34px;height:34px;}
+}
+.feat-star-popup{
+  display:none;
+  position:fixed;
+  top:200px;
+  right:48px;
+  z-index:99999;
+  width:300px;
+  background:#fff;
+  border-radius:20px;
+  padding:24px 22px 20px;
+  box-shadow:0 20px 60px rgba(139,92,246,.18),0 4px 24px rgba(0,0,0,.12);
+  border:1px solid rgba(139,92,246,.15);
+  animation:popup-in .22s cubic-bezier(.34,1.56,.64,1);
+}
+.feat-star-popup.open{display:block;}
+@keyframes popup-in{
+  from{opacity:0;transform:translateY(-10px) scale(.96);}
+  to{opacity:1;transform:translateY(0) scale(1);}
+}
+.feat-star-popup::before{
+  content:"";position:absolute;top:-8px;right:16px;
+  width:16px;height:16px;background:#fff;
+  border-right:1px solid rgba(139,92,246,.15);
+  border-top:1px solid rgba(139,92,246,.15);
+  transform:rotate(45deg);
+  border-radius:0 2px 0 0;
+}
+.fsp-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(139,92,246,.08);
+  border:1px solid rgba(139,92,246,.2);
+  border-radius:100px;
+  padding:4px 12px;
+  font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;
+  color:#7c3aed;margin-bottom:12px;
+}
+.fsp-title{
+  font-family:"Bebas Neue",sans-serif;
+  font-size:21px;letter-spacing:.5px;
+  color:var(--ink);line-height:1.1;
+  margin-bottom:10px;
+}
+.fsp-title em{color:#8b5cf6;font-style:normal;}
+.fsp-text{
+  font-size:13px;color:var(--fade);line-height:1.7;
+  margin-bottom:16px;
+}
+.fsp-text strong{color:var(--ink2);}
+.fsp-close{
+  position:absolute;top:14px;right:14px;
+  width:26px;height:26px;border-radius:50%;
+  background:rgba(26,18,8,.06);border:none;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:13px;color:var(--fade);
+  transition:background .15s;
+}
+.fsp-close:hover{background:rgba(139,92,246,.12);color:#7c3aed;}
+@media(max-width:768px){
+  .feat-star-popup{right:20px;left:20px;width:auto;top:150px;}
+}
+
 /* LEGAL SAYFALAR */
 .legal-page{padding:120px 48px 80px;max-width:800px;margin:0 auto;}
 .legal-page h2{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--ink);margin:32px 0 10px;letter-spacing:.5px;}
@@ -548,6 +642,12 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
     <a data-nav="biz">İşletmeler</a>
   </div>
   <a class="nav-cta" data-nav="biz">İşletme Başvurusu</a>
+  <div class="feat-star-btn" id="featStarBtn" title="Fırsatlar & Kampanyalar" onclick="toggleFeatStarPopup(event)">
+    <div class="star-ring"></div>
+    <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#ffffff" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+    </svg>
+  </div>
   <button class="hamburger" id="hamburger" aria-label="Menü">
     <span></span><span></span><span></span>
   </button>
@@ -564,7 +664,24 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
 </div>
 
 
-<!-- ══════════ HOME ══════════ -->
+
+<!-- FEATURES STAR POPUP -->
+<div class="feat-star-popup" id="featStarPopup">
+  <button class="fsp-close" onclick="closeFeatStarPopup(event)">✕</button>
+  <div class="fsp-badge">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="#7c3aed"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    Anlık Fırsatlar
+  </div>
+  <div class="fsp-title">ŞEHRİNDEKİ<br><em>FIRSATLAR</em> SENI BEKLIYOR.</div>
+  <p class="fsp-text">
+    Yakınındaki ve şehrindeki <strong>kampanyaları ve özel indirimleri</strong> anında gör.<br><br>
+    <strong>Müdavim özellikli kafeleri</strong> her daim görünürde tut — en sevdiğin mekanlardan hiçbir fırsatı kaçırma.
+  </p>
+  <div style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:rgba(139,92,246,.06);border-radius:12px;border:1px solid rgba(139,92,246,.12);">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="#8b5cf6" stroke-width="2" fill="rgba(139,92,246,.12)"/><circle cx="12" cy="10" r="3" fill="#8b5cf6"/></svg>
+    <span style="font-size:12px;color:#7c3aed;font-weight:600;line-height:1.4;">Konumuna göre filtrelenmiş<br><span style="font-weight:400;color:var(--fade);">Anlık kampanyalar seni bekliyor</span></span>
+  </div>
+</div><!-- ══════════ HOME ══════════ -->
 <div class="page active" id="page-home">
   <div class="hero">
     <div class="hero-body W">
@@ -727,7 +844,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
       </ul></div>
       <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="about">Hakkımızda</a></li><li><a data-nav="user-agreement">Kullanıcı Sözleşmesi</a></li><li><a data-nav="user-kvkk">KVKK (Kullanıcı)</a></li><li><a data-nav="biz-agreement">İşletme Sözleşmesi</a></li><li><a data-nav="biz-kvkk">KVKK (İşletme)</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
     </div>
-    <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır.</p><p>cafinderisletme&#64;gmail.com</p></div>
+    <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır.</p><p>info@cafinder.com.tr</p></div>
   </div></footer>
 </div>
 
@@ -873,7 +990,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
       <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden keşfet, sürpriz yaşama.</p></div>
       <div class="ft-col"><h5>Sayfalar</h5><ul><li><a data-nav="home">Ana Sayfa</a></li><li><a data-nav="algo">Algoritma</a></li><li><a data-nav="muda">Müdavim</a></li><li><a data-nav="club">Kararsızlar Kulübü</a></li></ul></div>
       <div class="ft-col"><h5>İşletmeler</h5><ul><li><a data-nav="biz">Başvuru Yap</a></li></ul></div>
-      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>info@cafinder.com.tr</span></li></ul></div>
     </div>
     <div class="ft-bot"><p>© 2026 Cafinder.</p></div>
   </div></footer>
@@ -946,7 +1063,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
       <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden keşfet, sürpriz yaşama.</p></div>
       <div class="ft-col"><h5>Sayfalar</h5><ul><li><a data-nav="home">Ana Sayfa</a></li><li><a data-nav="feats">Özellikler</a></li><li><a data-nav="muda">Müdavim</a></li></ul></div>
       <div class="ft-col"><h5>İşletmeler</h5><ul><li><a data-nav="biz">Başvuru Yap</a></li></ul></div>
-      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>info@cafinder.com.tr</span></li></ul></div>
     </div>
     <div class="ft-bot"><p>© 2026 Cafinder.</p></div>
   </div></footer>
@@ -1006,7 +1123,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
       <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden keşfet, sürpriz yaşama.</p></div>
       <div class="ft-col"><h5>Sayfalar</h5><ul><li><a data-nav="home">Ana Sayfa</a></li><li><a data-nav="feats">Özellikler</a></li><li><a data-nav="algo">Algoritma</a></li></ul></div>
       <div class="ft-col"><h5>İşletmeler</h5><ul><li><a data-nav="biz">Başvuru Yap</a></li></ul></div>
-      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>info@cafinder.com.tr</span></li></ul></div>
     </div>
     <div class="ft-bot"><p>© 2026 Cafinder.</p></div>
   </div></footer>
@@ -1057,7 +1174,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
       <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden keşfet, sürpriz yaşama.</p></div>
       <div class="ft-col"><h5>Sayfalar</h5><ul><li><a data-nav="home">Ana Sayfa</a></li><li><a data-nav="muda">Müdavim</a></li></ul></div>
       <div class="ft-col"><h5>İşletmeler</h5><ul><li><a data-nav="biz">Başvuru Yap</a></li></ul></div>
-      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>info@cafinder.com.tr</span></li></ul></div>
     </div>
     <div class="ft-bot"><p>© 2026 Cafinder.</p></div>
   </div></footer>
@@ -1074,9 +1191,9 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
         <p style="font-size:16px;color:rgba(255,255,255,.36);line-height:1.75;max-width:400px;margin-bottom:28px;">Cafinder'da reklam değil kalite kazanır. Eşit algoritma, mekanınızı hak ettiği görünürlüğe taşır.</p>
         <div style="display:flex;flex-direction:column;gap:9px;">
           <div style="display:flex;gap:10px;align-items:center;font-size:14px;color:rgba(255,255,255,.5);"><span style="width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0;display:block;"></span>Ziyaret ve favori istatistikleri</div>
-          <div style="display:flex;gap:10px;align-items:center;font-size:14px;color:rgba(255,255,255,.5);"><span style="width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0;display:block;"></span>Kendi sadakat kampanyanı yönet</div>
-          <div style="display:flex;gap:10px;align-items:center;font-size:14px;color:rgba(255,255,255,.5);"><span style="width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0;display:block;"></span>Dijital menü ve galeri yönetimi</div>
+          <div style="display:flex;gap:10px;align-items:center;font-size:14px;color:rgba(255,255,255,.5);"><span style="width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0;display:block;"></span><span style="color:var(--gold);font-weight:600;">Müdavim —</span>&nbsp;Kendi sadakat kampanyanı yönet</div>
           <div style="display:flex;gap:10px;align-items:center;font-size:14px;color:rgba(255,255,255,.5);"><span style="width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0;display:block;"></span>QR ile müdavim sistemi entegrasyonu</div>
+          <div style="display:flex;gap:10px;align-items:center;font-size:14px;color:rgba(255,255,255,.5);"><span style="width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0;display:block;"></span>Dijital menü ve galeri yönetimi</div>
           <div style="display:flex;gap:10px;align-items:center;font-size:14px;color:rgba(255,255,255,.5);"><span style="width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0;display:block;"></span>Eşit algoritmada gerçek görünürlük</div>
         </div>
       </div>
@@ -1095,12 +1212,11 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
   </div>
   <div style="padding:88px 48px;background:var(--sand);">
     <div class="W">
-      <div class="rv" style="margin-bottom:48px;">
-        <span class="feat-label">Başvuru</span>
-        <div id="bform" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5.5vw,72px);letter-spacing:.5px;color:var(--ink);line-height:.9;margin-bottom:12px;">CAFİNDER'A KATIL.</div>
-        <p style="font-size:15.5px;color:var(--fade);">Başvurunu yap, 24 saat içinde seni arayalım.</p>
-      </div>
-      <div class="bf-grid rv d1">
+      <div class="bf-grid rv d1" id="bform">
+        <div>
+          <span class="feat-label">Başvuru</span>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5.5vw,72px);letter-spacing:.5px;color:var(--ink);line-height:.9;margin-bottom:12px;">CAFİNDER'A KATIL.</div>
+          <p style="font-size:15.5px;color:var(--fade);margin-bottom:32px;">Başvurunu yap, 24 saat içinde seni arayalım.</p>
         <form class="cform" id="bizForm">
           <div class="frow">
             <div class="fg"><label>Kafe Adı</label><input id="f-kafe" type="text" placeholder="Kahve Durağı" required></div>
@@ -1148,6 +1264,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
           <div class="fok" id="fok">Başvurunuz alındı. 24 saat içinde sizi arayacağız.</div>
           <div id="ferr" style="display:none;padding:14px;background:rgba(200,50,50,.07);border:1px solid rgba(200,50,50,.2);border-radius:10px;color:#c83232;font-size:14px;font-weight:600;text-align:center;">Bir hata oluştu, lütfen tekrar deneyin.</div>
         </form>
+        </div>
         <div class="bf-aside">
           <h3>NEDEN CAFİNDER?</h3>
           <p>Mekanınıza özel dijital varlık oluşturun. Müşterilerinizle dijital sadakat programı kurun, anlık kampanyalar yönetin.</p>
@@ -1156,6 +1273,63 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
             <div class="bfl">Kolay kurulum, teknik bilgi gerekmez</div>
             <div class="bfl">7/24 destek</div>
           </div>
+          <div style="margin-top:24px;display:flex;flex-direction:column;gap:11px;">
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:13px 15px;background:rgba(200,132,26,.06);border:1px solid rgba(200,132,26,.14);border-radius:12px;">
+              <span style="font-size:17px;flex-shrink:0;">⏰</span>
+              <div><div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px;">Güne & Saate Özel Kampanya</div><div style="font-size:12px;color:var(--fade);line-height:1.5;">İstediğiniz saat aralığında kampanya başlatıp Cafinder kullanıcılarına anında duyurabilirsiniz.</div></div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:13px 15px;background:rgba(200,132,26,.06);border:1px solid rgba(200,132,26,.14);border-radius:12px;">
+              <span style="font-size:17px;flex-shrink:0;">🎉</span>
+              <div><div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px;">Etkinlik Merkezi</div><div style="font-size:12px;color:var(--fade);line-height:1.5;">Etkinlik oluşturun, Cafinder'ın etkinlik merkezinden müşterilerinize kolayca duyurun.</div></div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:13px 15px;background:rgba(200,132,26,.06);border:1px solid rgba(200,132,26,.14);border-radius:12px;">
+              <span style="font-size:17px;flex-shrink:0;">📊</span>
+              <div><div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px;">Cazinder — Z Raporu</div><div style="font-size:12px;color:var(--fade);line-height:1.5;">Günlük uygulama istatistiklerinizi anlık olarak görün; görüntülenme, favori ve etkileşim verilerini takip edin.</div></div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:13px 15px;background:rgba(200,132,26,.06);border:1px solid rgba(200,132,26,.14);border-radius:12px;">
+              <span style="font-size:17px;flex-shrink:0;">💬</span>
+              <div><div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px;">Yorum Yönetimi</div><div style="font-size:12px;color:var(--fade);line-height:1.5;">Müşterilerin yorumlarını görün, doğrudan yanıt atın ve gerçek etkileşime geçin.</div></div>
+            </div>
+          </div>
+          <div style="margin-top:22px;padding:16px 18px;background:var(--sand2);border-radius:12px;border:1px solid rgba(26,18,8,.08);display:flex;align-items:center;gap:12px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="var(--cof)" stroke-width="2"/><polyline points="22,6 12,13 2,6" stroke="var(--cof)" stroke-width="2"/></svg>
+            <div>
+              <div style="font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--fade);margin-bottom:2px;">İletişim</div>
+              <a href="mailto:info@cafinder.com.tr" style="font-size:13.5px;font-weight:700;color:var(--cof);text-decoration:none;">info@cafinder.com.tr</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEDEN CAFİNDER — UZUN METİN -->
+  <div style="padding:88px 48px;background:var(--ink);">
+    <div class="W rv" style="max-width:860px;">
+      <span class="feat-label" style="color:var(--gold2);">Neden Cafinder?</span>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4.5vw,58px);letter-spacing:.5px;color:#fff;line-height:.95;margin-bottom:28px;">DİJİTAL ÇAĞIN<br><span style="color:var(--gold);">AKILLI ORTAĞI.</span></div>
+      <p style="font-size:15.5px;color:rgba(255,255,255,.5);line-height:1.9;margin-bottom:20px;">Geleneksel kafe işletmeciliği, dijital çağın hızına ayak uydurmak zorunda. Artık sadece iyi kahve yapmak yetmiyor; o kahveyi doğru zamanda, doğru kişiye duyurabilmek gerekiyor. Cafinder olarak biz, kafenizle müşterileriniz arasındaki o görünmez bağı dijital bir köprüye dönüştürüyoruz.</p>
+      <p style="font-size:15.5px;color:rgba(255,255,255,.5);line-height:1.9;margin-bottom:40px;">Eski usul kağıt sadakat kartlarının kaybolduğu, müşterilerinizin ne zaman gelip ne zaman gittiğini takip edemediğiniz günleri geride bırakın. Cafinder İş Ortağı Paneli sayesinde, işletmenizin dijital ayak izini saniyeler içinde oluşturabilir, müşteri alışkanlıklarını analiz edebilir ve boş masalarınızı doğru kitleyle doldurabilirsiniz. Biz size sadece bir uygulama sunmuyoruz; kafenizin cebindeki akıllı pazarlama asistanı oluyoruz.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div style="padding:18px 20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;">
+          <div style="font-size:20px;margin-bottom:8px;">🎯</div>
+          <div style="font-size:13.5px;font-weight:700;color:#fff;margin-bottom:4px;">Doğru Kitleye Ulaş</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,.38);line-height:1.55;">Güne ve saate göre kampanya başlatın; kampanyanızı tam o an kafeye gitmeyi düşünen kullanıcılara anında duyurun.</div>
+        </div>
+        <div style="padding:18px 20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;">
+          <div style="font-size:20px;margin-bottom:8px;">💳</div>
+          <div style="font-size:13.5px;font-weight:700;color:#fff;margin-bottom:4px;">Dijital Sadakat, Sıfır Kart</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,.38);line-height:1.55;">QR tabanlı müdavim sistemiyle müşteri bağlılığını ölçün, kağıt kartların dönemi bitti.</div>
+        </div>
+        <div style="padding:18px 20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;">
+          <div style="font-size:20px;margin-bottom:8px;">📊</div>
+          <div style="font-size:13.5px;font-weight:700;color:#fff;margin-bottom:4px;">Veriyle Büyü</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,.38);line-height:1.55;">Cazinder Z Raporu ile günlük istatistiklerinizi görün; hangi saatlerde, kim sizi görüyor, bunu bilin.</div>
+        </div>
+        <div style="padding:18px 20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;">
+          <div style="font-size:20px;margin-bottom:8px;">🌟</div>
+          <div style="font-size:13.5px;font-weight:700;color:#fff;margin-bottom:4px;">Eşit Algoritma</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,.38);line-height:1.55;">Reklam bütçesi değil, gerçek müşteri deneyimi sizi öne çıkarır. Adil ve şeffaf sıralama.</div>
         </div>
       </div>
     </div>
@@ -1165,7 +1339,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
       <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden keşfet, sürpriz yaşama.</p></div>
       <div class="ft-col"><h5>Uygulama</h5><ul><li><a>App Store</a></li><li><a>Google Play</a></li></ul></div>
       <div class="ft-col"><h5>Sayfalar</h5><ul><li><a data-nav="home">Ana Sayfa</a></li><li><a data-nav="feats">Özellikler</a></li><li><a data-nav="muda">Müdavim</a></li></ul></div>
-      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>info@cafinder.com.tr</span></li></ul></div>
     </div>
     <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır. — <a data-nav="privacy" style="color:rgba(255,255,255,.25);text-decoration:none;cursor:pointer;">Gizlilik Politikası</a></p></div>
   </div></footer>
@@ -1212,7 +1386,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
       <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden keşfet, sürpriz yaşama.</p></div>
       <div class="ft-col"><h5>Sayfalar</h5><ul><li><a data-nav="home">Ana Sayfa</a></li><li><a data-nav="feats">Özellikler</a></li><li><a data-nav="biz">İşletmeler</a></li></ul></div>
       <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="about">Hakkımızda</a></li><li><a data-nav="user-agreement">Kullanıcı Sözleşmesi</a></li><li><a data-nav="user-kvkk">KVKK (Kullanıcı)</a></li><li><a data-nav="biz-agreement">İşletme Sözleşmesi</a></li><li><a data-nav="biz-kvkk">KVKK (İşletme)</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
-      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>info@cafinder.com.tr</span></li></ul></div>
     </div>
     <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır.</p></div>
   </div></footer>
@@ -1267,7 +1441,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
     <div class="ft-top">
       <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden keşfet, sürpriz yaşama.</p></div>
       <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="about">Hakkımızda</a></li><li><a data-nav="user-agreement">Kullanıcı Sözleşmesi</a></li><li><a data-nav="user-kvkk">KVKK (Kullanıcı)</a></li><li><a data-nav="biz-agreement">İşletme Sözleşmesi</a></li><li><a data-nav="biz-kvkk">KVKK (İşletme)</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
-      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>info@cafinder.com.tr</span></li></ul></div>
     </div>
     <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır.</p></div>
   </div></footer>
@@ -1321,7 +1495,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
     <div class="ft-top">
       <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden keşfet, sürpriz yaşama.</p></div>
       <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="about">Hakkımızda</a></li><li><a data-nav="user-agreement">Kullanıcı Sözleşmesi</a></li><li><a data-nav="user-kvkk">KVKK (Kullanıcı)</a></li><li><a data-nav="biz-agreement">İşletme Sözleşmesi</a></li><li><a data-nav="biz-kvkk">KVKK (İşletme)</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
-      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>info@cafinder.com.tr</span></li></ul></div>
     </div>
     <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır.</p></div>
   </div></footer>
@@ -1371,7 +1545,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
     <div class="ft-top">
       <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden keşfet, sürpriz yaşama.</p></div>
       <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="about">Hakkımızda</a></li><li><a data-nav="user-agreement">Kullanıcı Sözleşmesi</a></li><li><a data-nav="user-kvkk">KVKK (Kullanıcı)</a></li><li><a data-nav="biz-agreement">İşletme Sözleşmesi</a></li><li><a data-nav="biz-kvkk">KVKK (İşletme)</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
-      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>info@cafinder.com.tr</span></li></ul></div>
     </div>
     <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır.</p></div>
   </div></footer>
@@ -1423,7 +1597,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
     <div class="ft-top">
       <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden keşfet, sürpriz yaşama.</p></div>
       <div class="ft-col"><h5>Kurumsal</h5><ul><li><a data-nav="about">Hakkımızda</a></li><li><a data-nav="user-agreement">Kullanıcı Sözleşmesi</a></li><li><a data-nav="user-kvkk">KVKK (Kullanıcı)</a></li><li><a data-nav="biz-agreement">İşletme Sözleşmesi</a></li><li><a data-nav="biz-kvkk">KVKK (İşletme)</a></li><li><a data-nav="privacy">Gizlilik Politikası</a></li></ul></div>
-      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>info@cafinder.com.tr</span></li></ul></div>
     </div>
     <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır.</p></div>
   </div></footer>
@@ -1522,7 +1696,7 @@ nav.dark-nav.scrolled .nav-dropdown-btn{color:var(--fade);}
       <div><div class="ft-logo">CAF<span>INDER</span></div><p class="ft-tagline">Gitmeden keşfet, sürpriz yaşama.</p></div>
       <div class="ft-col"><h5>Sayfalar</h5><ul><li><a data-nav="home">Ana Sayfa</a></li><li><a data-nav="feats">Özellikler</a></li><li><a data-nav="algo">Algoritma</a></li></ul></div>
       <div class="ft-col"><h5>İşletmeler</h5><ul><li><a data-nav="biz">Başvuru Yap</a></li></ul></div>
-      <div class="ft-col"><h5>İletişim</h5><ul><li><span>iletisim&#64;cafinder.com.tr</span></li></ul></div>
+      <div class="ft-col"><h5>İletişim</h5><ul><li><span>info@cafinder.com.tr</span></li></ul></div>
     </div>
     <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır.</p></div>
   </div></footer>
@@ -1660,7 +1834,39 @@ function go(id) {
     }
   }
   closeMobile();
+  updateFeatStar(id);
 }
+
+function toggleFeatStarPopup(e) {
+  if (e) e.stopPropagation();
+  var popup = document.getElementById('featStarPopup');
+  if (popup) popup.classList.toggle('open');
+}
+function closeFeatStarPopup(e) {
+  if (e) e.stopPropagation();
+  var popup = document.getElementById('featStarPopup');
+  if (popup) popup.classList.remove('open');
+}
+document.addEventListener('click', function(e) {
+  var popup = document.getElementById('featStarPopup');
+  var btn = document.getElementById('featStarBtn');
+  if (popup && popup.classList.contains('open')) {
+    if (!popup.contains(e.target) && (!btn || !btn.contains(e.target))) {
+      popup.classList.remove('open');
+    }
+  }
+});
+
+function updateFeatStar(id) {
+  var popup = document.getElementById('featStarPopup');
+  if (popup) popup.classList.remove('open');
+  if (id === 'feats') {
+    document.body.classList.add('page-feats-active');
+  } else {
+    document.body.classList.remove('page-feats-active');
+  }
+}
+
 
 function closeMobile() {
   var hbtn = document.getElementById("hamburger");
