@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="apple-touch-icon" href="../images/favicon.png">
+
+  <title>Cafinder'ı İndir — iOS & Android</title>
+  <meta name="description" content="Cafinder uygulamasını ücretsiz indir. Şehrindeki kafeleri keşfet, müdavim kartını yönet, kampanyaları yakala.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://cafinder.com.tr/download">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cafinder.com.tr/download">
+  <meta property="og:title" content="Cafinder'ı İndir — iOS & Android">
+  <meta property="og:description" content="Şehrindeki kafeleri keşfet, müdavim kartını yönet, kampanyaları yakala. Ücretsiz indir.">
+  <meta property="og:image" content="https://cafinder.com.tr/images/og-image.jpg">
+  <meta property="og:locale" content="tr_TR">
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+      --sand:#f2ece0; --ink:#1a1208; --ink2:#3d2e1a;
+      --fade:#8c7a62; --cof:#7a3d0a; --gold:#c8841a;
+      --gold2:#e8a832; --wh:#ffffff; --blk:#0f0b06;
+    }
+    html,body{height:100%;-webkit-font-smoothing:antialiased;}
+    body{
+      background:var(--blk);
+      font-family:"DM Sans",sans-serif;
+      color:#fff;
+      display:flex;flex-direction:column;
+      min-height:100vh;
+    }
+    body::before{
+      content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:radial-gradient(ellipse at 50% 0%,rgba(200,132,26,.13) 0%,transparent 60%),
+                 radial-gradient(ellipse at 80% 80%,rgba(139,92,246,.07) 0%,transparent 50%);
+    }
+    /* NAV */
+    nav{
+      position:relative;z-index:10;
+      padding:0 48px;height:62px;
+      display:flex;align-items:center;justify-content:space-between;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .logo{
+      font-family:"Bebas Neue",sans-serif;font-size:24px;letter-spacing:1px;
+      text-decoration:none;
+    }
+    .logo span:first-child{color:#fff;}
+    .logo span:last-child{color:var(--gold);}
+    .back-btn{
+      font-size:13px;font-weight:500;color:rgba(255,255,255,.4);
+      text-decoration:none;display:flex;align-items:center;gap:6px;
+      transition:color .15s;
+    }
+    .back-btn:hover{color:rgba(255,255,255,.75);}
+    .back-btn svg{width:16px;height:16px;}
+
+    /* MAIN */
+    main{
+      flex:1;display:flex;flex-direction:column;align-items:center;
+      justify-content:center;padding:60px 24px;
+      position:relative;z-index:1;
+      text-align:center;
+    }
+    .pre-label{
+      font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;
+      color:var(--gold);margin-bottom:20px;
+      display:flex;align-items:center;justify-content:center;gap:8px;
+    }
+    .pre-label::before,.pre-label::after{content:"";width:20px;height:1.5px;background:var(--gold);}
+    h1{
+      font-family:"Bebas Neue",sans-serif;
+      font-size:clamp(48px,10vw,100px);
+      letter-spacing:1px;line-height:.9;
+      margin-bottom:16px;
+    }
+    h1 em{color:var(--gold);font-style:normal;}
+    .subtitle{
+      font-size:clamp(15px,2vw,18px);
+      color:rgba(255,255,255,.4);
+      line-height:1.7;max-width:440px;
+      margin:0 auto 56px;
+    }
+
+    /* STORE CARDS */
+    .store-cards{
+      display:flex;gap:20px;flex-wrap:wrap;justify-content:center;
+      margin-bottom:56px;
+    }
+    .store-card{
+      display:flex;flex-direction:column;align-items:center;
+      background:rgba(255,255,255,.04);
+      border:1.5px solid rgba(255,255,255,.1);
+      border-radius:24px;
+      padding:40px 36px 36px;
+      width:260px;
+      text-decoration:none;
+      transition:transform .2s,border-color .2s,background .2s;
+      cursor:pointer;
+    }
+    .store-card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(200,132,26,.4);
+      background:rgba(200,132,26,.06);
+    }
+    .store-card-icon{
+      width:72px;height:72px;
+      background:rgba(255,255,255,.07);
+      border-radius:18px;
+      display:flex;align-items:center;justify-content:center;
+      margin-bottom:20px;
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .store-card-icon svg{width:38px;height:38px;}
+    .store-card-label{
+      font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+      color:rgba(255,255,255,.35);margin-bottom:6px;
+    }
+    .store-card-name{
+      font-family:"Bebas Neue",sans-serif;
+      font-size:28px;letter-spacing:.5px;color:#fff;
+      margin-bottom:10px;line-height:1;
+    }
+    .store-card-sub{
+      font-size:13px;color:rgba(255,255,255,.3);line-height:1.5;text-align:center;
+    }
+    .store-card-btn{
+      margin-top:24px;
+      background:var(--gold);color:var(--blk);
+      font-family:"DM Sans",sans-serif;font-size:13.5px;font-weight:700;
+      padding:11px 28px;border-radius:100px;
+      border:none;cursor:pointer;
+      transition:background .15s;
+      text-decoration:none;display:inline-block;
+    }
+    .store-card-btn:hover{background:var(--gold2);}
+    .store-card.ios .store-card-btn{background:#fff;color:var(--blk);}
+    .store-card.ios .store-card-btn:hover{background:var(--sand);}
+    .store-card.android .store-card-btn{background:var(--gold);color:var(--blk);}
+
+    /* BADGE ROW (küçük mağaza butonları) */
+    .badge-row{
+      display:flex;gap:12px;flex-wrap:wrap;justify-content:center;
+      margin-bottom:48px;
+    }
+    .badge-btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 20px;border-radius:11px;text-decoration:none;
+      border:1.5px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      transition:transform .2s,border-color .2s;
+    }
+    .badge-btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.28);}
+    .badge-btn svg{width:22px;height:22px;flex-shrink:0;}
+    .badge-btn-text{display:flex;flex-direction:column;}
+    .badge-btn-text small{font-size:10px;color:rgba(255,255,255,.35);line-height:1;margin-bottom:1px;}
+    .badge-btn-text strong{font-size:14px;color:#fff;font-weight:700;letter-spacing:-.2px;line-height:1.2;}
+
+    /* FEATURES STRIP */
+    .feat-strip{
+      display:flex;gap:8px;flex-wrap:wrap;justify-content:center;
+      margin-top:8px;
+    }
+    .feat-chip{
+      display:flex;align-items:center;gap:6px;
+      padding:6px 14px;border-radius:100px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      font-size:12px;color:rgba(255,255,255,.45);
+    }
+    .feat-chip::before{content:"";width:5px;height:5px;background:var(--gold);border-radius:50%;flex-shrink:0;}
+
+    /* FOOTER */
+    footer{
+      position:relative;z-index:1;
+      text-align:center;padding:20px 24px 28px;
+      border-top:1px solid rgba(255,255,255,.05);
+    }
+    footer p{font-size:12px;color:rgba(255,255,255,.2);}
+    footer a{color:rgba(255,255,255,.35);text-decoration:none;transition:color .15s;}
+    footer a:hover{color:rgba(255,255,255,.65);}
+
+    @media(max-width:600px){
+      nav{padding:0 20px;}
+      .store-cards{flex-direction:column;align-items:center;}
+      .store-card{width:100%;max-width:320px;}
+      h1{font-size:clamp(44px,14vw,72px);}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://cafinder.com.tr" class="logo">
+    <span>CAF</span><span>INDER</span>
+  </a>
+  <a href="https://cafinder.com.tr" class="back-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Anasayfa
+  </a>
+</nav>
+
+<main>
+  <div class="pre-label">Ücretsiz İndir</div>
+
+  <h1>KAFE KEŞFİNE<br><em>HAZIR MISIN?</em></h1>
+
+  <p class="subtitle">
+    Şehrindeki en iyi kafeleri keşfet, müdavim kartını yönet ve fırsatları anında yakala.
+  </p>
+
+  <div class="store-cards">
+    <!-- App Store -->
+    <a href="#" class="store-card ios">
+      <div class="store-card-icon">
+        <svg viewBox="0 0 24 24" fill="white">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.79 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+        </svg>
+      </div>
+      <div class="store-card-label">iPhone & iPad</div>
+      <div class="store-card-name">APP STORE</div>
+      <div class="store-card-sub">iOS 15.0 ve üzeri<br>için optimize edildi</div>
+      <span class="store-card-btn">App Store'dan İndir</span>
+    </a>
+
+    <!-- Google Play -->
+    <a href="#" class="store-card android">
+      <div class="store-card-icon">
+        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <linearGradient id="gp1" x1="91.3" y1="25.6" x2="225.7" y2="160" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#00A0FF"/><stop offset="1" stop-color="#00E3FF"/></linearGradient>
+          <linearGradient id="gp2" x1="273.8" y1="143.6" x2="95.2" y2="143.6" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFE000"/><stop offset="1" stop-color="#FF9C00"/></linearGradient>
+          <linearGradient id="gp3" x1="114.9" y1="168.4" x2="31.1" y2="251.8" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FF3A44"/><stop offset="1" stop-color="#C31162"/></linearGradient>
+          <linearGradient id="gp4" x1="85.4" y1="118.9" x2="151.8" y2="185.3" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#32A071"/><stop offset="1" stop-color="#00F076"/></linearGradient>
+          <path d="M30.8 10.2C19.8 21.9 14 40.3 14 64v384c0 23.7 5.8 42.1 16.8 53.8L33 504l215.2-215.2v-5.1L33 68.5l-2.2-58.3z" fill="url(#gp1)"/>
+          <path d="M320.5 291.5l-71.7-71.7v-5.1l71.8-71.8 1.6.9 85 48.3c24.3 13.8 24.3 36.3 0 50.1l-85 48.3-1.7 1z" fill="url(#gp2)"/>
+          <path d="M322.2 290.5L248.8 217 30.8 435c8 8.5 21.3 9.5 36.2 1.1l255.2-145.6" fill="url(#gp3)"/>
+          <path d="M322.2 143.5L67 -1.1C52.1-9.5 38.8-8.5 30.8 0L248.8 218l73.4-74.5z" fill="url(#gp4)"/>
+        </svg>
+      </div>
+      <div class="store-card-label">Android</div>
+      <div class="store-card-name">GOOGLE PLAY</div>
+      <div class="store-card-sub">Android 8.0 ve üzeri<br>için optimize edildi</div>
+      <span class="store-card-btn">Google Play'den İndir</span>
+    </a>
+  </div>
+
+  <div class="feat-strip">
+    <div class="feat-chip">Ücretsiz</div>
+    <div class="feat-chip">Türkiye Geneli</div>
+    <div class="feat-chip">Müdavim Kartı</div>
+    <div class="feat-chip">Kampanyalar</div>
+    <div class="feat-chip">Kafe Keşif</div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Cafinder. — <a href="https://cafinder.com.tr">cafinder.com.tr</a> — <a href="https://cafinder.com.tr">Gizlilik Politikası</a></p>
+</footer>
+
+</body>
+</html>
