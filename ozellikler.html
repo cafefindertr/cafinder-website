@@ -1,129 +1,136 @@
-!DOCTYPE html
-html lang=tr
-head
-  meta charset=UTF-8
-  meta name=viewport content=width=device-width, initial-scale=1.0
-  titleÖzellikler — Cafindertitle
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Özellikler — Cafinder</title>
   
-  !-- Ortak Tasarım ve Fontlar --
-  link rel=stylesheet href=style.css
-  link href=httpsfonts.googleapis.comcss2family=Bebas+Neue&family=DM+Sanswght@400;500;700&display=swap rel=stylesheet
-head
-body class=page-feats-active !-- Yıldız butonunun görünmesi için gerekli sınıf --
+  <!-- Ortak Tasarım ve Fontlar -->
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-feats-active">
 
-!-- MENÜ (NAV) --
-nav id=nav class=scrolled
-  a href=index.html class=logo-anim
-    span class=logo-part logo-cafeCAFspanspan class=logo-part logo-finderINDERspan
-  a
-  div class=nav-links
-    a href=index.htmlAna Sayfaa
-    a href=ozellikler.html class=activeÖzelliklera
-    a href=algoritma.htmlAlgoritmaa
-    a href=mudavim.htmlMüdavima
-    a href=isletme.htmlİşletmelera
-  div
-  a class=nav-cta href=isletme.htmlİşletme Başvurusua
+<!-- MENÜ (NAV) -->
+<nav id="nav" class="scrolled">
+  <a href="index.html" class="logo-anim">
+    <span class="logo-part logo-cafe">CAF</span><span class="logo-part logo-finder">INDER</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Ana Sayfa</a>
+    <a href="ozellikler.html" class="active">Özellikler</a>
+    <a href="algoritma.html">Algoritma</a>
+    <a href="mudavim.html">Müdavim</a>
+    <a href="isletme.html">İşletmeler</a>
+  </div>
+  <a class="nav-cta" href="isletme.html">İşletme Başvurusu</a>
 
-  !-- ANLIK FIRSATLAR YILDIZ BUTONU --
-  div class=feat-star-btn id=featStarBtn title=Fırsatlar & Kampanyalar onclick=toggleFeatStarPopup(event)
-    div class=star-ringdiv
-    svg width=22 height=22 viewBox=0 0 24 24 fill=#ffffffpath d=M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2zsvg
-  div
+  <!-- ANLIK FIRSATLAR YILDIZ BUTONU -->
+  <div class="feat-star-btn" id="featStarBtn" title="Fırsatlar & Kampanyalar" onclick="toggleFeatStarPopup(event)">
+    <div class="star-ring"></div>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="#ffffff">
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+    </svg>
+  </div>
   
-  button class=hamburger id=hamburgerspanspanspanspanspanspanbutton
-nav
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
 
-!-- FIRSATLAR POPUP (Gizli başlar, yıldıza basınca açılır) --
-div class=feat-star-popup id=featStarPopup
-  button class=fsp-close onclick=closeFeatStarPopup(event)✕button
-  div class=fsp-badgeAnlık Fırsatlardiv
-  div class=fsp-titleŞEHRİNDEKİbremFIRSATLARem SENI BEKLIYOR.div
-  p class=fsp-textYakınındaki strongkampanyaları ve özel indirimleristrong anında gör. En sevdiğin mekanlardan hiçbir fırsatı kaçırma.p
-div
+<!-- FIRSATLAR POPUP -->
+<div class="feat-star-popup" id="featStarPopup">
+  <button class="fsp-close" onclick="closeFeatStarPopup(event)">✕</button>
+  <div class="fsp-badge">Anlık Fırsatlar</div>
+  <div class="fsp-title">ŞEHRİNDEKİ<br><em>FIRSATLAR</em> SENI BEKLIYOR.</div>
+  <p class="fsp-text">Yakınındaki <strong>kampanyaları ve özel indirimleri</strong> anında gör. En sevdiğin mekanlardan hiçbir fırsatı kaçırma.[cite: 1]</p>
+</div>
 
-!-- ÖZELLİKLER İÇERİĞİ --
-div class=page active
-  div class=page-hero style=backgroundvar(--sand);
-    div class=W style=border-bottom1px solid rgba(26,18,8,.08);padding-bottom72px;
-      div class=rv in
-        span class=feat-labelÖzelliklerspan
-        div class=display-xl style=colorvar(--ink);HER DETAYbrspan style=colorvar(--gold);DÜŞÜNÜLDÜ.spandiv
-        p style=font-size17px;colorvar(--fade);line-height1.75;max-width480px;Kafe aramaktan mekanı tanımaya, favorilemeden sadakat kazanmaya kadar tüm adımlarda yanında.p
-      div
-    div
-  div
+<!-- ÖZELLİKLER İÇERİĞİ -->
+<div class="page active">
+  <div class="page-hero" style="background:var(--sand);">
+    <div class="W" style="border-bottom:1px solid rgba(26,18,8,.08);padding-bottom:72px;">
+      <div class="rv in">
+        <span class="feat-label">Özellikler</span>
+        <div class="display-xl" style="color:var(--ink);">HER DETAY<br><span style="color:var(--gold);">DÜŞÜNÜLDÜ.</span></div>
+        <p style="font-size:17px;color:var(--fade);line-height:1.75;max-width:480px;">Kafe aramaktan mekanı tanımaya, favorilemeden sadakat kazanmaya kadar tüm adımlarda yanında.[cite: 1]</p>
+      </div>
+    </div>
+  </div>
 
-  !-- Keşfet & Ara --
-  div class=feat-split
-    div class=feat-phones rv in
-      div class=phone style=width210px;height431px;div class=phone-screenimg src=imagesfeat-search-1.jpg class=phone-imgdivdiv
-      div class=phone style=width210px;height431px;div class=phone-screenimg src=imagesfeat-search-2.jpg class=phone-imgdivdiv
-    div
-    div class=rv in
-      span class=feat-label style=color#5bb3d0;Keşfet & Araspan
-      h2 class=feat-hARADIĞIN MEKANI BULMAKbrHİÇ BU KADARbremKOLAY OLMAMIŞTI.emh2
-      p class=feat-pBir kafeden beklediğin her şeyi kutucuklara sığdırdık. Sadece istediğin özellikleri seç ve şehrin geri kalanını Cafinder'a bırak.p
-      div class=feat-list
-        div class=feat-liŞehrine ve ilçene göre akıllı radardiv
-        div class=feat-liYaşam tarzına uygun özellik filtresi[cite 1]div
-        div class=feat-liAkıllı Keşif Motoru[cite 1]div
-      div
-    div
-  div
+  <!-- Keşfet & Ara -->
+  <div class="feat-split">
+    <div class="feat-phones rv in">
+      <div class="phone" style="width:210px;height:431px;"><div class="phone-screen"><img src="images/feat-search-1.jpg" class="phone-img"></div></div>
+      <div class="phone" style="width:210px;height:431px;"><div class="phone-screen"><img src="images/feat-search-2.jpg" class="phone-img"></div></div>
+    </div>
+    <div class="rv in">
+      <span class="feat-label" style="color:#5bb3d0;">Keşfet & Ara</span>
+      <h2 class="feat-h">ARADIĞIN MEKANI BULMAK<br>HİÇ BU KADAR<br><em>KOLAY OLMAMIŞTI.</em></h2>
+      <p class="feat-p">Bir kafeden beklediğin her şeyi kutucuklara sığdırdık. Sadece istediğin özellikleri seç ve şehrin geri kalanını Cafinder'a bırak.[cite: 1]</p>
+      <div class="feat-list">
+        <div class="feat-li">Şehrine ve ilçene göre akıllı radar[cite: 1]</div>
+        <div class="feat-li">Yaşam tarzına uygun özellik filtresi[cite: 1]</div>
+        <div class="feat-li">Akıllı Keşif Motoru[cite: 1]</div>
+      </div>
+    </div>
+  </div>
 
-  !-- Mekan Detayı --
-  div class=feat-split alt flip
-    div class=feat-phones rv in
-      div class=phone style=width210px;height431px;div class=phone-screenimg src=imagesfeat-detail-1.jpg class=phone-imgdivdiv
-      div class=phone style=width210px;height431px;div class=phone-screenimg src=imagesfeat-detail-2.jpg class=phone-imgdivdiv
-    div
-    div class=rv in
-      span class=feat-labelMekan Detayıspan
-      h2 class=feat-hVARMADANbremHER ŞEYİembrGÖR.h2
-      p class=feat-pSürprizlere yer yok. Mekanın enerjisini, müziğini ve insanlarını gitmeden hisset.[cite 1]p
-      div class=feat-list
-        div class=feat-liWiFi, priz ve otopark detayları[cite 1]div
-        div class=feat-liHayvan dostu alanlar ve atmosfer[cite 1]div
-        div class=feat-liÖdeme ve servis seçenekleri[cite 1]div
-      div
-    div
-  div
+  <!-- Mekan Detayı -->
+  <div class="feat-split alt flip">
+    <div class="feat-phones rv in">
+      <div class="phone" style="width:210px;height:431px;"><div class="phone-screen"><img src="images/feat-detail-1.jpg" class="phone-img"></div></div>
+      <div class="phone" style="width:210px;height:431px;"><div class="phone-screen"><img src="images/feat-detail-2.jpg" class="phone-img"></div></div>
+    </div>
+    <div class="rv in">
+      <span class="feat-label">Mekan Detayı</span>
+      <h2 class="feat-h">VARMADAN<br><em>HER ŞEYİ</em><br>GÖR.</h2>
+      <p class="feat-p">Sürprizlere yer yok. Mekanın enerjisini, müziğini ve insanlarını gitmeden hisset.[cite: 1]</p>
+      <div class="feat-list">
+        <div class="feat-li">WiFi, priz ve otopark detayları[cite: 1]</div>
+        <div class="feat-li">Hayvan dostu alanlar ve atmosfer[cite: 1]</div>
+        <div class="feat-li">Ödeme ve servis seçenekleri[cite: 1]</div>
+      </div>
+    </div>
+  </div>
 
-  !-- Mekan Özellikleri Grid --
-  div style=padding80px 48px;backgroundvar(--sand);
-    div class=W rv in
-      span class=feat-labelMekan Özelliklerispan
-      div style=font-family'Bebas Neue',sans-serif;font-sizeclamp(40px,5vw,64px);colorvar(--ink);margin-bottom36px;FİLTREYİ SEN BELİRLE.div
-      div class=prop-grid
-        div class=propdiv class=prop-tWiFidivpHız bilgisiyle en iyi WiFi'ye sahip kafeleri bul.[cite 1]pdiv
-        div class=propdiv class=prop-tPrizdivpÇalışacaksan priz olan mekanları filtrele.[cite 1]pdiv
-        div class=propdiv class=prop-tHayvan DostudivpEvcil hayvanınla girebileceğin kafeleri keşfet.[cite 1]pdiv
-        div class=propdiv class=prop-tAçık AlandivpBahçesi veya terası olan mekanları gör.[cite 1]pdiv
-        div class=propdiv class=prop-tOyunlardivpOkey, tavla, masa oyunları olan yerleri bul.[cite 1]pdiv
-        div class=propdiv class=prop-tDijital MenüdivpFiyatları gitmeden önce incele.[cite 1]pdiv
-      div
-    div
-  div
-div
+  <!-- Mekan Özellikleri Grid -->
+  <div style="padding:80px 48px;background:var(--sand);">
+    <div class="W rv in">
+      <span class="feat-label">Mekan Özellikleri</span>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,64px);color:var(--ink);margin-bottom:36px;">FİLTREYİ SEN BELİRLE.</div>
+      <div class="prop-grid">
+        <div class="prop"><div class="prop-t">WiFi</div><p>Hız bilgisiyle en iyi WiFi'ye sahip kafeleri bul.[cite: 1]</p></div>
+        <div class="prop"><div class="prop-t">Priz</div><p>Çalışacaksan priz olan mekanları filtrele.[cite: 1]</p></div>
+        <div class="prop"><div class="prop-t">Hayvan Dostu</div><p>Evcil hayvanınla girebileceğin kafeleri keşfet.[cite: 1]</p></div>
+        <div class="prop"><div class="prop-t">Açık Alan</div><p>Bahçesi veya terası olan mekanları gör.[cite: 1]</p></div>
+        <div class="prop"><div class="prop-t">Oyunlar</div><p>Okey, tavla, masa oyunları olan yerleri bul.[cite: 1]</p></div>
+        <div class="prop"><div class="prop-t">Dijital Menü</div><p>Fiyatları gitmeden önce incele.[cite: 1]</p></div>
+      </div>
+    </div>
+  </div>
+</div>
 
-!-- FOOTER --
-footer
-  div class=ft
-    div class=ft-top
-      divdiv class=ft-logoCAFspanINDERspandivp class=ft-taglineGitmeden keşfet, sürpriz yaşama.[cite 1]pdiv
-      div class=ft-colh5Sayfalarh5ul
-        lia href=index.htmlAna Sayfaali
-        lia href=algoritma.htmlAlgoritmaali
-        lia href=mudavim.htmlMüdavimali
-      uldiv
-    div
-    div class=ft-botp© 2026 Cafinder. Tüm hakları saklıdır.pdiv
-  div
-footer
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div class="ft-top">
+      <div>
+        <div class="ft-logo">CAF<span>INDER</span></div>
+        <p class="ft-tagline">Gitmeden keşfet, sürpriz yaşama.[cite: 1]</p>
+      </div>
+      <div class="ft-col">
+        <h5>Sayfalar</h5>
+        <ul>
+          <li><a href="index.html">Ana Sayfa</a></li>
+          <li><a href="algoritma.html">Algoritma</a></li>
+          <li><a href="mudavim.html">Müdavim</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bot"><p>© 2026 Cafinder. Tüm hakları saklıdır.</p></div>
+  </div>
+</footer>
 
-!-- Ortak Fonksiyonlar --
-script src=app.jsscript
+<script src="app.js"></script>
 
-body
-html
+</body>
+</html>
