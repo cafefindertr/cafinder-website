@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://cafinder.com.tr/sitemap.xml

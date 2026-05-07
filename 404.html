@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <title>Sayfa Bulunamadı — Cafinder</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .error-page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 24px;}
+    .error-code{font-family:"Bebas Neue",sans-serif;font-size:clamp(100px,20vw,200px);color:var(--gold);line-height:1;letter-spacing:4px;}
+    .error-title{font-family:"Bebas Neue",sans-serif;font-size:clamp(24px,4vw,40px);color:var(--ink);margin-bottom:12px;}
+    .error-desc{font-size:16px;color:var(--fade);margin-bottom:36px;max-width:400px;}
+    .error-btn{background:var(--ink);color:var(--sand);font-size:14px;font-weight:600;padding:14px 32px;border-radius:10px;text-decoration:none;transition:background .2s;}
+    .error-btn:hover{background:var(--cof);}
+  </style>
+</head>
+<body>
+<div class="error-page">
+  <div class="error-code">404</div>
+  <div class="error-title">SAYFA BULUNAMADI</div>
+  <p class="error-desc">Aradığın sayfa mevcut değil veya taşınmış olabilir. Ana sayfaya dönüp keşfe devam edebilirsin.</p>
+  <a href="/" class="error-btn">Ana Sayfaya Dön</a>
+</div>
+</body>
+</html>
