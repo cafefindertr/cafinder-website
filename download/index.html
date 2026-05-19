@@ -19,7 +19,7 @@
   <meta property="og:image" content="https://cafinder.com.tr/images/og-image.jpg">
   <meta property="og:locale" content="tr_TR">
 
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
 
   <style>
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
@@ -76,10 +76,13 @@
     }
     .pre-label::before,.pre-label::after{content:"";width:20px;height:1.5px;background:var(--gold);}
     h1{
-      font-family:"Bebas Neue",sans-serif;
+      font-family:"Barlow Condensed","Bebas Neue",sans-serif;
+      font-weight:700;
       font-size:clamp(48px,10vw,100px);
       letter-spacing:1px;line-height:.9;
       margin-bottom:16px;
+      text-rendering:optimizeLegibility;
+      -webkit-font-smoothing:antialiased;
     }
     h1 em{color:var(--gold);font-style:normal;}
     .subtitle{
@@ -255,7 +258,7 @@
       </div>
       <div class="store-card-label">iPhone & iPad</div>
       <div class="store-card-name">APP STORE</div>
-      <div class="store-card-sub">iOS 15.0 ve üzeri<br>için optimize edildi</div>
+      <div class="store-card-sub">iPhone & iPad</div>
       <span class="store-card-btn">App Store'dan İndir</span>
     </a>
 
@@ -275,7 +278,7 @@
       </div>
       <div class="store-card-label">Android</div>
       <div class="store-card-name">GOOGLE PLAY</div>
-      <div class="store-card-sub">Android 8.0 ve üzeri<br>için optimize edildi</div>
+      <div class="store-card-sub">Android Cihazlar</div>
       <span class="store-card-btn">Google Play'den İndir</span>
     </a>
   </div>
