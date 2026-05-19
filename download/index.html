@@ -187,11 +187,40 @@
     footer a{color:rgba(255,255,255,.35);text-decoration:none;transition:color .15s;}
     footer a:hover{color:rgba(255,255,255,.65);}
 
+    /* SLOGAN */
+    .slogan-block{
+      display:flex;align-items:center;gap:24px;
+      margin-top:16px;width:100%;max-width:640px;
+    }
+    .slogan-line{
+      flex:1;height:1px;
+      background:linear-gradient(to right,transparent,rgba(200,132,26,.35),transparent);
+    }
+    .slogan-text{
+      display:flex;flex-direction:column;align-items:center;gap:2px;
+      white-space:nowrap;
+    }
+    .slogan-main{
+      font-family:"Bebas Neue",sans-serif;
+      font-size:clamp(18px,3vw,26px);
+      letter-spacing:3px;
+      color:rgba(255,255,255,.55);
+    }
+    .slogan-accent{
+      font-family:"Bebas Neue",sans-serif;
+      font-size:clamp(20px,3.5vw,30px);
+      letter-spacing:3px;
+      color:var(--gold);
+      text-shadow:0 0 40px rgba(200,132,26,.4);
+    }
+
     @media(max-width:600px){
       nav{padding:0 20px;}
       .store-cards{flex-direction:column;align-items:center;}
       .store-card{width:100%;max-width:320px;}
       h1{font-size:clamp(44px,14vw,72px);}
+      .slogan-block{max-width:100%;padding:0 12px;}
+      .slogan-main,.slogan-accent{letter-spacing:2px;}
     }
   </style>
 </head>
@@ -251,12 +280,13 @@
     </a>
   </div>
 
-  <div class="feat-strip">
-    <div class="feat-chip">Ücretsiz</div>
-    <div class="feat-chip">Türkiye Geneli</div>
-    <div class="feat-chip">Müdavim Kartı</div>
-    <div class="feat-chip">Kampanyalar</div>
-    <div class="feat-chip">Kafe Keşif</div>
+  <div class="slogan-block">
+    <div class="slogan-line"></div>
+    <div class="slogan-text">
+      <span class="slogan-main">CAFİNDER'LI OL,</span>
+      <span class="slogan-accent">AYRICALIKLI OL.</span>
+    </div>
+    <div class="slogan-line"></div>
   </div>
 </main>
 
