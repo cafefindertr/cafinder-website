@@ -196,13 +196,83 @@
     <div class="W rv">
       <span class="feat-label">Mekan Özellikleri</span>
       <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,64px);letter-spacing:.5px;color:var(--ink);margin-bottom:36px;line-height:.9;">FİLTREYİ SEN BELİRLE.</div>
-      <div class="prop-grid">
-        <div class="prop"><div class="prop-t">WiFi</div><p>Bağlantı hızı bilgisiyle en iyi WiFi'ye sahip kafeleri bul.</p></div>
-        <div class="prop"><div class="prop-t">Priz</div><p>Bilgisayarla çalışacaksan priz olan mekanları filtrele.</p></div>
-        <div class="prop"><div class="prop-t">Hayvan Dostu</div><p>Evcil hayvanınla girebileceğin kafeleri keşfet.</p></div>
-        <div class="prop"><div class="prop-t">Açık Alan</div><p>Bahçesi veya terası olan mekanları gör.</p></div>
-        <div class="prop"><div class="prop-t">Oyunlar</div><p>Okey, tavla, masa oyunları olan yerleri filtrele.</p></div>
-        <div class="prop"><div class="prop-t">Dijital Menü</div><p>Fiyatları ve menüyü gitmeden önce incele.</p></div>
+      <style>
+        .prop-icon { font-size:22px; margin-bottom:6px; display:block; }
+        .prop { padding:18px 20px 20px; }
+      </style>
+      <!-- Kategori: Bağlantı & Donanım -->
+      <div style="margin-bottom:8px;margin-top:8px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Bağlantı & Donanım</div>
+        <div class="prop-grid">
+          <div class="prop"><div class="prop-icon">📶</div><div class="prop-t">WiFi</div><p>Bağlantı hızı bilgisiyle en iyi WiFi'ye sahip kafeleri bul.</p></div>
+          <div class="prop"><div class="prop-icon">🔌</div><div class="prop-t">Priz İmkânı</div><p>Bilgisayarla çalışacaksan priz olan mekanları filtrele.</p></div>
+          <div class="prop"><div class="prop-icon">🔋</div><div class="prop-t">Şarj Aparatı</div><p>Kablosuz veya kablolu şarj imkânı sunan mekanları keşfet.</p></div>
+        </div>
+      </div>
+
+      <!-- Kategori: Ulaşım & Erişim -->
+      <div style="margin-bottom:8px;margin-top:32px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Ulaşım & Erişim</div>
+        <div class="prop-grid">
+          <div class="prop"><div class="prop-icon">🚗</div><div class="prop-t">Otopark / Vale</div><p>Araçla geleceksen park imkânı olan mekanları filtrele.</p></div>
+          <div class="prop"><div class="prop-icon">♿</div><div class="prop-t">Engelliye Uygun</div><p>Tekerlekli sandalye erişimi ve engelli dostu düzenlemelere sahip mekanlar.</p></div>
+        </div>
+      </div>
+
+      <!-- Kategori: Menü & Sipariş -->
+      <div style="margin-bottom:8px;margin-top:32px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Menü & Sipariş</div>
+        <div class="prop-grid">
+          <div class="prop"><div class="prop-icon">📱</div><div class="prop-t">QR / Tablet Menü</div><p>Dijital menüyle fiyatları ve seçenekleri gitmeden önce incele.</p></div>
+          <div class="prop"><div class="prop-icon">🍃</div><div class="prop-t">Vegan Seçenekler</div><p>Vegan dostu menüsü olan kafeleri kolayca bul.</p></div>
+          <div class="prop"><div class="prop-icon">🌾</div><div class="prop-t">Glutensiz Seçenekler</div><p>Glutensiz ürün sunan mekanları filtrele.</p></div>
+        </div>
+      </div>
+
+      <!-- Kategori: Servis & Ödeme -->
+      <div style="margin-bottom:8px;margin-top:32px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Servis & Ödeme</div>
+        <div class="prop-grid">
+          <div class="prop"><div class="prop-icon">🤝</div><div class="prop-t">Masaya Servis</div><p>Sipariş masana gelsin mi? Masaya servis yapan mekanları gör.</p></div>
+          <div class="prop"><div class="prop-icon">🛒</div><div class="prop-t">Self Servis</div><p>Siparişini kendin ver, bekleme süresini minimize et.</p></div>
+          <div class="prop"><div class="prop-icon">💳</div><div class="prop-t">Kasada Ödeme</div><p>Masada değil kasada ödeme yapılan mekanları filtrele.</p></div>
+          <div class="prop"><div class="prop-icon">🍽️</div><div class="prop-t">Yemek Kartı Geçiyor</div><p>Multinet, Sodexo gibi yemek kartlarını kabul eden kafeleri bul.</p></div>
+        </div>
+      </div>
+
+      <!-- Kategori: Atmosfer & Alan -->
+      <div style="margin-bottom:8px;margin-top:32px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Atmosfer & Alan</div>
+        <div class="prop-grid">
+          <div class="prop"><div class="prop-icon">☀️</div><div class="prop-t">Açık Alan / Teras</div><p>Havayı içine çekmek isteyenler için terası olan mekanları keşfet.</p></div>
+          <div class="prop"><div class="prop-icon">🏠</div><div class="prop-t">Kapalı Alan</div><p>Her hava koşulunda konforlu iç mekânlı kafeleri filtrele.</p></div>
+          <div class="prop"><div class="prop-icon">🌿</div><div class="prop-t">Bahçe / Yeşil Alan</div><p>Doğayla iç içe, yeşillikler arasında oturma imkânı sunan mekanlar.</p></div>
+          <div class="prop"><div class="prop-icon">🌅</div><div class="prop-t">Manzara</div><p>Boğaz, deniz veya şehir manzaralı kafeleri tek filtreyle bul.</p></div>
+          <div class="prop"><div class="prop-icon">🔊</div><div class="prop-t">Gürültü Düzeyi</div><p>Sessiz çalışma ortamı mı, canlı sosyal atmosfer mi? Tercihine göre filtrele.</p></div>
+        </div>
+      </div>
+
+      <!-- Kategori: Eğlence & Sosyal -->
+      <div style="margin-bottom:8px;margin-top:32px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Eğlence & Sosyal</div>
+        <div class="prop-grid">
+          <div class="prop"><div class="prop-icon">📺</div><div class="prop-t">Maç Yayını</div><p>Maçı kaçırmak istemeyenler için canlı yayın yapan mekanları gör.</p></div>
+          <div class="prop"><div class="prop-icon">🎲</div><div class="prop-t">Okey Oyunu</div><p>Okey masası olan kafeleri filtrele, grupla eğlenceli vakit geçir.</p></div>
+          <div class="prop"><div class="prop-icon">♟️</div><div class="prop-t">Tavla</div><p>Tavla keyfi için doğru mekanı bul; rakibini şaşırt, çayı hazırla.</p></div>
+          <div class="prop"><div class="prop-icon">🎵</div><div class="prop-t">Canlı Müzik</div><p>Canlı performans olan geceleri önceden öğren, yerinizi ayırtın.</p></div>
+          <div class="prop"><div class="prop-icon">💨</div><div class="prop-t">Nargile</div><p>Nargile servisi olan mekanları ayrıca filtrele.</p></div>
+          <div class="prop"><div class="prop-icon">🍷</div><div class="prop-t">Alkol Satışı</div><p>Alkollü içecek servisi yapan mekanları kolayca filtrele.</p></div>
+        </div>
+      </div>
+
+      <!-- Kategori: Özel Durumlar -->
+      <div style="margin-bottom:8px;margin-top:32px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Özel Durumlar</div>
+        <div class="prop-grid">
+          <div class="prop"><div class="prop-icon">🐾</div><div class="prop-t">Hayvan Dostu</div><p>Evcil hayvanınla girebileceğin kafeleri keşfet, patili dostunu bırakma.</p></div>
+          <div class="prop"><div class="prop-icon">🧸</div><div class="prop-t">Çocuk Oyun Alanı</div><p>Çocuklarla gideceğin oyun alanı olan mekanları filtrele.</p></div>
+          <div class="prop"><div class="prop-icon">🎂</div><div class="prop-t">Doğum Günü / Kutlama</div><p>Özel günler için organizasyon imkânı sunan mekanları önceden öğren.</p></div>
+        </div>
       </div>
     </div>
   </div>
