@@ -598,13 +598,28 @@ function refRenderPage(page, direction) {
         card.className = 'ref-kafe-card';
         var imgWrap = document.createElement('div');
         imgWrap.className = 'ref-kafe-img-wrap';
-        var img = document.createElement('img');
-        img.src = kafe.img;
-        img.alt = kafe.name;
-        img.onerror = function() {
-          imgWrap.innerHTML = '<div class="ref-kafe-placeholder">&#9749;</div>';
-        };
-        imgWrap.appendChild(img);
+        var cached = _refImgCache[kafe.img];
+        if (cached && cached.complete && cached.naturalWidth > 0) {
+          // Görsel zaten cache'te, direkt kullan
+          var img = document.createElement('img');
+          img.src = kafe.img;
+          img.alt = kafe.name;
+          imgWrap.appendChild(img);
+        } else {
+          // Placeholder göster, görsel gelince değiştir
+          var ph = document.createElement('div');
+          ph.className = 'ref-kafe-placeholder';
+          ph.innerHTML = '&#9749;';
+          imgWrap.appendChild(ph);
+          var img = new Image();
+          img.alt = kafe.name;
+          img.onload = function() {
+            imgWrap.innerHTML = '';
+            imgWrap.appendChild(img);
+          };
+          img.onerror = function() { /* placeholder kalır */ };
+          img.src = kafe.img;
+        }
         var nameDiv = document.createElement('div');
         nameDiv.className = 'ref-kafe-name';
         nameDiv.textContent = kafe.name;
@@ -696,6 +711,18 @@ function refGoPage(page, direction) {
   refCurrentPage = page;
   refRenderPage(page, direction);
 }
+
+// ── Görsel ön yükleme ─────────────────────────────────────
+var _refImgCache = {};
+function refPreloadImages(list) {
+  list.forEach(function(kafe) {
+    if (_refImgCache[kafe.img]) return;
+    var i = new Image();
+    i.src = kafe.img;
+    _refImgCache[kafe.img] = i;
+  });
+}
+window.addEventListener('load', function() { refPreloadImages(REF_KAFELER); });
 
 function toggleRefKafeler() {
   var panel = document.getElementById('refKafelerPanel');
